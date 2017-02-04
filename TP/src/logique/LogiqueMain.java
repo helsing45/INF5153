@@ -1,18 +1,14 @@
 package logique;
 
-import java.util.ArrayList;
-
 //Ne sert qu'a des fins de tests
 public class LogiqueMain {
 
 	public static void main(String[] args) {
 		//Simulation d'une porte XOR
 		
-		ArrayList<IO> sortiesA = new ArrayList<IO>();
-		Entree entreeA = new Entree(sortiesA);
+		Entree entreeA = new Entree();
 		
-		ArrayList<IO> sortiesB = new ArrayList<IO>();
-		Entree entreeB = new Entree(sortiesB);
+		Entree entreeB = new Entree();
 		
 		And and1 = new And(entreeA, entreeB);
 		

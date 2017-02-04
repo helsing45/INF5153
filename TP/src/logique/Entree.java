@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class Entree extends IO {
 
-	ArrayList<IO> sorties = new ArrayList<IO>();
+	ArrayList<IO> sorties;
+	
+	public Entree() {
+		super();
+		sorties = new ArrayList<IO>();
+	}
 	
 	public Entree(ArrayList<IO> sorties) {
 		super();
