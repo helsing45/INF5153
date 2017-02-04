@@ -13,7 +13,6 @@ public class Or extends Porte {
 	@Override
 	public void calculer() {
 		this.valeur = entree1.getValeur() || entree2.getValeur();
-
 	}
 
 }

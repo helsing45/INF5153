@@ -27,7 +27,7 @@ public class LogiqueMain {
 		Sortie sortie = new Sortie(and2);
 		
 		//Valeurs des deux entrees de la porte XOR
-		entreeA.setValeur(false);
+		entreeA.setValeur(true);
 		entreeB.setValeur(false);
 		
 		and1.calculer();
