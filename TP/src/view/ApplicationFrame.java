@@ -9,6 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneLayout;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -24,6 +27,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.awt.List;
+import javax.swing.ScrollPaneConstants;
 
 public class ApplicationFrame {
 	private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
@@ -84,13 +88,10 @@ public class ApplicationFrame {
 		sidePanel.setBackground(Color.RED);
 		frame.getContentPane().add(sidePanel);		
 
-		JPanel bottomPanel = new JPanel(new GridLayout());
-		bottomPanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),
-				bottomPanelHeight + MENU_BAR_HEIGHT);
-		bottomPanel.setBackground(Color.CYAN);
-		frame.getContentPane().add(bottomPanel);
+		
 
 		table = new JTable();
+		table.setEnabled(false);
 		 table.setFillsViewportHeight(true);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setModel(new DefaultTableModel(
@@ -150,8 +151,13 @@ public class ApplicationFrame {
 				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
 			}
 		));
-		
-		bottomPanel.add(new JScrollPane( table ));
+		JScrollPane bottomPanel = new JScrollPane(table);
+		bottomPanel.setBorder(new EmptyBorder(0,0,69,13));
+		bottomPanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		bottomPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		bottomPanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),bottomPanelHeight + MENU_BAR_HEIGHT);
+		bottomPanel.setBackground(Color.WHITE);
+		frame.getContentPane().add(bottomPanel);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, (int) windowRect.getWidth(), MENU_BAR_HEIGHT);
