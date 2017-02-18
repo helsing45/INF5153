@@ -76,6 +76,8 @@ public class OperatorLabel extends JLabel {
         }
     };
 
+
+
     static class Builder{
         private int leftOffset,rightOffset,topOffset,bottomOffset;
         private Point location;

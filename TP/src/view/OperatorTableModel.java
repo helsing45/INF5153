@@ -26,7 +26,7 @@ public class OperatorTableModel extends DefaultTableModel {
     private static String[] generateEntries(int entryCount) {
         String[] entries = new String[entryCount];
         for (int i = 0; i < entryCount; i++) {
-            entries[i] = "Entrée " + i;
+            entries[i] = "E" + i;
         }
         return entries;
     }

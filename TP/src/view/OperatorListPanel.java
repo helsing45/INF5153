@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class OperatorListPanel extends JPanel {
 
-    private OperatorDTO operators[] = {new OperatorDTO("AND", "/images/AND.png"), new OperatorDTO("OR", "/images/OR.png"),
+    private OperatorDTO operators[] = {new OperatorDTO("entry", "/images/entry.png"),new OperatorDTO("end", "/images/end.png"),new OperatorDTO("AND", "/images/AND.png"), new OperatorDTO("OR", "/images/OR.png"),
             new OperatorDTO("NOT", "/images/NOT.png"),};
 
     private JList operatorList = new JList(operators);
