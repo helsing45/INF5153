@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DropTarget;
@@ -80,14 +79,7 @@ public class ApplicationFrame {
         table.setEnabled(false);
         table.setFillsViewportHeight(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null},
-                },
-                new String[]{
-                        "New column"
-                }
-        ));
+        table.setModel(new OperatorTableModel(5));
         JScrollPane bottomPanel = new JScrollPane(table);
         bottomPanel.setBorder(new EmptyBorder(0, 0, 69, 13));
         bottomPanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -99,13 +91,13 @@ public class ApplicationFrame {
     }
 
     private void initializeRightPanel() {
-		/* Right panel */
+        /* Right panel */
         JPanel scrollPane = new JPanel(new FlowLayout());
         scrollPane.setDropTarget(new DropTarget() {
             public void drop(DropTargetDropEvent dtde) {
                 try {
                     String img = (String) dtde.getTransferable().getTransferData(DataFlavor.stringFlavor);
-                    scrollPane.add(getIcon(img,dtde.getLocation()));
+                    scrollPane.add(getIcon(img, dtde.getLocation()));
                     scrollPane.validate();
                 } catch (Exception e) {
                     e.printStackTrace();

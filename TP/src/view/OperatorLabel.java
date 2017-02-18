@@ -39,7 +39,10 @@ public class OperatorLabel extends JLabel {
             item = new JMenuItem("Supprimer");
             item.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Menu item Test2");
+                    Container parent = getParent();
+                    parent.remove(OperatorLabel.this);
+                    parent.validate();
+                    parent.repaint();
                 }
             });
             menu.add(item);
@@ -64,6 +67,7 @@ public class OperatorLabel extends JLabel {
             }
         }
     };
+
     private MouseMotionAdapter motionListener = new MouseMotionAdapter() {
         @Override
         public void mouseDragged(MouseEvent e) {
