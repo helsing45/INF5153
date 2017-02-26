@@ -6,9 +6,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -159,9 +156,9 @@ public class ApplicationFrame {
         frame.getContentPane().add(sidePanel);
     }
 
-    private IO[] getAllIO(){
-        IO[] ios = new IO[]{new Entree(),new Sortie(),new And(),new Or(),new Not()};
-       return ios;
+    private Operator[] getAllIO(){
+        Operator[] operators = new Operator[]{new Entree(),new Sortie(),new And(),new Or(),new Not()};
+       return operators;
     }
 
 }

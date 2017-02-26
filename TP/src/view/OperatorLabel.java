@@ -1,5 +1,7 @@
 package view;
 
+import logique.Operator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,8 +16,19 @@ public class OperatorLabel extends JLabel {
     private JPopupMenu menu;
     private Listener listener;
     private boolean isSelected;
+    private Operator operator;
 
     private int leftOffset,rightOffset,topOffset,bottomOffset;
+
+    public OperatorLabel(Operator operator){
+        super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
+        this.operator = operator;
+        setBorder(BorderFactory.createLineBorder(Color.black));
+    }
+
+    public Operator getOperator(){
+        return operator;
+    }
 
     public OperatorLabel(String img){
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + img + ".png")));

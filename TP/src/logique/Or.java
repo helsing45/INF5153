@@ -1,22 +1,25 @@
 package logique;
 
 public class Or extends Porte {
-	IO entree1;
-	IO entree2;
 
 	public Or() {
 		super();
+		addEntry(null);
+		addEntry(null);
+		addExit(null);
 	}
 
-	public Or(IO entree1, IO entree2) {
+	public Or(Operator entree1, Operator entree2) {
 		super();
-		this.entree1 = entree1;
-		this.entree2 = entree2;
+		addEntry(0,entree1);
+		addEntry(1,entree2);
 	}
 	
 	@Override
 	public void calculer() {
-		this.valeur = entree1.getValeur() || entree2.getValeur();
+		for (int index = 0; index < getExitCount(); index++) {
+			this.valeur |= getEntry(index).getValeur();
+		}
 	}
 
 	@Override
