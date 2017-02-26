@@ -12,6 +12,8 @@ public class OperatorLabel extends JLabel {
     private int xPressed = 0;
     private int yPressed = 0;
     private JPopupMenu menu;
+    private Listener listener;
+    private boolean isSelected;
 
     private int leftOffset,rightOffset,topOffset,bottomOffset;
 
@@ -25,6 +27,11 @@ public class OperatorLabel extends JLabel {
         setSize(65,65);
         addMouseListener(clickListener);
         addMouseMotionListener(motionListener);
+    }
+
+    public void setSelected(boolean isSelected){
+        this.isSelected = isSelected;
+        setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
     }
 
     public void setLeftOffset(int leftOffset) {
@@ -43,6 +50,10 @@ public class OperatorLabel extends JLabel {
         this.bottomOffset = bottomOffset;
     }
 
+    public void setListener(Listener listener){
+        this.listener = listener;
+    }
+
     private JPopupMenu getPopupMenu(){
         if(menu == null){
              menu = new JPopupMenu("Popup");
@@ -50,7 +61,7 @@ public class OperatorLabel extends JLabel {
             JMenuItem item = new JMenuItem("Lier");
             item.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Menu item Test1");
+                    if(listener != null) listener.onLinkMenuClicked(OperatorLabel.this);
                 }
             });
             menu.add(item);
@@ -92,6 +103,12 @@ public class OperatorLabel extends JLabel {
         public void mouseDragged(MouseEvent e) {
             //and when the Jlabel is dragged
             setLocation(e.getXOnScreen() - xPressed, e.getYOnScreen() - yPressed);
+            if(listener != null) listener.onLocationChange(OperatorLabel.this);
         }
     };
+
+    public interface Listener{
+        void onLinkMenuClicked(OperatorLabel operatorLabel);
+        void onLocationChange(OperatorLabel operatorLabel);
+    }
 }

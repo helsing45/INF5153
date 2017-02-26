@@ -141,26 +141,11 @@ public class ApplicationFrame {
 
     private void initializeRightPanel() {
         /* Right panel */
-        JPanel scrollPane = new JPanel(null);
-        scrollPane.setDropTarget(new DropTarget() {
-            public void drop(DropTargetDropEvent dtde) {
-                try {
-                    //scrollPane.add(getIcon(img, dtde.getLocation()));
-                    OperatorLabel operatorLabel = new OperatorLabel((String) dtde.getTransferable().getTransferData(DataFlavor.stringFlavor));
-                    scrollPane.add(operatorLabel);
-                    operatorLabel.initialize(dtde.getLocation());
-                    operatorLabel.setLeftOffset(sidePanelWidth);
-                    operatorLabel.setTopOffset(MENU_BAR_HEIGHT);
-                    scrollPane.validate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        scrollPane.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
+        OperatorsPanel operatorsPanel = new OperatorsPanel();
+        operatorsPanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
-        scrollPane.setBackground(Color.GRAY);
-        frame.getContentPane().add(scrollPane);
+        operatorsPanel.setBackground(Color.GRAY);
+        frame.getContentPane().add(operatorsPanel);
     }
 
     private void initializeLeftPanel() {

@@ -39,14 +39,27 @@
           <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="317">
-                  <caret line="172" column="5" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+                <state relative-caret-position="147">
+                  <caret line="143" column="61" selection-start-line="143" selection-start-column="61" selection-end-line="143" selection-end-column="61" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
                     <element signature="e#4052#4605#0" expanded="true" />
                     <element signature="e#4604#4605#0" expanded="true" />
                     <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Component.java" pinned="false" current-in-tab="false">
+            <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_92/src.zip!/java/awt/Component.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="155">
+                  <caret line="2259" column="61" selection-start-line="2259" selection-start-column="26" selection-end-line="2259" selection-end-column="61" />
+                  <folding>
+                    <element signature="e#77478#77479#0" expanded="true" />
+                    <element signature="e#77522#77523#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -97,25 +110,45 @@
           <file leaf-file-name="OperatorLabel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="161">
-                  <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+                <state relative-caret-position="170">
+                  <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
                   <folding>
                     <element signature="docComment;class#OperatorLabel#0" expanded="false" />
-                    <element signature="e#795#796#0" expanded="true" />
-                    <element signature="e#839#840#0" expanded="true" />
-                    <element signature="e#890#891#0" expanded="true" />
-                    <element signature="e#936#937#0" expanded="true" />
-                    <element signature="e#983#984#0" expanded="true" />
-                    <element signature="e#1025#1026#0" expanded="true" />
-                    <element signature="e#1078#1079#0" expanded="true" />
-                    <element signature="e#1126#1127#0" expanded="true" />
+                    <element signature="e#1042#1043#0" expanded="true" />
+                    <element signature="e#1086#1087#0" expanded="true" />
+                    <element signature="e#1137#1138#0" expanded="true" />
+                    <element signature="e#1183#1184#0" expanded="true" />
+                    <element signature="e#1230#1231#0" expanded="true" />
+                    <element signature="e#1272#1273#0" expanded="true" />
+                    <element signature="e#1325#1326#0" expanded="true" />
+                    <element signature="e#1373#1374#0" expanded="true" />
+                    <element signature="e#1422#1423#0" expanded="true" />
+                    <element signature="e#1462#1463#0" expanded="true" />
                     <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="class#1331:1501" expanded="false" />
-                    <element signature="class#1619:1914" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#1619:1914" expanded="false" />
-                    <element signature="class#2028:2605" expanded="false" />
-                    <element signature="method#mousePressed#0;class#2028:2605" expanded="false" />
-                    <element signature="method#mouseReleased#0;class#2028:2605" expanded="false" />
+                    <element signature="class#1985:2280" expanded="false" />
+                    <element signature="class#2394:2971" expanded="false" />
+                    <element signature="e#3022#3339#0" expanded="true" />
+                    <element signature="e#3338#3339#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OperatorsPanel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="484">
+                  <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1764#1765#0" expanded="true" />
+                    <element signature="e#1789#1790#0" expanded="true" />
+                    <element signature="e#3140#3141#0" expanded="true" />
+                    <element signature="e#3232#3233#0" expanded="true" />
+                    <element signature="e#3737#3738#0" expanded="true" />
+                    <element signature="e#3774#3775#0" expanded="true" />
+                    <element signature="e#3811#3812#0" expanded="true" />
+                    <element signature="e#3848#3849#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -158,7 +191,9 @@
         <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/view/TopLevelTransferHandlerDemo.java" />
         <option value="$PROJECT_DIR$/TP/src/view/ImagePreviewListTest.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
       </list>
     </option>
@@ -635,16 +670,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5025" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32947233" sideWeight="0.4975" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -702,14 +737,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java</url>
-          <line>147</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
@@ -906,10 +933,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_92/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="2259" column="61" selection-start-line="2259" selection-start-column="26" selection-end-line="2259" selection-end-column="61" />
+          <folding>
+            <element signature="e#77478#77479#0" expanded="true" />
+            <element signature="e#77522#77523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="172" column="5" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+        <state relative-caret-position="147">
+          <caret line="143" column="61" selection-start-line="143" selection-start-column="61" selection-end-line="143" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
@@ -920,27 +958,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+            <element signature="e#3140#3141#0" expanded="true" />
+            <element signature="e#3232#3233#0" expanded="true" />
+            <element signature="e#3737#3738#0" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3811#3812#0" expanded="true" />
+            <element signature="e#3848#3849#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+        <state relative-caret-position="170">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding>
             <element signature="docComment;class#OperatorLabel#0" expanded="false" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#936#937#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1078#1079#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="e#1137#1138#0" expanded="true" />
+            <element signature="e#1183#1184#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="e#1422#1423#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
             <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#1331:1501" expanded="false" />
-            <element signature="class#1619:1914" expanded="false" />
-            <element signature="method#actionPerformed#0;class#1619:1914" expanded="false" />
-            <element signature="class#2028:2605" expanded="false" />
-            <element signature="method#mousePressed#0;class#2028:2605" expanded="false" />
-            <element signature="method#mouseReleased#0;class#2028:2605" expanded="false" />
+            <element signature="class#1985:2280" expanded="false" />
+            <element signature="class#2394:2971" expanded="false" />
+            <element signature="e#3022#3339#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
           </folding>
         </state>
       </provider>
