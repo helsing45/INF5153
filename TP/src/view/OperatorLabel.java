@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Point2D;
 
 /**
  * Created by j-c9 on 2017-02-18.
@@ -14,14 +15,32 @@ public class OperatorLabel extends JLabel {
 
     private int leftOffset,rightOffset,topOffset,bottomOffset;
 
-    private OperatorLabel() {} //Pour empecher d implementer autrement qu avec le Builder()
+    public OperatorLabel(String img){
+        super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + img + ".png")));
+        setBorder(BorderFactory.createLineBorder(Color.black));
+    }
 
-    private OperatorLabel(int leftOffset, int topOffset, Point location, String img) {
-        super(new ImageIcon(OperatorLabel.class.getResource("/images/" + img + ".png")));
-        this.leftOffset = leftOffset;
-        this.topOffset = topOffset;
+    public void initialize(Point location){
+        setLocation(location);
+        setSize(65,65);
         addMouseListener(clickListener);
         addMouseMotionListener(motionListener);
+    }
+
+    public void setLeftOffset(int leftOffset) {
+        this.leftOffset = leftOffset;
+    }
+
+    public void setRightOffset(int rightOffset) {
+        this.rightOffset = rightOffset;
+    }
+
+    public void setTopOffset(int topOffset) {
+        this.topOffset = topOffset;
+    }
+
+    public void setBottomOffset(int bottomOffset) {
+        this.bottomOffset = bottomOffset;
     }
 
     private JPopupMenu getPopupMenu(){
@@ -75,46 +94,4 @@ public class OperatorLabel extends JLabel {
             setLocation(e.getXOnScreen() - xPressed, e.getYOnScreen() - yPressed);
         }
     };
-
-
-
-    static class Builder{
-        private int leftOffset,rightOffset,topOffset,bottomOffset;
-        private Point location;
-        private String img;
-
-        public Builder setLeftOffset(int leftOffset) {
-            this.leftOffset = leftOffset;
-            return this;
-        }
-
-        public Builder setRightOffset(int rightOffset) {
-            this.rightOffset = rightOffset;
-            return this;
-        }
-
-        public Builder setTopOffset(int topOffset) {
-            this.topOffset = topOffset;
-            return this;
-        }
-
-        public Builder setBottomOffset(int bottomOffset) {
-            this.bottomOffset = bottomOffset;
-            return this;
-        }
-
-        public Builder setLocation(Point location) {
-            this.location = location;
-            return this;
-        }
-
-        public Builder setImg(String img) {
-            this.img = img;
-            return this;
-        }
-
-        public OperatorLabel build(){
-            return new OperatorLabel(leftOffset,topOffset,location,img);
-        }
-    }
 }
