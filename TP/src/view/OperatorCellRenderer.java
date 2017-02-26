@@ -1,5 +1,7 @@
 package view;
 
+import logique.IO;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,10 +13,10 @@ class OperatorCellRenderer extends JLabel implements ListCellRenderer {
 		setIconTextGap(12);
 	}
 
-	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
-			boolean cellHasFocus) {
-		OperatorDTO entry = (OperatorDTO) value;
-		setText(entry.getTitle());
+	@Override
+	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,boolean cellHasFocus) {
+		IO entry = (IO) value;
+		setText(entry.getName());
 		setIcon(entry.getImage());
 		if (isSelected) {
 			setBackground(HIGHLIGHT_COLOR);

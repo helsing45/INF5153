@@ -1,19 +1,20 @@
 package view;
 
+import logique.IO;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class OperatorListPanel extends JPanel {
 
-    private OperatorDTO operators[] = {new OperatorDTO("entry", "/images/entry.png"),new OperatorDTO("end", "/images/end.png"),new OperatorDTO("AND", "/images/AND.png"), new OperatorDTO("OR", "/images/OR.png"),
-            new OperatorDTO("NOT", "/images/NOT.png"),};
 
-    private JList operatorList = new JList(operators);
 
-    public OperatorListPanel() {
+    private JList operatorList;
+
+    public OperatorListPanel(IO... IOs) {
         setLayout(new BorderLayout());
 
-        operatorList = new JList(operators);
+        operatorList = new JList(IOs);
         operatorList.setDropMode(DropMode.INSERT);
         operatorList.setDragEnabled(true);
         operatorList.setCellRenderer(new OperatorCellRenderer());

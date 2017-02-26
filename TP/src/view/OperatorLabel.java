@@ -30,7 +30,7 @@ public class OperatorLabel extends JLabel {
     }
 
     public void setSelected(boolean isSelected){
-        this.isSelected = isSelected;
+        //this.isSelected = isSelected;
         setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
     }
 

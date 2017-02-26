@@ -1,5 +1,7 @@
 package view;
 
+import logique.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -150,11 +152,16 @@ public class ApplicationFrame {
 
     private void initializeLeftPanel() {
 		/*Left panel*/
-        OperatorListPanel sidePanel = new OperatorListPanel();
+        OperatorListPanel sidePanel = new OperatorListPanel(getAllIO());
         sidePanel.setBounds(0, MENU_BAR_HEIGHT, sidePanelWidth,
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
         sidePanel.setBackground(Color.RED);
         frame.getContentPane().add(sidePanel);
+    }
+
+    private IO[] getAllIO(){
+        IO[] ios = new IO[]{new Entree(),new Sortie(),new And(),new Or(),new Not()};
+       return ios;
     }
 
 }

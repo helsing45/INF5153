@@ -47,6 +47,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             first.setSelected(false);
             second.setSelected(false);
             listOfPairs.add(new Pair(first,second));
+            first = second = null;
             repaint();
         }
     }
