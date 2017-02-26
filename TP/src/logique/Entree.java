@@ -10,7 +10,12 @@ public class Entree extends IO {
 		super();
 		sorties = new ArrayList<IO>();
 	}
-	
+
+	@Override
+	public String getName() {
+		return "entry";
+	}
+
 	public Entree(ArrayList<IO> sorties) {
 		super();
 		this.sorties = sorties;

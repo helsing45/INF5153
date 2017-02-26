@@ -8,6 +8,10 @@ public class Sortie extends IO {
 		return entree.getValeur();
 	}
 
+	public Sortie() {
+		super();
+	}
+
 	public Sortie(IO entree) {
 		super();
 		this.entree = entree;
@@ -17,5 +21,10 @@ public class Sortie extends IO {
 	public void calculer() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getName() {
+		return "end";
 	}
 }
