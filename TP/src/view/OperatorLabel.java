@@ -20,7 +20,7 @@ public class OperatorLabel extends JLabel {
 
     private int leftOffset,rightOffset,topOffset,bottomOffset;
 
-    public OperatorLabel(Operator operator){
+    public<T extends Operator> OperatorLabel(T operator){
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
         this.operator = operator;
         setBorder(BorderFactory.createLineBorder(Color.black));

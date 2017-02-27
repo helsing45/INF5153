@@ -1,11 +1,16 @@
 package view;
 
+import logique.Operator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.geom.Line2D;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +27,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         setDropTarget(new DropTarget() {
             public void drop(DropTargetDropEvent dtde) {
                 try {
-                    OperatorLabel operatorLabel = new OperatorLabel((String) dtde.getTransferable().getTransferData(DataFlavor.stringFlavor));
+                    OperatorLabel operatorLabel = new OperatorLabel((Operator)dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR));
                     add(operatorLabel);
 
                     operatorLabel.initialize(dtde.getLocation());
@@ -130,6 +135,32 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
                 }
             }
             return false;
+        }
+    }
+
+    public static class OperatorItemTransferable implements Transferable{
+
+        public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(Operator.class, "java/Operator");
+
+        private Operator operator;
+
+        public OperatorItemTransferable(Operator operator) {
+            this.operator = operator;
+        }
+
+        @Override
+        public DataFlavor[] getTransferDataFlavors() {
+            return new DataFlavor[]{LIST_ITEM_DATA_FLAVOR};
+        }
+
+        @Override
+        public boolean isDataFlavorSupported(DataFlavor flavor) {
+            return flavor.equals(LIST_ITEM_DATA_FLAVOR);
+        }
+
+        @Override
+        public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+            return operator;
         }
     }
 
