@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -21,6 +23,8 @@ public class ApplicationFrame {
     private int xPressed = 0;
     private int yPressed = 0;
     private int sidePanelWidth;
+    private OperatorListPanel leftSidePanel;
+    private OperatorsPanel rightSidePanel;
 
     /**
      * Launch the application.
@@ -83,8 +87,14 @@ public class ApplicationFrame {
         JMenu save = new JMenu("Sauvegarder");
         save.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/images/save.png")));
         JMenuItem saveDisk = new JMenuItem("Sauvegarder");
-        saveDisk.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit ().getMenuShortcutKeyMask()));
+        saveDisk.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         JMenuItem saveAsXML = new JMenuItem("Sauvegarder en XML");
+        saveAsXML.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rightSidePanel.save();
+            }
+        });
         save.add(saveDisk);
         save.add(saveAsXML);
         menuFichier.add(save);
@@ -114,12 +124,12 @@ public class ApplicationFrame {
         table.setFillsViewportHeight(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setModel(new OperatorTableModel(5));
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer(){
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable arg0,Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
+            public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
                 Component tableCellRendererComponent = super.getTableCellRendererComponent(arg0, arg1, arg2, arg3, arg4, arg5);
                 int align = DefaultTableCellRenderer.CENTER;
-                ((DefaultTableCellRenderer)tableCellRendererComponent).setHorizontalAlignment(align);
+                ((DefaultTableCellRenderer) tableCellRendererComponent).setHorizontalAlignment(align);
                 return tableCellRendererComponent;
             }
         };
@@ -140,25 +150,25 @@ public class ApplicationFrame {
 
     private void initializeRightPanel() {
         /* Right panel */
-        OperatorsPanel operatorsPanel = new OperatorsPanel();
-        operatorsPanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
+        rightSidePanel = new OperatorsPanel();
+        rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
-        operatorsPanel.setBackground(Color.GRAY);
-        frame.getContentPane().add(operatorsPanel);
+        rightSidePanel.setBackground(Color.GRAY);
+        frame.getContentPane().add(rightSidePanel);
     }
 
     private void initializeLeftPanel() {
-		/*Left panel*/
-        OperatorListPanel sidePanel = new OperatorListPanel(getAllIO());
-        sidePanel.setBounds(0, MENU_BAR_HEIGHT, sidePanelWidth,
+        /*Left panel*/
+        leftSidePanel = new OperatorListPanel(getAllIO());
+        leftSidePanel.setBounds(0, MENU_BAR_HEIGHT, sidePanelWidth,
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
-        sidePanel.setBackground(Color.RED);
-        frame.getContentPane().add(sidePanel);
+        leftSidePanel.setBackground(Color.RED);
+        frame.getContentPane().add(leftSidePanel);
     }
 
-    private Operator[] getAllIO(){
-        Operator[] operators = new Operator[]{new Entree(),new Sortie(),new And(),new Or(),new Not()};
-       return operators;
+    private Operator[] getAllIO() {
+        Operator[] operators = new Operator[]{new Entree(), new Sortie(), new And(), new Or(), new Not()};
+        return operators;
     }
 
 }

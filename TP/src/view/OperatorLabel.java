@@ -10,11 +10,13 @@ import java.awt.event.*;
  * Created by j-c9 on 2017-02-18.
  */
 public class OperatorLabel extends JLabel {
+    public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
+
     private int xPressed = 0;
     private int yPressed = 0;
     private JPopupMenu menu;
     private Listener listener;
-    private boolean isSelected;
+    private String selectedPort;
     private Operator operator;
     private OperatorLabel[] entries, exits;
 
@@ -39,8 +41,22 @@ public class OperatorLabel extends JLabel {
         addMouseMotionListener(motionListener);
     }
 
-    public void setSelected(boolean isSelected) {
-        //this.isSelected = isSelected;
+    public void linkTo(OperatorLabel operator){
+        if(selectedPort.startsWith(PORT_ENTRY)){
+            entries[Integer.parseInt(selectedPort.substring(1))] = operator;
+        }
+        if(selectedPort.startsWith(PORT_EXITS)){
+            exits[Integer.parseInt(selectedPort.substring(1))] = operator;
+        }
+        deselect();
+    }
+
+    public void deselect() {
+        selectedPort = null;
+        setSelected(false);
+    }
+
+    private void setSelected(boolean isSelected) {
         setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
     }
 
@@ -64,34 +80,52 @@ public class OperatorLabel extends JLabel {
         this.listener = listener;
     }
 
+    private JMenuItem getPortMenuItem(String port) {
+        JMenuItem entry = new JMenuItem(port);
+        entry.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                selectedPort = port;
+                setSelected(true);
+                if (listener != null) listener.onLink(OperatorLabel.this);
+            }
+        });
+        return entry;
+    }
+
+    private JMenuItem getLinkMenu() {
+        JMenu linkMenu = new JMenu("Lier");
+        if (entries.length > 0 || exits.length > 0) {
+            for (int i = 0; i < entries.length; i++) {
+                linkMenu.add(getPortMenuItem(PORT_ENTRY + i));
+            }
+            for (int i = 0; i < exits.length; i++) {
+                linkMenu.add(getPortMenuItem(PORT_EXITS + i));
+            }
+        }
+        return linkMenu;
+    }
+
+    private JMenuItem getDeselectItem() {
+        JMenuItem item = new JMenuItem("Cancel");
+        item.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deselect();
+                if(listener != null) listener.onLinkCanceled(OperatorLabel.this);
+            }
+        });
+        return item;
+    }
+
     private JPopupMenu getPopupMenu() {
-        if (menu == null) {
-            menu = new JPopupMenu("Popup");
-            JMenu lierMenu = new JMenu("Lier");
-            if (entries.length > 0 || exits.length > 0) {
-                for (int i = 0; i < entries.length; i++) {
-                    String port = "E" + i;
-                    JMenuItem entry = new JMenuItem(port);
-                    entry.addActionListener(new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            if (listener != null) listener.onLinkMenuClicked(OperatorLabel.this, port);
-                        }
-                    });
-                    lierMenu.add(entry);
-                }
-                for (int i = 0; i < exits.length; i++) {
-                    String port = "S" + i;
-                    JMenuItem exit = new JMenuItem(port);
-                    exit.addActionListener(new ActionListener() {
-                        public void actionPerformed(ActionEvent e) {
-                            if (listener != null) listener.onLinkMenuClicked(OperatorLabel.this, port);
-                        }
-                    });
-                    lierMenu.add(exit);
-                }
+            JPopupMenu menu = new JPopupMenu("Popup");
+            System.out.println("getPopupMenu selectedPort: " + selectedPort);
+            if (selectedPort == null) {
+                menu.add(getLinkMenu());
+            } else {
+                menu.add(getDeselectItem());
             }
 
-            menu.add(lierMenu);
 
             JMenuItem deleteMenu = new JMenuItem("Supprimer");
             deleteMenu.addActionListener(new ActionListener() {
@@ -103,7 +137,7 @@ public class OperatorLabel extends JLabel {
                 }
             });
             menu.add(deleteMenu);
-        }
+
         return menu;
     }
 
@@ -135,8 +169,8 @@ public class OperatorLabel extends JLabel {
     };
 
     public interface Listener {
-        void onLinkMenuClicked(OperatorLabel operatorLabel, String port);
-
+        void onLink(OperatorLabel operatorLabel);
+        void onLinkCanceled(OperatorLabel operatorLabel);
         void onLocationChange(OperatorLabel operatorLabel);
     }
 }

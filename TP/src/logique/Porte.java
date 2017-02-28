@@ -8,8 +8,6 @@ public abstract class Porte extends Operator {
 
     public abstract void calculer();
 
-
-
     public void addEntry(int index, Operator operator) {
         entries.add(index, operator);
     }

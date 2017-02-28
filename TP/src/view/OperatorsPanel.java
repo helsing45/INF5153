@@ -26,7 +26,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         setDropTarget(new DropTarget() {
             public void drop(DropTargetDropEvent dtde) {
                 try {
-                    OperatorLabel operatorLabel = new OperatorLabel((Operator)dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR));
+                    OperatorLabel operatorLabel = new OperatorLabel((Operator) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR));
                     add(operatorLabel);
 
                     operatorLabel.initialize(dtde.getLocation());
@@ -42,17 +42,27 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     @Override
-    public void onLinkMenuClicked(OperatorLabel operatorLabel, String port) {
-        operatorLabel.setSelected(true);
+    public void onLink(OperatorLabel operatorLabel) {
         if (first == null) {
             first = operatorLabel;
         } else {
             second = operatorLabel;
-            first.setSelected(false);
-            second.setSelected(false);
-            listOfPairs.add(new Pair(first,second));
-            first = second = null;
+            listOfPairs.add(new Pair(first, second));
+            first = null;
+            second = null;
             repaint();
+        }
+    }
+
+    public void save(){
+    }
+
+    @Override
+    public void onLinkCanceled(OperatorLabel operatorLabel) {
+        if (first.equals(operatorLabel)) {
+            first = null;
+        } else {
+            second = null;
         }
     }
 
@@ -83,15 +93,17 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     class Pair {
-        JLabel label1;
-        JLabel label2;
+        OperatorLabel label1;
+        OperatorLabel label2;
 
         private Pair() {
         }
 
-        public Pair(JLabel label1, JLabel label2) {
+        public Pair(OperatorLabel label1, OperatorLabel label2) {
             this.label1 = label1;
+            this.label1.linkTo(label2);
             this.label2 = label2;
+            this.label2.linkTo(label1);
         }
 
         @Override
@@ -137,7 +149,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         }
     }
 
-    public static class OperatorItemTransferable implements Transferable{
+    public static class OperatorItemTransferable implements Transferable {
 
         public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(Operator.class, "java/Operator");
 
@@ -162,5 +174,4 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             return operator;
         }
     }
-
 }
