@@ -48,7 +48,8 @@ public abstract class Porte extends Operator {
 
     public Porte() {
         super();
-        entries = exits = new ArrayList<>();
+        entries = new ArrayList<>();
+        exits = new ArrayList<>();
     }
 
 }

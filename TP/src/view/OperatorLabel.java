@@ -5,7 +5,6 @@ import logique.Operator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.Point2D;
 
 /**
  * Created by j-c9 on 2017-02-18.
@@ -17,32 +16,30 @@ public class OperatorLabel extends JLabel {
     private Listener listener;
     private boolean isSelected;
     private Operator operator;
+    private OperatorLabel[] entries, exits;
 
-    private int leftOffset,rightOffset,topOffset,bottomOffset;
+    private int leftOffset, rightOffset, topOffset, bottomOffset;
 
-    public<T extends Operator> OperatorLabel(T operator){
+    public OperatorLabel(Operator operator) {
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
         this.operator = operator;
         setBorder(BorderFactory.createLineBorder(Color.black));
+        entries = new OperatorLabel[operator.getEntryCount()];
+        exits = new OperatorLabel[operator.getExitCount()];
     }
 
-    public Operator getOperator(){
+    public Operator getOperator() {
         return operator;
     }
 
-    public OperatorLabel(String img){
-        super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + img + ".png")));
-        setBorder(BorderFactory.createLineBorder(Color.black));
-    }
-
-    public void initialize(Point location){
+    public void initialize(Point location) {
         setLocation(location);
-        setSize(65,65);
+        setSize(65, 65);
         addMouseListener(clickListener);
         addMouseMotionListener(motionListener);
     }
 
-    public void setSelected(boolean isSelected){
+    public void setSelected(boolean isSelected) {
         //this.isSelected = isSelected;
         setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
     }
@@ -63,24 +60,41 @@ public class OperatorLabel extends JLabel {
         this.bottomOffset = bottomOffset;
     }
 
-    public void setListener(Listener listener){
+    public void setListener(Listener listener) {
         this.listener = listener;
     }
 
-    private JPopupMenu getPopupMenu(){
-        if(menu == null){
-             menu = new JPopupMenu("Popup");
-
-            JMenuItem item = new JMenuItem("Lier");
-            item.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    if(listener != null) listener.onLinkMenuClicked(OperatorLabel.this);
+    private JPopupMenu getPopupMenu() {
+        if (menu == null) {
+            menu = new JPopupMenu("Popup");
+            JMenu lierMenu = new JMenu("Lier");
+            if (entries.length > 0 || exits.length > 0) {
+                for (int i = 0; i < entries.length; i++) {
+                    String port = "E" + i;
+                    JMenuItem entry = new JMenuItem(port);
+                    entry.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            if (listener != null) listener.onLinkMenuClicked(OperatorLabel.this, port);
+                        }
+                    });
+                    lierMenu.add(entry);
                 }
-            });
-            menu.add(item);
+                for (int i = 0; i < exits.length; i++) {
+                    String port = "S" + i;
+                    JMenuItem exit = new JMenuItem(port);
+                    exit.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            if (listener != null) listener.onLinkMenuClicked(OperatorLabel.this, port);
+                        }
+                    });
+                    lierMenu.add(exit);
+                }
+            }
 
-            item = new JMenuItem("Supprimer");
-            item.addActionListener(new ActionListener() {
+            menu.add(lierMenu);
+
+            JMenuItem deleteMenu = new JMenuItem("Supprimer");
+            deleteMenu.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     Container parent = getParent();
                     parent.remove(OperatorLabel.this);
@@ -88,7 +102,7 @@ public class OperatorLabel extends JLabel {
                     parent.repaint();
                 }
             });
-            menu.add(item);
+            menu.add(deleteMenu);
         }
         return menu;
     }
@@ -116,12 +130,13 @@ public class OperatorLabel extends JLabel {
         public void mouseDragged(MouseEvent e) {
             //and when the Jlabel is dragged
             setLocation(e.getXOnScreen() - xPressed, e.getYOnScreen() - yPressed);
-            if(listener != null) listener.onLocationChange(OperatorLabel.this);
+            if (listener != null) listener.onLocationChange(OperatorLabel.this);
         }
     };
 
-    public interface Listener{
-        void onLinkMenuClicked(OperatorLabel operatorLabel);
+    public interface Listener {
+        void onLinkMenuClicked(OperatorLabel operatorLabel, String port);
+
         void onLocationChange(OperatorLabel operatorLabel);
     }
 }

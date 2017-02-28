@@ -9,7 +9,6 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
-import java.awt.geom.Line2D;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -43,7 +42,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     @Override
-    public void onLinkMenuClicked(OperatorLabel operatorLabel) {
+    public void onLinkMenuClicked(OperatorLabel operatorLabel, String port) {
         operatorLabel.setSelected(true);
         if (first == null) {
             first = operatorLabel;
