@@ -4,6 +4,7 @@ import logique.Entree;
 import logique.Operator;
 import logique.Sortie;
 import utils.ErrorUtils;
+import utils.NameUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,8 +30,15 @@ public class OperatorLabel extends JLabel {
 
     @Override
     public void setText(String text) {
-        if (operator instanceof Sortie || operator instanceof Entree)
-            super.setText(text);
+        if (operator instanceof Sortie || operator instanceof Entree){
+            if(NameUtils.isNameAvailable(text)) {
+                NameUtils.reserveName(text);
+                super.setText(text);
+            }else {
+                showError("Nom déjà prit.");
+            }
+        }
+
     }
 
     public OperatorLabel(Operator operator) {
