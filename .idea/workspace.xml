@@ -29,27 +29,25 @@
           <file leaf-file-name="OperatorLabel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="429">
-                  <caret line="136" column="32" lean-forward="false" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+                <state relative-caret-position="117">
+                  <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
                   <folding>
+                    <element signature="imports" expanded="true" />
                     <element signature="docComment;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="class#2667:2913" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#2667:2913" expanded="false" />
+                    <element signature="class#2756:3002" expanded="false" />
+                    <element signature="method#actionPerformed#0;class#2756:3002" expanded="false" />
                     <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
                     <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="e#3897#4398#0" expanded="true" />
-                    <element signature="e#4397#4398#0" expanded="true" />
-                    <element signature="class#4839:5106" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#4839:5106" expanded="false" />
-                    <element signature="class#5213:5790" expanded="false" />
-                    <element signature="method#mousePressed#0;class#5213:5790" expanded="false" />
-                    <element signature="method#mouseReleased#0;class#5213:5790" expanded="false" />
-                    <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
+                    <element signature="e#3986#4405#0" expanded="true" />
+                    <element signature="e#4404#4405#0" expanded="true" />
+                    <element signature="class#5559:6136" expanded="false" />
+                    <element signature="method#mousePressed#0;class#5559:6136" expanded="false" />
+                    <element signature="method#mouseReleased#0;class#5559:6136" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -58,12 +56,12 @@
           <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-289">
-                  <caret line="97" column="27" lean-forward="false" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
+                <state relative-caret-position="97">
+                  <caret line="156" column="70" lean-forward="false" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
                   <folding>
                     <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="class#947:1257" expanded="false" />
-                    <element signature="method#run#0;class#947:1257" expanded="false" />
+                    <element signature="class#973:1283" expanded="false" />
+                    <element signature="method#run#0;class#973:1283" expanded="false" />
                     <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
                     <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
                     <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
@@ -81,14 +79,17 @@
           <file leaf-file-name="OperatorsPanel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="352">
-                  <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+                <state relative-caret-position="166">
+                  <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
                   <folding>
                     <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
+                    <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
+                    <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
+                    <element signature="class#Pair#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+                    <element signature="method#Pair#1;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
                     <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
@@ -180,10 +181,11 @@
         <option value="$PROJECT_DIR$/TP/src/view/DnDTransferableTest.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/Porte.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/view/CustomDialog.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
       </list>
     </option>
   </component>
@@ -236,24 +238,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="INF5153" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -266,8 +250,6 @@
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/xstream-distribution-1.4.9-src" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RunManager" selected="Application.ApplicationFrame">
@@ -582,7 +564,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39628822" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -616,7 +598,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32751092" sideWeight="0.4975" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.4975" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -645,24 +627,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java</url>
-          <line>143</line>
+          <line>146</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java</url>
-          <line>61</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java</url>
-          <line>52</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java</url>
+          <line>161</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -671,24 +665,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#getTransferData#0;class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/logique/And.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -725,10 +701,13 @@
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#Pair#1;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
@@ -743,8 +722,8 @@
           <caret line="147" column="5" lean-forward="false" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
           <folding>
             <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#947:1257" expanded="false" />
-            <element signature="method#run#0;class#947:1257" expanded="false" />
+            <element signature="class#973:1283" expanded="false" />
+            <element signature="method#run#0;class#973:1283" expanded="false" />
             <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
@@ -825,24 +804,22 @@
         <state relative-caret-position="0">
           <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;class#OperatorLabel#0" expanded="false" />
             <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#2667:2913" expanded="false" />
-            <element signature="method#actionPerformed#0;class#2667:2913" expanded="false" />
+            <element signature="class#2756:3002" expanded="false" />
+            <element signature="method#actionPerformed#0;class#2756:3002" expanded="false" />
             <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="e#3897#4398#0" expanded="true" />
-            <element signature="e#4397#4398#0" expanded="true" />
-            <element signature="class#4839:5106" expanded="false" />
-            <element signature="method#actionPerformed#0;class#4839:5106" expanded="false" />
-            <element signature="class#5213:5790" expanded="false" />
-            <element signature="method#mousePressed#0;class#5213:5790" expanded="false" />
-            <element signature="method#mouseReleased#0;class#5213:5790" expanded="false" />
-            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="e#3986#4405#0" expanded="true" />
+            <element signature="e#4404#4405#0" expanded="true" />
+            <element signature="class#5559:6136" expanded="false" />
+            <element signature="method#mousePressed#0;class#5559:6136" expanded="false" />
+            <element signature="method#mouseReleased#0;class#5559:6136" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,10 +857,13 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#Pair#1;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
@@ -898,8 +878,8 @@
           <caret line="147" column="5" lean-forward="false" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
           <folding>
             <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#947:1257" expanded="false" />
-            <element signature="method#run#0;class#947:1257" expanded="false" />
+            <element signature="class#973:1283" expanded="false" />
+            <element signature="method#run#0;class#973:1283" expanded="false" />
             <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
@@ -970,24 +950,22 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;class#OperatorLabel#0" expanded="false" />
             <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#2667:2913" expanded="false" />
-            <element signature="method#actionPerformed#0;class#2667:2913" expanded="false" />
+            <element signature="class#2756:3002" expanded="false" />
+            <element signature="method#actionPerformed#0;class#2756:3002" expanded="false" />
             <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="e#3897#4398#0" expanded="true" />
-            <element signature="e#4397#4398#0" expanded="true" />
-            <element signature="class#4839:5106" expanded="false" />
-            <element signature="method#actionPerformed#0;class#4839:5106" expanded="false" />
-            <element signature="class#5213:5790" expanded="false" />
-            <element signature="method#mousePressed#0;class#5213:5790" expanded="false" />
-            <element signature="method#mouseReleased#0;class#5213:5790" expanded="false" />
-            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="e#3986#4405#0" expanded="true" />
+            <element signature="e#4404#4405#0" expanded="true" />
+            <element signature="class#5559:6136" expanded="false" />
+            <element signature="method#mousePressed#0;class#5559:6136" expanded="false" />
+            <element signature="method#mouseReleased#0;class#5559:6136" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1025,10 +1003,13 @@
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#Pair#1;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
             <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
@@ -1050,8 +1031,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#947:1257" expanded="false" />
-            <element signature="method#run#0;class#947:1257" expanded="false" />
+            <element signature="class#973:1283" expanded="false" />
+            <element signature="method#run#0;class#973:1283" expanded="false" />
             <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
@@ -1094,8 +1075,8 @@
           <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
           <folding>
             <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#947:1257" expanded="false" />
-            <element signature="method#run#0;class#947:1257" expanded="false" />
+            <element signature="class#973:1283" expanded="false" />
+            <element signature="method#run#0;class#973:1283" expanded="false" />
             <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
@@ -1232,46 +1213,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
-          <folding>
-            <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#OperatorsPanel#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-            <element signature="method#getTransferData#0;class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/CustomDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1089">
           <caret line="182" column="1" lean-forward="false" selection-start-line="182" selection-start-column="1" selection-end-line="182" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="97" column="27" lean-forward="false" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
-          <folding>
-            <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#947:1257" expanded="false" />
-            <element signature="method#run#0;class#947:1257" expanded="false" />
-            <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#getAllIO#0;class#ApplicationFrame#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1283,29 +1229,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="156" column="70" lean-forward="false" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
+          <folding>
+            <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="class#973:1283" expanded="false" />
+            <element signature="method#run#0;class#973:1283" expanded="false" />
+            <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="method#getAllIO#0;class#ApplicationFrame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="136" column="32" lean-forward="false" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+        <state relative-caret-position="117">
+          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;class#OperatorLabel#0" expanded="false" />
             <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#2667:2913" expanded="false" />
-            <element signature="method#actionPerformed#0;class#2667:2913" expanded="false" />
+            <element signature="class#2756:3002" expanded="false" />
+            <element signature="method#actionPerformed#0;class#2756:3002" expanded="false" />
             <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="e#3897#4398#0" expanded="true" />
-            <element signature="e#4397#4398#0" expanded="true" />
-            <element signature="class#4839:5106" expanded="false" />
-            <element signature="method#actionPerformed#0;class#4839:5106" expanded="false" />
-            <element signature="class#5213:5790" expanded="false" />
-            <element signature="method#mousePressed#0;class#5213:5790" expanded="false" />
-            <element signature="method#mouseReleased#0;class#5213:5790" expanded="false" />
-            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="e#3986#4405#0" expanded="true" />
+            <element signature="e#4404#4405#0" expanded="true" />
+            <element signature="class#5559:6136" expanded="false" />
+            <element signature="method#mousePressed#0;class#5559:6136" expanded="false" />
+            <element signature="method#mouseReleased#0;class#5559:6136" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#Pair#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#Pair#1;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#howToDraw#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#equals#0;class#Pair#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
+            <element signature="method#getTransferData#0;class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>

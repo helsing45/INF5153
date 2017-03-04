@@ -7,6 +7,7 @@ import logique.Sortie;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.UUID;
 
 /**
  * Created by j-c9 on 2017-02-18.
@@ -14,6 +15,7 @@ import java.awt.event.*;
 public class OperatorLabel extends JLabel {
     public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
 
+    private String id;
     private int xPressed = 0;
     private int yPressed = 0;
     private JPopupMenu menu;
@@ -26,6 +28,7 @@ public class OperatorLabel extends JLabel {
 
     public OperatorLabel(Operator operator) {
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
+        id = UUID.randomUUID().toString();
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
         this.operator = operator;
@@ -131,8 +134,8 @@ public class OperatorLabel extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog(OperatorLabel.this, "Input name");
-                if(name.length() >= 5){
-                    JOptionPane.showMessageDialog(OperatorLabel.this, "Le nom de l'input doit contenir tout au plus 5 lettres.", "Error", JOptionPane.ERROR_MESSAGE);
+                if(name.length() > 5){
+                    showError("Le nom de l'input doit contenir au plus 5 lettres.");
                 }else {
                     setText(name);
                 }
@@ -156,15 +159,23 @@ public class OperatorLabel extends JLabel {
         JMenuItem deleteMenu = new JMenuItem("Supprimer");
         deleteMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Container parent = getParent();
-                parent.remove(OperatorLabel.this);
-                parent.validate();
-                parent.repaint();
+                if(listener.canDelete(OperatorLabel.this)) {
+                    Container parent = getParent();
+                    parent.remove(OperatorLabel.this);
+                    parent.validate();
+                    parent.repaint();
+                }else {
+                    showError("Impossible de supprimer cet input.");
+                }
             }
         });
         menu.add(deleteMenu);
 
         return menu;
+    }
+
+    private void showError(String error){
+        JOptionPane.showMessageDialog(OperatorLabel.this, error, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
     private MouseAdapter clickListener = new MouseAdapter() {
@@ -200,5 +211,7 @@ public class OperatorLabel extends JLabel {
         void onLinkCanceled(OperatorLabel operatorLabel);
 
         void onLocationChange(OperatorLabel operatorLabel);
+
+        boolean canDelete(OperatorLabel label);
     }
 }

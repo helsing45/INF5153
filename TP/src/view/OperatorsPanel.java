@@ -1,6 +1,8 @@
 package view;
 
+import logique.Entree;
 import logique.Operator;
+import logique.Sortie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,34 +13,50 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
  */
 public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
 
-    ArrayList<Pair> listOfPairs;
+    private ArrayList<Pair> listOfPairs;
+    private int entriesCount, exitsCount;
     private OperatorLabel first, second;
+
+    DropTarget dropTarget = new DropTarget() {
+        public void drop(DropTargetDropEvent dtde) {
+            try {
+                addOperatorLabel(new OperatorLabel((Operator) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR)), dtde.getLocation());
+                validate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    private void addOperatorLabel(OperatorLabel operatorLabel, Point position) {
+        add(operatorLabel);
+        entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
+        exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
+        operatorLabel.initialize(position);
+        operatorLabel.setLeftOffset((int) getBounds().getX());
+        operatorLabel.setTopOffset((int) getBounds().getY());
+        operatorLabel.setListener(this);
+    }
+
+    public OperatorsPanel(HashMap<OperatorLabel, Point> template) {
+        this();
+        for (OperatorLabel operatorLabel : template.keySet()) {
+            addOperatorLabel(operatorLabel, template.get(operatorLabel));
+        }
+        validate();
+    }
 
     public OperatorsPanel() {
         super(null);
         listOfPairs = new ArrayList<>();
-        setDropTarget(new DropTarget() {
-            public void drop(DropTargetDropEvent dtde) {
-                try {
-                    OperatorLabel operatorLabel = new OperatorLabel((Operator) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR));
-                    add(operatorLabel);
-
-                    operatorLabel.initialize(dtde.getLocation());
-                    operatorLabel.setLeftOffset((int) getBounds().getX());
-                    operatorLabel.setTopOffset((int) getBounds().getY());
-                    operatorLabel.setListener(OperatorsPanel.this);
-                    validate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        setDropTarget(dropTarget);
     }
 
     @Override
@@ -54,7 +72,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         }
     }
 
-    public void save(){
+    public void save() {
     }
 
     @Override
@@ -69,6 +87,19 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     @Override
     public void onLocationChange(OperatorLabel operatorLabel) {
         repaint();
+    }
+
+    @Override
+    public boolean canDelete(OperatorLabel label) {
+        if (label.getOperator() instanceof Sortie || label.getOperator() instanceof Entree) {
+            if (label.getOperator() instanceof Sortie && exitsCount <= 1) {
+                return false;
+            }
+            if (label.getOperator() instanceof Entree && entriesCount <= 2) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
