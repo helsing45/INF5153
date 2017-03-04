@@ -95,7 +95,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             if (label.getOperator() instanceof Sortie && exitsCount <= 1) {
                 return false;
             }
-            if (label.getOperator() instanceof Entree && entriesCount <= 2) {
+            if (label.getOperator() instanceof Entree && entriesCount <= 1) {
                 return false;
             }
         }

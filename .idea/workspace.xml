@@ -79,8 +79,8 @@
           <file leaf-file-name="OperatorsPanel.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="166">
-                  <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+                <state relative-caret-position="421">
+                  <caret line="97" column="74" lean-forward="false" selection-start-line="97" selection-start-column="74" selection-end-line="97" selection-end-column="74" />
                   <folding>
                     <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
                     <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
@@ -546,7 +546,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1281,8 +1281,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="421">
+          <caret line="97" column="74" lean-forward="false" selection-start-line="97" selection-start-column="74" selection-end-line="97" selection-end-column="74" />
           <folding>
             <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
             <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
