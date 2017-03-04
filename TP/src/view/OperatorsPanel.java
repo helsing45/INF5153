@@ -3,6 +3,7 @@ package view;
 import logique.Entree;
 import logique.Operator;
 import logique.Sortie;
+import utils.ErrorUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
 
     private ArrayList<Pair> listOfPairs;
-    private int entriesCount, exitsCount;
+    private int entriesCount, exitsCount, inputCount;
     private OperatorLabel first, second;
 
     DropTarget dropTarget = new DropTarget() {
@@ -36,13 +37,19 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     };
 
     private void addOperatorLabel(OperatorLabel operatorLabel, Point position) {
-        add(operatorLabel);
-        entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
-        exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
-        operatorLabel.initialize(position);
-        operatorLabel.setLeftOffset((int) getBounds().getX());
-        operatorLabel.setTopOffset((int) getBounds().getY());
-        operatorLabel.setListener(this);
+        if (canAdd(operatorLabel)) {
+            add(operatorLabel);
+            inputCount++;
+            entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
+            exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
+            operatorLabel.initialize(position);
+            operatorLabel.setText((operatorLabel.getOperator() instanceof Sortie ? "S" :"E") + (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount));
+            operatorLabel.setLeftOffset((int) getBounds().getX());
+            operatorLabel.setTopOffset((int) getBounds().getY());
+            operatorLabel.setListener(this);
+        }else {
+            ErrorUtils.showError(OperatorsPanel.this, "Impossible d'ajouter");
+        }
     }
 
     public OperatorsPanel(HashMap<OperatorLabel, Point> template) {
@@ -89,17 +96,13 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         repaint();
     }
 
+    public boolean canAdd(OperatorLabel operatorLabel) {
+        return inputCount < 50 && (!(operatorLabel.getOperator() instanceof Sortie || operatorLabel.getOperator() instanceof Entree) || (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount) < 5);
+    }
+
     @Override
     public boolean canDelete(OperatorLabel label) {
-        if (label.getOperator() instanceof Sortie || label.getOperator() instanceof Entree) {
-            if (label.getOperator() instanceof Sortie && exitsCount <= 1) {
-                return false;
-            }
-            if (label.getOperator() instanceof Entree && entriesCount <= 1) {
-                return false;
-            }
-        }
-        return true;
+        return !(label.getOperator() instanceof Sortie || label.getOperator() instanceof Entree) || (label.getOperator() instanceof Sortie ? exitsCount : entriesCount) > 1;
     }
 
     @Override

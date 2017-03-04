@@ -3,6 +3,7 @@ package view;
 import logique.Entree;
 import logique.Operator;
 import logique.Sortie;
+import utils.ErrorUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +27,12 @@ public class OperatorLabel extends JLabel {
 
     private int leftOffset, rightOffset, topOffset, bottomOffset;
 
+    @Override
+    public void setText(String text) {
+        if (operator instanceof Sortie || operator instanceof Entree)
+            super.setText(text);
+    }
+
     public OperatorLabel(Operator operator) {
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
         id = UUID.randomUUID().toString();
@@ -41,7 +48,7 @@ public class OperatorLabel extends JLabel {
         return operator;
     }
 
-    private boolean canBeName(){
+    private boolean canBeName() {
         return operator != null && (operator instanceof Entree || operator instanceof Sortie);
     }
 
@@ -128,15 +135,15 @@ public class OperatorLabel extends JLabel {
         return item;
     }
 
-    private JMenuItem getNameMenuItem(){
+    private JMenuItem getNameMenuItem() {
         JMenuItem item = new JMenuItem("Nommer");
         item.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog(OperatorLabel.this, "Input name");
-                if(name.length() > 5){
+                if (name.length() > 5) {
                     showError("Le nom de l'input doit contenir au plus 5 lettres.");
-                }else {
+                } else {
                     setText(name);
                 }
             }
@@ -146,7 +153,7 @@ public class OperatorLabel extends JLabel {
 
     private JPopupMenu getPopupMenu() {
         JPopupMenu menu = new JPopupMenu("Popup");
-        if(canBeName()){
+        if (canBeName()) {
             menu.add(getNameMenuItem());
         }
         if (selectedPort == null) {
@@ -159,12 +166,12 @@ public class OperatorLabel extends JLabel {
         JMenuItem deleteMenu = new JMenuItem("Supprimer");
         deleteMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(listener.canDelete(OperatorLabel.this)) {
+                if (listener.canDelete(OperatorLabel.this)) {
                     Container parent = getParent();
                     parent.remove(OperatorLabel.this);
                     parent.validate();
                     parent.repaint();
-                }else {
+                } else {
                     showError("Impossible de supprimer cet input.");
                 }
             }
@@ -174,8 +181,8 @@ public class OperatorLabel extends JLabel {
         return menu;
     }
 
-    private void showError(String error){
-        JOptionPane.showMessageDialog(OperatorLabel.this, error, "Error", JOptionPane.ERROR_MESSAGE);
+    private void showError(String error) {
+        ErrorUtils.showError(OperatorLabel.this, error);
     }
 
     private MouseAdapter clickListener = new MouseAdapter() {
