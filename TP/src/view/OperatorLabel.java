@@ -1,6 +1,8 @@
 package view;
 
+import logique.Entree;
 import logique.Operator;
+import logique.Sortie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +26,8 @@ public class OperatorLabel extends JLabel {
 
     public OperatorLabel(Operator operator) {
         super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
+        setHorizontalTextPosition(CENTER);
+        setVerticalTextPosition(BOTTOM);
         this.operator = operator;
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
@@ -34,18 +38,22 @@ public class OperatorLabel extends JLabel {
         return operator;
     }
 
+    private boolean canBeName(){
+        return operator != null && (operator instanceof Entree || operator instanceof Sortie);
+    }
+
     public void initialize(Point location) {
         setLocation(location);
-        setSize(65, 65);
+        setSize(80, 70);
         addMouseListener(clickListener);
         addMouseMotionListener(motionListener);
     }
 
-    public void linkTo(OperatorLabel operator){
-        if(selectedPort.startsWith(PORT_ENTRY)){
+    public void linkTo(OperatorLabel operator) {
+        if (selectedPort.startsWith(PORT_ENTRY)) {
             entries[Integer.parseInt(selectedPort.substring(1))] = operator;
         }
-        if(selectedPort.startsWith(PORT_EXITS)){
+        if (selectedPort.startsWith(PORT_EXITS)) {
             exits[Integer.parseInt(selectedPort.substring(1))] = operator;
         }
         deselect();
@@ -111,32 +119,50 @@ public class OperatorLabel extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deselect();
-                if(listener != null) listener.onLinkCanceled(OperatorLabel.this);
+                if (listener != null) listener.onLinkCanceled(OperatorLabel.this);
+            }
+        });
+        return item;
+    }
+
+    private JMenuItem getNameMenuItem(){
+        JMenuItem item = new JMenuItem("Nommer");
+        item.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = JOptionPane.showInputDialog(OperatorLabel.this, "Input name");
+                if(name.length() >= 5){
+                    JOptionPane.showMessageDialog(OperatorLabel.this, "Le nom de l'input doit contenir tout au plus 5 lettres.", "Error", JOptionPane.ERROR_MESSAGE);
+                }else {
+                    setText(name);
+                }
             }
         });
         return item;
     }
 
     private JPopupMenu getPopupMenu() {
-            JPopupMenu menu = new JPopupMenu("Popup");
-            System.out.println("getPopupMenu selectedPort: " + selectedPort);
-            if (selectedPort == null) {
-                menu.add(getLinkMenu());
-            } else {
-                menu.add(getDeselectItem());
+        JPopupMenu menu = new JPopupMenu("Popup");
+        if(canBeName()){
+            menu.add(getNameMenuItem());
+        }
+        if (selectedPort == null) {
+            menu.add(getLinkMenu());
+        } else {
+            menu.add(getDeselectItem());
+        }
+
+
+        JMenuItem deleteMenu = new JMenuItem("Supprimer");
+        deleteMenu.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Container parent = getParent();
+                parent.remove(OperatorLabel.this);
+                parent.validate();
+                parent.repaint();
             }
-
-
-            JMenuItem deleteMenu = new JMenuItem("Supprimer");
-            deleteMenu.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    Container parent = getParent();
-                    parent.remove(OperatorLabel.this);
-                    parent.validate();
-                    parent.repaint();
-                }
-            });
-            menu.add(deleteMenu);
+        });
+        menu.add(deleteMenu);
 
         return menu;
     }
@@ -170,7 +196,9 @@ public class OperatorLabel extends JLabel {
 
     public interface Listener {
         void onLink(OperatorLabel operatorLabel);
+
         void onLinkCanceled(OperatorLabel operatorLabel);
+
         void onLocationChange(OperatorLabel operatorLabel);
     }
 }
