@@ -3,6 +3,8 @@ package view;
 import logique.Entree;
 import logique.Operator;
 import logique.Sortie;
+import model.Link;
+import model.Template;
 import utils.ErrorUtils;
 
 import javax.swing.*;
@@ -13,15 +15,13 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
  */
 public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
 
-    private ArrayList<Pair> listOfPairs;
+    private Template template;
     private int entriesCount, exitsCount, inputCount;
     private OperatorLabel first, second;
 
@@ -43,26 +43,26 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
             exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
             operatorLabel.initialize(position);
-            operatorLabel.setText((operatorLabel.getOperator() instanceof Sortie ? "S" :"E") + (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount));
+            operatorLabel.setText((operatorLabel.getOperator() instanceof Sortie ? "S" : "E") + (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount));
             operatorLabel.setLeftOffset((int) getBounds().getX());
             operatorLabel.setTopOffset((int) getBounds().getY());
             operatorLabel.setListener(this);
-        }else {
+        } else {
             ErrorUtils.showError(OperatorsPanel.this, "Impossible d'ajouter");
         }
     }
 
-    public OperatorsPanel(HashMap<OperatorLabel, Point> template) {
+    public OperatorsPanel(Template template) {
         this();
-        for (OperatorLabel operatorLabel : template.keySet()) {
-            addOperatorLabel(operatorLabel, template.get(operatorLabel));
+        for (OperatorLabel operatorLabel : template.getOperators().keySet()) {
+            addOperatorLabel(operatorLabel, template.getLocationOf(operatorLabel));
         }
         validate();
     }
 
     public OperatorsPanel() {
         super(null);
-        listOfPairs = new ArrayList<>();
+        this.template = new Template();
         setDropTarget(dropTarget);
     }
 
@@ -72,7 +72,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             first = operatorLabel;
         } else {
             second = operatorLabel;
-            listOfPairs.add(new Pair(first, second));
+            template.addLink(first, second);
             first = null;
             second = null;
             repaint();
@@ -80,6 +80,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     public void save() {
+
     }
 
     @Override
@@ -108,7 +109,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Pair pair : listOfPairs) {
+        for (Link pair : template.getLinks()) {
             JLabel label1 = pair.getLabel1();
             JLabel label2 = pair.getLabel2();
             Point point1 = label1.getLocation();
@@ -123,63 +124,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             } else if (i == 4) {
                 g.drawLine(point2.x + label2.getWidth() / 2, point2.y, point1.x + label1.getWidth() / 2, point1.y + label1.getHeight());
             }
-        }
-    }
-
-    class Pair {
-        OperatorLabel label1;
-        OperatorLabel label2;
-
-        private Pair() {
-        }
-
-        public Pair(OperatorLabel label1, OperatorLabel label2) {
-            this.label1 = label1;
-            this.label1.linkTo(label2);
-            this.label2 = label2;
-            this.label2.linkTo(label1);
-        }
-
-        @Override
-        public String toString() {
-            return "{" + label1.getLocation() + "," + label2.getLocation() + "}";
-        }
-
-        public int howToDraw() {
-            Point point1 = label1.getLocation();
-            Point point2 = label2.getLocation();
-            if (point1.x > point2.x) {
-                return 1;
-            } else if (point1.x < point2.x) {
-                return 2;
-            } else if (point1.y > point2.y) {
-                return 3;
-            } else if (point1.y < point2.y) {
-                return 4;
-            } else
-                return 5;
-        }
-
-        public JLabel getLabel1() {
-            return label1;
-        }
-
-        public JLabel getLabel2() {
-            return label2;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof Pair) {
-                Pair temp = (Pair) obj;
-                if ((temp.toString()).equalsIgnoreCase(this.toString())) {
-                    return true;
-                }
-            }
-            return false;
         }
     }
 

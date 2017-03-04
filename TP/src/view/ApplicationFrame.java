@@ -1,6 +1,7 @@
 package view;
 
 import logique.*;
+import model.Template;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -10,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
 
 public class ApplicationFrame {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
@@ -151,11 +151,7 @@ public class ApplicationFrame {
 
     private void initializeRightPanel() {
         /* Right panel */
-        HashMap<OperatorLabel,Point> template = new HashMap<>();
-        template.put(new OperatorLabel(new Entree()),new Point(50,50));
-        template.put(new OperatorLabel(new Entree()),new Point(50,250));
-        template.put(new OperatorLabel(new Sortie()),new Point(450,150));
-        rightSidePanel = new OperatorsPanel(template);
+        rightSidePanel = new OperatorsPanel(Template.getDefaultTemplate());
         rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
         rightSidePanel.setBackground(Color.GRAY);
