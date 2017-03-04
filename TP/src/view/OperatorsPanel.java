@@ -39,6 +39,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     private void addOperatorLabel(OperatorLabel operatorLabel, Point position) {
         if (canAdd(operatorLabel)) {
             add(operatorLabel);
+            template.addOperator(operatorLabel, position);
             inputCount++;
             entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
             exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
