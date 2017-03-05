@@ -27,4 +27,8 @@ public class NameUtils {
     public static void reserveName(String name) {
         getInstance().existingName.add(name);
     }
+
+    public static void removeReservation(String name){
+        getInstance().existingName.remove(name);
+    }
 }

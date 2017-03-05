@@ -36,6 +36,10 @@ public class Template {
         return operators;
     }
 
+    public void remove(OperatorLabel operatorLabel){
+        operators.remove(operatorLabel);
+    }
+
     public void addOperator(OperatorLabel operatorLabel, Point location) {
         operators.put(operatorLabel, location);
     }
@@ -46,6 +50,26 @@ public class Template {
 
     public void addOperator(Operator operator, int X, int Y) {
         addOperator(new OperatorLabel(operator), new Point(X, Y));
+    }
+
+    public ArrayList<OperatorLabel> getEntries() {
+        ArrayList<OperatorLabel> entries = new ArrayList<>();
+        for (OperatorLabel operatorLabel : operators.keySet()) {
+            if (operatorLabel.getOperator() instanceof Entree) {
+                entries.add(operatorLabel);
+            }
+        }
+        return entries;
+    }
+
+    public ArrayList<OperatorLabel> getExits() {
+        ArrayList<OperatorLabel> exits = new ArrayList<>();
+        for (OperatorLabel operatorLabel : operators.keySet()) {
+            if (operatorLabel.getOperator() instanceof Sortie) {
+                exits.add(operatorLabel);
+            }
+        }
+        return exits;
     }
 
     public Point getLocationOf(OperatorLabel operatorLabel) {

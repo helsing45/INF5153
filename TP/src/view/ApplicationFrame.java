@@ -5,26 +5,22 @@ import model.Template;
 import utils.ConfirmationUtils;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ApplicationFrame {
+public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
     private final static Double SIDE_PANEL_WIDTH_RATIO = 0.33;
     private final static int MENU_BAR_HEIGHT = 30;
 
     private JFrame frame;
-    private JTable table;
     private Rectangle windowRect;
     private int bottomPanelHeight;
-    private int xPressed = 0;
-    private int yPressed = 0;
     private int sidePanelWidth;
     private OperatorListPanel leftSidePanel;
     private OperatorsPanel rightSidePanel;
+    private TruthTablePanel bottomPanel;
 
     /**
      * Launch the application.
@@ -61,7 +57,7 @@ public class ApplicationFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
-               closeWindow();
+                closeWindow();
             }
         });
 
@@ -171,32 +167,10 @@ public class ApplicationFrame {
 
     private void initializeBottomPanel() {
         /*bottom panel*/
-        table = new JTable();
-        table.setEnabled(false);
-        table.setFillsViewportHeight(true);
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.setModel(new OperatorTableModel(5));
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
-                Component tableCellRendererComponent = super.getTableCellRendererComponent(arg0, arg1, arg2, arg3, arg4, arg5);
-                int align = DefaultTableCellRenderer.CENTER;
-                ((DefaultTableCellRenderer) tableCellRendererComponent).setHorizontalAlignment(align);
-                return tableCellRendererComponent;
-            }
-        };
-        for (int column = 0; column < table.getColumnCount(); column++) {
-            table.getColumnModel().getColumn(column).setCellRenderer(renderer);
-        }
-
-
-        JScrollPane bottomPanel = new JScrollPane(table);
-        bottomPanel.setBorder(new EmptyBorder(0, 0, 69, 13));
-        bottomPanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        bottomPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        bottomPanel = new TruthTablePanel();
         bottomPanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),
                 bottomPanelHeight + MENU_BAR_HEIGHT);
-        bottomPanel.setBackground(Color.WHITE);
+        bottomPanel.load("E1", "E2");
         frame.getContentPane().add(bottomPanel);
     }
 
@@ -206,6 +180,7 @@ public class ApplicationFrame {
         rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
         rightSidePanel.setBackground(Color.GRAY);
+        rightSidePanel.setListener(this);
         rightSidePanel.load(Template.getDefaultTemplate());
         frame.getContentPane().add(rightSidePanel);
     }
@@ -224,7 +199,7 @@ public class ApplicationFrame {
         return operators;
     }
 
-    private void closeWindow(){
+    private void closeWindow() {
         ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
             @Override
             public void onChoiceMade(boolean asConfirm) {
@@ -232,6 +207,12 @@ public class ApplicationFrame {
                     System.exit(0);
             }
         });
+    }
+
+    @Override
+    public void entriesChanged(String... entries) {
+        if (bottomPanel != null)
+            bottomPanel.load(entries);
     }
 }
 

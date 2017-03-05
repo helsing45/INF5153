@@ -6,8 +6,8 @@ import javax.swing.table.DefaultTableModel;
  * Created by j-c9 on 2017-02-18.
  */
 public class OperatorTableModel extends DefaultTableModel {
-    public OperatorTableModel(int entriesCount) {
-        super(generateTruthTable(entriesCount),generateEntries(entriesCount));
+    public OperatorTableModel(String... entries) {
+        super(generateTruthTable(entries.length),entries);
     }
 
     private static Object[][] generateTruthTable(int entryCount) {
@@ -21,13 +21,5 @@ public class OperatorTableModel extends DefaultTableModel {
             }
         }
         return truthTable;
-    }
-
-    private static String[] generateEntries(int entryCount) {
-        String[] entries = new String[entryCount];
-        for (int i = 0; i < entryCount; i++) {
-            entries[i] = "E" + i;
-        }
-        return entries;
     }
 }

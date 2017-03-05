@@ -16,6 +16,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
@@ -25,6 +26,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     private Template template;
     private int entriesCount, exitsCount, inputCount;
     private OperatorLabel first, second;
+    private TemplateChangeListener listener;
 
     DropTarget dropTarget = new DropTarget() {
         public void drop(DropTargetDropEvent dtde) {
@@ -37,6 +39,14 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         }
     };
 
+    private String[] getEntriesName(ArrayList<OperatorLabel> operators) {
+        String[] names = new String[operators.size()];
+        for (int index = 0; index < operators.size(); index++) {
+            names[index] = operators.get(index).getText();
+        }
+        return names;
+    }
+
     private void addOperatorLabel(OperatorLabel operatorLabel, Point position) {
         if (canAdd(operatorLabel)) {
             add(operatorLabel);
@@ -44,6 +54,9 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             inputCount++;
             entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
             exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
+            if (operatorLabel.getOperator() instanceof Entree && listener != null) {
+                listener.entriesChanged(getEntriesName(template.getEntries()));
+            }
             operatorLabel.initialize(position);
             operatorLabel.setText((operatorLabel.getOperator() instanceof Sortie ? "S" : "E") + (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount));
             operatorLabel.setLeftOffset((int) getBounds().getX());
@@ -58,6 +71,10 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         super(null);
         this.template = new Template();
         setDropTarget(dropTarget);
+    }
+
+    public void setListener(TemplateChangeListener listener) {
+        this.listener = listener;
     }
 
     public void save(File filePath) {
@@ -93,10 +110,10 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     public void load(File filePath) {
-        load((Template)XmlUtils.getXmlUtils().fromXML(filePath));
+        load((Template) XmlUtils.getXmlUtils().fromXML(filePath));
     }
 
-    public void load(Template template){
+    public void load(Template template) {
         removeAll();
         updateUI();
         this.template = template;
@@ -187,5 +204,9 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
             return operator;
         }
+    }
+
+    public interface TemplateChangeListener {
+        void entriesChanged(String... entries);
     }
 }

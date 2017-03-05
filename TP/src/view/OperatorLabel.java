@@ -174,14 +174,7 @@ public class OperatorLabel extends JLabel {
         JMenuItem deleteMenu = new JMenuItem("Supprimer");
         deleteMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (listener.canDelete(OperatorLabel.this)) {
-                    Container parent = getParent();
-                    parent.remove(OperatorLabel.this);
-                    parent.validate();
-                    parent.repaint();
-                } else {
-                    showError("Impossible de supprimer cet input.");
-                }
+                listener.delete(OperatorLabel.this);
             }
         });
         menu.add(deleteMenu);
@@ -227,6 +220,6 @@ public class OperatorLabel extends JLabel {
 
         void onLocationChange(OperatorLabel operatorLabel);
 
-        boolean canDelete(OperatorLabel label);
+        void delete(OperatorLabel label);
     }
 }
