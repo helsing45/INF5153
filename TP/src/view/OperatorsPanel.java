@@ -6,6 +6,7 @@ import logique.Sortie;
 import model.Link;
 import model.Template;
 import utils.ErrorUtils;
+import utils.NameUtils;
 import utils.XmlUtils;
 
 import javax.swing.*;
@@ -154,9 +155,26 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         return inputCount < 50 && (!(operatorLabel.getOperator() instanceof Sortie || operatorLabel.getOperator() instanceof Entree) || (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount) < 5);
     }
 
-    @Override
     public boolean canDelete(OperatorLabel label) {
-        return !(label.getOperator() instanceof Sortie || label.getOperator() instanceof Entree) || (label.getOperator() instanceof Sortie ? exitsCount : entriesCount) > 1;
+        return label.getOperator() instanceof Entree && entriesCount > 1 || label.getOperator() instanceof Sortie && exitsCount > 1;
+    }
+
+    @Override
+    public void delete(OperatorLabel label) {
+        if (canDelete(label)) {
+            entriesCount += label.getOperator() instanceof Entree ? -1 : 0;
+            exitsCount += label.getOperator() instanceof Sortie ? -1 : 0;
+            template.remove(label);
+            NameUtils.removeReservation(label.getText());
+            if(listener != null){
+                listener.entriesChanged(getEntriesName(template.getEntries()));
+            }
+            remove(label);
+            validate();
+            repaint();
+        } else {
+            ErrorUtils.showError(this, "Impossible de supprimer cet input");
+        }
     }
 
     @Override
