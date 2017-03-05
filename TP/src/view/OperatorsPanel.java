@@ -6,6 +6,7 @@ import logique.Sortie;
 import model.Link;
 import model.Template;
 import utils.ErrorUtils;
+import utils.XmlUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +15,7 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
@@ -55,16 +56,59 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
 
     public OperatorsPanel(Template template) {
         this();
-        for (OperatorLabel operatorLabel : template.getOperators().keySet()) {
-            addOperatorLabel(operatorLabel, template.getLocationOf(operatorLabel));
-        }
-        validate();
+        load(template);
     }
 
     public OperatorsPanel() {
         super(null);
         this.template = new Template();
         setDropTarget(dropTarget);
+    }
+
+    public void save(File filePath) {
+
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(filePath.getCanonicalPath() + ".xml");
+            bw = new BufferedWriter(fw);
+            bw.write(XmlUtils.getXmlUtils().toXML(template));
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            try {
+
+                if (bw != null)
+                    bw.close();
+
+                if (fw != null)
+                    fw.close();
+
+            } catch (IOException ex) {
+
+                ex.printStackTrace();
+
+            }
+
+        }
+    }
+
+    public void load(File filePath) {
+        load((Template)XmlUtils.getXmlUtils().fromXML(filePath));
+    }
+
+    private void load(Template template){
+        removeAll();
+        updateUI();
+        this.template = template;
+        for (OperatorLabel operatorLabel : template.getOperators().keySet()) {
+            addOperatorLabel(operatorLabel, template.getLocationOf(operatorLabel));
+        }
+        validate();
     }
 
     @Override
@@ -78,10 +122,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             second = null;
             repaint();
         }
-    }
-
-    public void save() {
-
     }
 
     @Override

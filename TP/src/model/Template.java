@@ -1,7 +1,9 @@
 package model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import logique.Entree;
 import logique.Operator;
+import logique.Sortie;
 import view.OperatorLabel;
 
 import java.awt.*;
@@ -11,6 +13,7 @@ import java.util.HashMap;
 /**
  * Created by j-c9 on 2017-03-04.
  */
+@XStreamAlias("template")
 public class Template {
 
     private HashMap<OperatorLabel, Point> operators;
@@ -20,7 +23,7 @@ public class Template {
         Template template = new Template();
         template.addOperator(new Entree(), 50, 50);
         template.addOperator(new Entree(), 50, 250);
-        template.addOperator(new Entree(), 450, 150);
+        template.addOperator(new Sortie(), 450, 150);
         return template;
     }
 

@@ -5,6 +5,7 @@ import model.Template;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -80,6 +81,21 @@ public class ApplicationFrame {
 
         JMenuItem open = new JMenuItem("Ouvrir");
         open.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/images/open.png")));
+        open.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser();
+                chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+
+                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    rightSidePanel.load(chooser.getSelectedFile());
+                    System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+                    System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+                } else {
+                    System.out.println("No Selection ");
+                }
+            }
+        });
         menuFichier.add(open);
 
         JMenuItem newSystem = new JMenuItem("Nouveau System");
@@ -93,7 +109,16 @@ public class ApplicationFrame {
         saveAsXML.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                rightSidePanel.save();
+                JFileChooser chooser = new JFileChooser();
+                chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+
+                if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    rightSidePanel.save(chooser.getSelectedFile());
+                    System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+                    System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+                } else {
+                    System.out.println("No Selection ");
+                }
             }
         });
         save.add(saveDisk);
