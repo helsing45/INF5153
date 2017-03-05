@@ -176,10 +176,11 @@ public class ApplicationFrame {
 
     private void initializeRightPanel() {
         /* Right panel */
-        rightSidePanel = new OperatorsPanel(Template.getDefaultTemplate());
+        rightSidePanel = new OperatorsPanel();
         rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
         rightSidePanel.setBackground(Color.GRAY);
+        rightSidePanel.load(Template.getDefaultTemplate());
         frame.getContentPane().add(rightSidePanel);
     }
 

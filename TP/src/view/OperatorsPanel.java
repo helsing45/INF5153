@@ -54,11 +54,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         }
     }
 
-    public OperatorsPanel(Template template) {
-        this();
-        load(template);
-    }
-
     public OperatorsPanel() {
         super(null);
         this.template = new Template();
@@ -101,7 +96,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         load((Template)XmlUtils.getXmlUtils().fromXML(filePath));
     }
 
-    private void load(Template template){
+    public void load(Template template){
         removeAll();
         updateUI();
         this.template = template;
