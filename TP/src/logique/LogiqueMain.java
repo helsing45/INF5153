@@ -14,11 +14,11 @@ public class LogiqueMain {
 		
 		Or or1 = new Or(entreeA, entreeB);
 		
-		entreeA.ajouterSortie(and1);
-		entreeA.ajouterSortie(or1);
+		entreeA.addEntry(and1);
+		entreeA.addExit(or1);
 		
-		entreeB.ajouterSortie(and1);
-		entreeB.ajouterSortie(or1);
+		entreeB.addExit(and1);
+		entreeB.addExit(or1);
 		
 		Not not1 = new Not(and1);
 		

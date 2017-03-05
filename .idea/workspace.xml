@@ -23,174 +23,35 @@
     <favorites_list name="INF5153" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="OperatorLabel.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-                  <folding>
-                    <element signature="docComment;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#setText#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#OperatorLabel#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#canBeName#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="class#3159:3405" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#3159:3405" expanded="false" />
-                    <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
-                    <element signature="class#5255:5712" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
-                    <element signature="class#5926:6503" expanded="false" />
-                    <element signature="method#mousePressed#0;class#5926:6503" expanded="false" />
-                    <element signature="method#mouseReleased#0;class#5926:6503" expanded="false" />
-                    <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="443">
-                  <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
-                  <folding>
-                    <element signature="docComment;method#main#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#main#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="class#944:1254" expanded="false" />
-                    <element signature="method#run#0;class#944:1254" expanded="false" />
-                    <element signature="docComment;method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="docComment;method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="class#2882:3507" expanded="false" />
-                    <element signature="method#onChoiceMade#0;class#2882:3507" expanded="false" />
-                    <element signature="class#3826:4151" expanded="false" />
-                    <element signature="method#onChoiceMade#0;class#3826:4151" expanded="false" />
-                    <element signature="class#4639:5353" expanded="false" />
-                    <element signature="method#actionPerformed#0;class#4639:5353" expanded="false" />
-                    <element signature="e#5528#5684#0" expanded="true" />
-                    <element signature="e#5683#5684#0" expanded="true" />
-                    <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#getAllIO#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="method#closeWindow#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="class#9146:9359" expanded="false" />
-                    <element signature="method#onChoiceMade#0;class#9146:9359" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ConfirmationUtils.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/utils/ConfirmationUtils.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="OperatorsPanel.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="98" column="10" lean-forward="false" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
-                  <folding>
-                    <element signature="docComment;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#addOperatorLabel#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#save#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="e#2859#2860#0" expanded="true" />
-                    <element signature="e#2931#2932#0" expanded="true" />
-                    <element signature="method#onLink#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#onLinkCanceled#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#canAdd#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#canDelete#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#paintComponent#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-                    <element signature="method#getTransferData#0;class#OperatorItemTransferable#0;class#OperatorsPanel#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Template.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="235">
-                  <caret line="25" column="40" lean-forward="false" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#addOperator#2;class#Template#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Link.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/model/Link.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="And.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/logique/And.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#321#322#0" expanded="false" />
-                    <element signature="e#340#341#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Porte.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/logique/Porte.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                    <element signature="e#254#255#0" expanded="false" />
-                    <element signature="e#298#299#0" expanded="false" />
-                    <element signature="e#345#346#0" expanded="false" />
-                    <element signature="e#382#383#0" expanded="false" />
-                    <element signature="e#439#440#0" expanded="false" />
-                    <element signature="e#481#482#0" expanded="false" />
-                    <element signature="e#527#528#0" expanded="false" />
-                    <element signature="e#562#563#0" expanded="false" />
-                    <element signature="e#595#596#0" expanded="false" />
-                    <element signature="e#632#633#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="OperatorLabel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="108" column="49" lean-forward="false" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+              <folding>
+                <element signature="docComment;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#setText#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#OperatorLabel#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#canBeName#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="class#5255:5712" expanded="false" />
+                <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
+                <element signature="class#5926:6503" expanded="false" />
+                <element signature="method#mousePressed#0;class#5926:6503" expanded="false" />
+                <element signature="method#mouseReleased#0;class#5926:6503" expanded="false" />
+                <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -226,20 +87,15 @@
         <option value="$PROJECT_DIR$/TP/src/logique/And.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/Or.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/Not.java" />
-        <option value="$PROJECT_DIR$/TP/src/logique/Entree.java" />
-        <option value="$PROJECT_DIR$/TP/src/logique/Sortie.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorTransferHandler.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorDTO.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/IO.java" />
-        <option value="$PROJECT_DIR$/TP/src/logique/Operator.java" />
         <option value="$PROJECT_DIR$/TP/src/view/Main.java" />
         <option value="$PROJECT_DIR$/TP/src/view/DnDTransferableTest.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
-        <option value="$PROJECT_DIR$/TP/src/logique/Porte.java" />
         <option value="$PROJECT_DIR$/TP/src/view/CustomDialog.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/MathUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/ErrorUtils.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/NameUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Pair.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Lien.java" />
@@ -250,6 +106,12 @@
         <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/ConfirmationUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
+        <option value="$PROJECT_DIR$/TP/src/logique/Porte.java" />
+        <option value="$PROJECT_DIR$/TP/src/logique/Entree.java" />
+        <option value="$PROJECT_DIR$/TP/src/logique/Sortie.java" />
+        <option value="$PROJECT_DIR$/TP/src/logique/LogiqueMain.java" />
+        <option value="$PROJECT_DIR$/TP/src/logique/Operator.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
       </list>
     </option>
   </component>
@@ -748,12 +610,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TP/src/logique/Porte.java</url>
-          <line>11</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java</url>
           <line>161</line>
           <properties />
@@ -771,8 +627,20 @@
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -781,26 +649,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/Porte.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#254#255#0" expanded="false" />
-            <element signature="e#298#299#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#382#383#0" expanded="false" />
-            <element signature="e#439#440#0" expanded="false" />
-            <element signature="e#481#482#0" expanded="false" />
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#632#633#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -814,13 +662,8 @@
             <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#3159:3405" expanded="false" />
-            <element signature="method#actionPerformed#0;class#3159:3405" expanded="false" />
-            <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="class#5255:5712" expanded="false" />
             <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
             <element signature="class#5926:6503" expanded="false" />
@@ -835,10 +678,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="26" selection-end-column="28" />
-          <folding>
-            <element signature="e#321#322#0" expanded="false" />
-            <element signature="e#340#341#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -915,7 +755,6 @@
         <state relative-caret-position="0">
           <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#getImage#0;class#Operator#0" expanded="false" />
           </folding>
         </state>
@@ -941,19 +780,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#254#255#0" expanded="false" />
-            <element signature="e#298#299#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#382#383#0" expanded="false" />
-            <element signature="e#439#440#0" expanded="false" />
-            <element signature="e#481#482#0" expanded="false" />
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#632#633#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -980,13 +807,8 @@
             <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#3159:3405" expanded="false" />
-            <element signature="method#actionPerformed#0;class#3159:3405" expanded="false" />
-            <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
             <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
             <element signature="class#5255:5712" expanded="false" />
             <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
             <element signature="class#5926:6503" expanded="false" />
@@ -1001,10 +823,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="26" selection-end-column="28" />
-          <folding>
-            <element signature="e#321#322#0" expanded="false" />
-            <element signature="e#340#341#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,33 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/Entree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/Sortie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/Operator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="48" lean-forward="false" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#getImage#0;class#Operator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorListPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1235,37 +1027,6 @@
         <state relative-caret-position="0">
           <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/And.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#321#322#0" expanded="false" />
-            <element signature="e#340#341#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/logique/Porte.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#254#255#0" expanded="false" />
-            <element signature="e#298#299#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#382#383#0" expanded="false" />
-            <element signature="e#439#440#0" expanded="false" />
-            <element signature="e#481#482#0" expanded="false" />
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#632#633#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,36 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding>
-            <element signature="docComment;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#setText#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#OperatorLabel#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#canBeName#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#3159:3405" expanded="false" />
-            <element signature="method#actionPerformed#0;class#3159:3405" expanded="false" />
-            <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="class#5255:5712" expanded="false" />
-            <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
-            <element signature="class#5926:6503" expanded="false" />
-            <element signature="method#mousePressed#0;class#5926:6503" expanded="false" />
-            <element signature="method#mouseReleased#0;class#5926:6503" expanded="false" />
-            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/utils/ConfirmationUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1415,7 +1146,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
+        <state relative-caret-position="392">
           <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
           <folding>
             <element signature="docComment;method#main#0;class#ApplicationFrame#0" expanded="false" />
@@ -1440,6 +1171,85 @@
             <element signature="method#closeWindow#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="class#9146:9359" expanded="false" />
             <element signature="method#onChoiceMade#0;class#9146:9359" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/And.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/Porte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="46" lean-forward="false" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/LogiqueMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/Sortie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/Entree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/logique/Operator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+          <folding>
+            <element signature="method#getImage#0;class#Operator#0" expanded="false" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1273#1274#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="108" column="49" lean-forward="false" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+          <folding>
+            <element signature="docComment;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#setText#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#OperatorLabel#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#canBeName#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#linkTo#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="class#5255:5712" expanded="false" />
+            <element signature="method#actionPerformed#0;class#5255:5712" expanded="false" />
+            <element signature="class#5926:6503" expanded="false" />
+            <element signature="method#mousePressed#0;class#5926:6503" expanded="false" />
+            <element signature="method#mouseReleased#0;class#5926:6503" expanded="false" />
+            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
           </folding>
         </state>
       </provider>

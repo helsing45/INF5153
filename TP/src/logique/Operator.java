@@ -5,8 +5,12 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Operator implements Transferable {
+
+	private List<Operator> entries, exits;
 	Boolean valeur;
 	private ImageIcon image;
 	DataFlavor dataFlavor = new DataFlavor(Operator.class,
@@ -17,6 +21,8 @@ public abstract class Operator implements Transferable {
 	public Operator() {
 		super();
 		this.valeur = null;
+		entries = new ArrayList<>();
+		exits = new ArrayList<>();
 	}
 
 	public ImageIcon getImage() {
@@ -28,10 +34,39 @@ public abstract class Operator implements Transferable {
 
 	public abstract String getName();
 
-	public abstract int getExitCount();
-	public abstract int getEntryCount();
-	public abstract Operator getEntry(int index);
-	public abstract Operator getExit(int index);
+	public void addEntry(int index, Operator operator) {
+		entries.add(index, operator);
+	}
+
+	public void addEntry(Operator operator) {
+		entries.add(operator);
+	}
+
+	public void addExit(int index, Operator operator) {
+		exits.add(index, operator);
+	}
+
+	public void addExit(Operator operator) {
+		exits.add(operator);
+	}
+
+	public int getExitCount() {
+		return exits.size();
+	}
+
+	public int getEntryCount() {
+		return entries.size();
+	}
+
+	public Operator getEntry(int index) {
+		if (index > getEntryCount()) return null;
+		return entries.get(index);
+	}
+
+	public Operator getExit(int index) {
+		if (index > getExitCount()) return null;
+		return exits.get(index);
+	}
 
 	public boolean getValeur() {
 		return valeur;
