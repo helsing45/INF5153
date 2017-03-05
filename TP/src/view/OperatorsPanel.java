@@ -124,6 +124,15 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         validate();
     }
 
+    public String[] getBooleanExpressions(){
+        ArrayList<OperatorLabel> exits = template.getExits();
+        String[] expressions = new String[exits.size()];
+        for (int index = 0; index < exits.size(); index++) {
+            expressions[index] = exits.get(index).getOperator().getBooleanExpression();
+        }
+        return expressions;
+    }
+
     @Override
     public void onLink(OperatorLabel operatorLabel) {
         if (first == null) {

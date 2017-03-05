@@ -35,6 +35,10 @@ public abstract class Operator implements Transferable {
 	public abstract String getName();
 
 	public void addEntry(int index, Operator operator) {
+		if(index <= getEntryCount()){
+			entries.set(index,operator);
+			return;
+		}
 		entries.add(index, operator);
 	}
 
@@ -43,6 +47,10 @@ public abstract class Operator implements Transferable {
 	}
 
 	public void addExit(int index, Operator operator) {
+		if(index <= getExitCount()){
+			exits.set(index,operator);
+			return;
+		}
 		exits.add(index, operator);
 	}
 
@@ -71,6 +79,8 @@ public abstract class Operator implements Transferable {
 	public boolean getValeur() {
 		return valeur;
 	}
+
+	public abstract String getBooleanExpression();
 
 	@Override
 	public String toString() {

@@ -7,6 +7,14 @@ public class Sortie extends Operator {
 		return getEntry(0).getValeur();
 	}
 
+	@Override
+	public String getBooleanExpression() {
+		if(getEntryCount() > 0){
+			return getEntry(0).getBooleanExpression();
+		}
+		return "N/D";
+	}
+
 	public Sortie() {
 		super();
 		addEntry(null);
@@ -19,6 +27,9 @@ public class Sortie extends Operator {
 
 	@Override
 	public void calculer() {
+		if(getEntry(0) != null){
+
+		}
 		// TODO Auto-generated method stub
 	}
 

@@ -141,6 +141,18 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
         save.add(saveAsXML);
         menuFichier.add(save);
 
+        JMenuItem calculate = new JMenuItem("Get expression");
+        calculate.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String[] expression = rightSidePanel.getBooleanExpressions();
+                for (String s : expression) {
+                    System.out.println(s);
+                }
+            }
+        });
+        menuFichier.add(calculate);
+
         JMenuItem close = new JMenuItem("Fermer");
         close.addActionListener(new AbstractAction() {
             @Override

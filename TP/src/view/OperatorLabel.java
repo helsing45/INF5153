@@ -30,11 +30,14 @@ public class OperatorLabel extends JLabel {
 
     @Override
     public void setText(String text) {
-        if (operator instanceof Sortie || operator instanceof Entree){
-            if(NameUtils.isNameAvailable(text)) {
+        if (operator instanceof Sortie || operator instanceof Entree) {
+            if (NameUtils.isNameAvailable(text)) {
+                if (operator instanceof Entree) {
+                    ((Entree) operator).setVariable(text);
+                }
                 NameUtils.reserveName(text);
                 super.setText(text);
-            }else {
+            } else {
                 showError("Nom déjà prit.");
             }
         }
@@ -69,9 +72,11 @@ public class OperatorLabel extends JLabel {
 
     public void linkTo(OperatorLabel operator) {
         if (selectedPort.startsWith(PORT_ENTRY)) {
+            getOperator().addEntry(Integer.parseInt(selectedPort.substring(1)), operator.getOperator());
             entries[Integer.parseInt(selectedPort.substring(1))] = operator;
         }
         if (selectedPort.startsWith(PORT_EXITS)) {
+            getOperator().addExit(Integer.parseInt(selectedPort.substring(1)), operator.getOperator());
             exits[Integer.parseInt(selectedPort.substring(1))] = operator;
         }
         deselect();
