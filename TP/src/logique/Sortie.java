@@ -1,7 +1,7 @@
 package logique;
 
-public class Sortie extends IO {
-	IO entree;
+public class Sortie extends Operator {
+	Operator entree;
 	
 	@Override
 	public boolean getValeur() {
@@ -12,7 +12,7 @@ public class Sortie extends IO {
 		super();
 	}
 
-	public Sortie(IO entree) {
+	public Sortie(Operator entree) {
 		super();
 		this.entree = entree;
 	}
@@ -26,5 +26,26 @@ public class Sortie extends IO {
 	@Override
 	public String getName() {
 		return "end";
+	}
+
+	@Override
+	public int getExitCount() {
+		return 0;
+	}
+
+	@Override
+	public int getEntryCount() {
+		return 1;
+	}
+
+	@Override
+	public Operator getEntry(int index) {
+		if(index != 0)return null;
+		return entree;
+	}
+
+	@Override
+	public Operator getExit(int index) {
+		return null;
 	}
 }

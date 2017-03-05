@@ -1,17 +1,19 @@
 package logique;
 
 public class And extends Porte {
-	IO entree1;
-	IO entree2;
 
 	public And() {
 		super();
+		addEntry(null);
+		addEntry(null);
+		addExit(null);
 	}
 
 	@Override
 	public void calculer() {
-		this.valeur = entree1.getValeur() && entree2.getValeur();
-
+		for (int index = 0; index < getExitCount(); index++) {
+			this.valeur &= getEntry(index).getValeur();
+		}
 	}
 
 	@Override
@@ -19,10 +21,10 @@ public class And extends Porte {
 		return "AND";
 	}
 
-	public And(IO entree1, IO entree2) {
+	public And(Operator entree1, Operator entree2) {
 		super();
-		this.entree1 = entree1;
-		this.entree2 = entree2;
+		addEntry(0,entree1);
+		addEntry(1,entree2);
 	}
 
 }

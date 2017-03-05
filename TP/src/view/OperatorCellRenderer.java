@@ -1,6 +1,6 @@
 package view;
 
-import logique.IO;
+import logique.Operator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +15,7 @@ class OperatorCellRenderer extends JLabel implements ListCellRenderer {
 
 	@Override
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,boolean cellHasFocus) {
-		IO entry = (IO) value;
+		Operator entry = (Operator) value;
 		setText(entry.getName());
 		setIcon(entry.getImage());
 		if (isSelected) {

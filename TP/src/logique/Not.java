@@ -1,20 +1,21 @@
 package logique;
 
 public class Not extends Porte {
-	IO entree;
 
 	public Not() {
 		super();
+		addEntry(null);
+		addExit(null);
 	}
 
-	public Not(IO entree) {
+	public Not(Operator entree) {
 		super();
-		this.entree = entree;
+		addEntry(entree);
 	}
 	
 	@Override
 	public void calculer() {
-		this.valeur = !entree.getValeur();
+		this.valeur = !getEntry(0).getValeur();
 	}
 
 	@Override
