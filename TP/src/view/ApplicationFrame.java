@@ -2,16 +2,14 @@ package view;
 
 import logique.*;
 import model.Template;
+import utils.ConfirmationUtils;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
 public class ApplicationFrame {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
@@ -51,7 +49,6 @@ public class ApplicationFrame {
         initialize();
     }
 
-
     /**
      * Initialize the contents of the frame.
      */
@@ -60,6 +57,13 @@ public class ApplicationFrame {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent we) {
+               closeWindow();
+            }
+        });
 
         windowRect = frame.getBounds();
         sidePanelWidth = (int) (windowRect.getWidth() * SIDE_PANEL_WIDTH_RATIO);
@@ -84,21 +88,37 @@ public class ApplicationFrame {
         open.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+                ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+                    @Override
+                    public void onChoiceMade(boolean asConfirm) {
+                        if (asConfirm) {
+                            JFileChooser chooser = new JFileChooser();
+                            chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
 
-                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                    rightSidePanel.load(chooser.getSelectedFile());
-                    System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
-                    System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
-                } else {
-                    System.out.println("No Selection ");
-                }
+                            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                                rightSidePanel.load(chooser.getSelectedFile());
+                            }
+                        }
+                    }
+                });
             }
         });
         menuFichier.add(open);
 
         JMenuItem newSystem = new JMenuItem("Nouveau System");
+        newSystem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+                    @Override
+                    public void onChoiceMade(boolean asConfirm) {
+                        if (asConfirm) {
+                            rightSidePanel.load(Template.getDefaultTemplate());
+                        }
+                    }
+                });
+            }
+        });
         menuFichier.add(newSystem);
 
         JMenu save = new JMenu("Sauvegarder");
@@ -126,6 +146,12 @@ public class ApplicationFrame {
         menuFichier.add(save);
 
         JMenuItem close = new JMenuItem("Fermer");
+        close.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                closeWindow();
+            }
+        });
         menuFichier.add(close);
 
         menuBar.add(menuFichier);
@@ -198,6 +224,15 @@ public class ApplicationFrame {
         return operators;
     }
 
+    private void closeWindow(){
+        ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+            @Override
+            public void onChoiceMade(boolean asConfirm) {
+                if (asConfirm)
+                    System.exit(0);
+            }
+        });
+    }
 }
 
 
