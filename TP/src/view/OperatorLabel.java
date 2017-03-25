@@ -1,8 +1,6 @@
 package view;
 
-import logique.Entree;
-import logique.Operator;
-import logique.Sortie;
+import model.OperatorDTO;
 import utils.ErrorUtils;
 import utils.NameUtils;
 
@@ -23,44 +21,32 @@ public class OperatorLabel extends JLabel {
     private JPopupMenu menu;
     private Listener listener;
     private String selectedPort;
-    private Operator operator;
     private OperatorLabel[] entries, exits;
 
+    private OperatorDTO operator;
     private int leftOffset, rightOffset, topOffset, bottomOffset;
 
     @Override
     public void setText(String text) {
-        if (operator instanceof Sortie || operator instanceof Entree) {
+        if (operator != null && operator.canBeName()) {
             if (NameUtils.isNameAvailable(text)) {
-                if (operator instanceof Entree) {
-                    ((Entree) operator).setVariable(text);
-                }
                 NameUtils.reserveName(text);
                 super.setText(text);
             } else {
                 showError("Nom déjà prit.");
             }
         }
-
     }
 
-    public OperatorLabel(Operator operator) {
-        super(new ImageIcon(ApplicationFrame.class.getResource("/images/" + operator.getName() + ".png")));
+    public OperatorLabel(OperatorDTO operator) {
+        super(operator.getImage());
         id = UUID.randomUUID().toString();
+        this.operator = operator;
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
-        this.operator = operator;
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
         exits = new OperatorLabel[operator.getExitCount()];
-    }
-
-    public Operator getOperator() {
-        return operator;
-    }
-
-    private boolean canBeName() {
-        return operator != null && (operator instanceof Entree || operator instanceof Sortie);
     }
 
     public void initialize(Point location) {
@@ -68,18 +54,6 @@ public class OperatorLabel extends JLabel {
         setSize(80, 70);
         addMouseListener(clickListener);
         addMouseMotionListener(motionListener);
-    }
-
-    public void linkTo(OperatorLabel operator) {
-        if (selectedPort.startsWith(PORT_ENTRY)) {
-            getOperator().addEntry(Integer.parseInt(selectedPort.substring(1)), operator.getOperator());
-            entries[Integer.parseInt(selectedPort.substring(1))] = operator;
-        }
-        if (selectedPort.startsWith(PORT_EXITS)) {
-            getOperator().addExit(Integer.parseInt(selectedPort.substring(1)), operator.getOperator());
-            exits[Integer.parseInt(selectedPort.substring(1))] = operator;
-        }
-        deselect();
     }
 
     public void deselect() {
@@ -166,7 +140,7 @@ public class OperatorLabel extends JLabel {
 
     private JPopupMenu getPopupMenu() {
         JPopupMenu menu = new JPopupMenu("Popup");
-        if (canBeName()) {
+        if (operator.canBeName()) {
             menu.add(getNameMenuItem());
         }
         if (selectedPort == null) {
@@ -185,6 +159,10 @@ public class OperatorLabel extends JLabel {
         menu.add(deleteMenu);
 
         return menu;
+    }
+
+    public OperatorDTO getOperator(){
+        return operator;
     }
 
     private void showError(String error) {

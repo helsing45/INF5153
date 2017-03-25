@@ -1,22 +1,22 @@
 package view;
 
-import logique.Operator;
+import model.OperatorDTO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
 
-import static view.OperatorsPanel.OperatorItemTransferable.*;
+import static view.OperatorsPanel.OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR;
 
 public class OperatorListPanel extends JPanel {
 
     private JList operatorList;
 
-    public OperatorListPanel(Operator... Operators) {
+    public OperatorListPanel(OperatorDTO... operators) {
         setLayout(new BorderLayout());
 
-        operatorList = new JList(Operators);
+        operatorList = new JList(operators);
         operatorList.setTransferHandler(new ListTransferHandler());
         operatorList.setDropMode(DropMode.INSERT);
         operatorList.setDragEnabled(true);
@@ -40,10 +40,10 @@ public class OperatorListPanel extends JPanel {
                 try {
                     Transferable t = support.getTransferable();
                     Object value = t.getTransferData(LIST_ITEM_DATA_FLAVOR);
-                    if (value instanceof Operator) {
+                    if (value instanceof OperatorDTO) {
                         Component component = support.getComponent();
                         if (component instanceof JLabel) {
-                            ((JLabel) component).setText(((Operator) value).getName());
+                            ((JLabel) component).setText(((OperatorDTO) value).getName());
                             accept = true;
                         }
                     }
@@ -64,8 +64,8 @@ public class OperatorListPanel extends JPanel {
             if (c instanceof JList) {
                 JList list = (JList) c;
                 Object value = list.getSelectedValue();
-                if (value instanceof Operator) {
-                    Operator li = (Operator) value;
+                if (value instanceof OperatorDTO) {
+                    OperatorDTO li = (OperatorDTO) value;
                     t = new OperatorsPanel.OperatorItemTransferable(li);
                 }
             }

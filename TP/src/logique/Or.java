@@ -25,11 +25,6 @@ public class Or extends Porte {
     }
 
     @Override
-    public String getName() {
-        return "OR";
-    }
-
-    @Override
     public String getBooleanExpression() {
         String booleanExpression = "";
         for (int index = 0; index < getEntryCount(); index++) {

@@ -1,6 +1,6 @@
 package view;
 
-import logique.*;
+import model.OperatorDTO;
 import model.Template;
 import utils.ConfirmationUtils;
 
@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
+public class ApplicationFrame {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
     private final static Double SIDE_PANEL_WIDTH_RATIO = 0.33;
     private final static int MENU_BAR_HEIGHT = 30;
@@ -141,18 +141,6 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
         save.add(saveAsXML);
         menuFichier.add(save);
 
-        JMenuItem calculate = new JMenuItem("Get expression");
-        calculate.addActionListener(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String[] expression = rightSidePanel.getBooleanExpressions();
-                for (String s : expression) {
-                    System.out.println(s);
-                }
-            }
-        });
-        menuFichier.add(calculate);
-
         JMenuItem close = new JMenuItem("Fermer");
         close.addActionListener(new AbstractAction() {
             @Override
@@ -192,7 +180,6 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
         rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
         rightSidePanel.setBackground(Color.GRAY);
-        rightSidePanel.setListener(this);
         rightSidePanel.load(Template.getDefaultTemplate());
         frame.getContentPane().add(rightSidePanel);
     }
@@ -206,9 +193,14 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
         frame.getContentPane().add(leftSidePanel);
     }
 
-    private Operator[] getAllIO() {
-        Operator[] operators = new Operator[]{new Entree(), new Sortie(), new And(), new Or(), new Not()};
-        return operators;
+    public OperatorDTO[] getAllIO(){
+        return new OperatorDTO[]{
+                OperatorDTO.getEntryDTO(),
+                OperatorDTO.getExitDTO(),
+                new OperatorDTO("And").setFileName("and.png").setEntryCount(2).setExitsCount(1),
+                new OperatorDTO("Or").setFileName("or.png").setEntryCount(2).setExitsCount(1),
+                new OperatorDTO("Not").setFileName("not.png").setEntryCount(1).setExitsCount(1)
+        };
     }
 
     private void closeWindow() {
@@ -219,12 +211,6 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
                     System.exit(0);
             }
         });
-    }
-
-    @Override
-    public void entriesChanged(String... entries) {
-        if (bottomPanel != null)
-            bottomPanel.load(entries);
     }
 }
 

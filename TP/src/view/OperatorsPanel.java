@@ -1,9 +1,7 @@
 package view;
 
-import logique.Entree;
-import logique.Operator;
-import logique.Sortie;
 import model.Link;
+import model.OperatorDTO;
 import model.Template;
 import utils.ErrorUtils;
 import utils.NameUtils;
@@ -16,8 +14,14 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static model.OperatorDTO.ENTRY;
+import static model.OperatorDTO.EXIT;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
@@ -27,12 +31,11 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     private Template template;
     private int entriesCount, exitsCount, inputCount;
     private OperatorLabel first, second;
-    private TemplateChangeListener listener;
 
     DropTarget dropTarget = new DropTarget() {
         public void drop(DropTargetDropEvent dtde) {
             try {
-                addOperatorLabel(new OperatorLabel((Operator) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR)), dtde.getLocation());
+                addOperatorLabel(new OperatorLabel((OperatorDTO) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR)), dtde.getLocation());
                 validate();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -53,13 +56,11 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             add(operatorLabel);
             template.addOperator(operatorLabel, position);
             inputCount++;
-            entriesCount += operatorLabel.getOperator() instanceof Entree ? 1 : 0;
-            exitsCount += operatorLabel.getOperator() instanceof Sortie ? 1 : 0;
-            if (operatorLabel.getOperator() instanceof Entree && listener != null) {
-                listener.entriesChanged(getEntriesName(template.getEntries()));
-            }
+            entriesCount += operatorLabel.getOperator().getName().equals(ENTRY) ? 1 : 0;
+            exitsCount += operatorLabel.getOperator().getName().equals(EXIT) ? 1 : 0;
+
             operatorLabel.initialize(position);
-            operatorLabel.setText((operatorLabel.getOperator() instanceof Sortie ? "S" : "E") + (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount));
+            operatorLabel.setText((operatorLabel.getOperator().getName().equals(EXIT) ? "S" : "E") + (operatorLabel.getOperator().getName().equals(EXIT) ? exitsCount : entriesCount));
             operatorLabel.setLeftOffset((int) getBounds().getX());
             operatorLabel.setTopOffset((int) getBounds().getY());
             operatorLabel.setListener(this);
@@ -72,10 +73,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         super(null);
         this.template = new Template();
         setDropTarget(dropTarget);
-    }
-
-    public void setListener(TemplateChangeListener listener) {
-        this.listener = listener;
     }
 
     public void save(File filePath) {
@@ -124,15 +121,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         validate();
     }
 
-    public String[] getBooleanExpressions(){
-        ArrayList<OperatorLabel> exits = template.getExits();
-        String[] expressions = new String[exits.size()];
-        for (int index = 0; index < exits.size(); index++) {
-            expressions[index] = exits.get(index).getOperator().getBooleanExpression();
-        }
-        return expressions;
-    }
-
     @Override
     public void onLink(OperatorLabel operatorLabel) {
         if (first == null) {
@@ -161,23 +149,23 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     }
 
     public boolean canAdd(OperatorLabel operatorLabel) {
-        return inputCount < 50 && (!(operatorLabel.getOperator() instanceof Sortie || operatorLabel.getOperator() instanceof Entree) || (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount) < 5);
+        return true; //TODO refaire la validation dans le controleur
+        //return inputCount < 50 && (!(operatorLabel.getOperator() instanceof Sortie || operatorLabel.getOperator() instanceof Entree) || (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount) < 5);
     }
 
     public boolean canDelete(OperatorLabel label) {
-        return label.getOperator() instanceof Entree && entriesCount > 1 || label.getOperator() instanceof Sortie && exitsCount > 1;
+        return true; //TODO refaire la validation dans le controleur
+        //return label.getOperator() instanceof Entree && entriesCount > 1 || label.getOperator() instanceof Sortie && exitsCount > 1;
     }
 
     @Override
     public void delete(OperatorLabel label) {
         if (canDelete(label)) {
-            entriesCount += label.getOperator() instanceof Entree ? -1 : 0;
-            exitsCount += label.getOperator() instanceof Sortie ? -1 : 0;
+            //TODO refaire le decompte
+            //entriesCount += label.getOperator() instanceof Entree ? -1 : 0;
+            //exitsCount += label.getOperator() instanceof Sortie ? -1 : 0;
             template.remove(label);
             NameUtils.removeReservation(label.getText());
-            if(listener != null){
-                listener.entriesChanged(getEntriesName(template.getEntries()));
-            }
             remove(label);
             validate();
             repaint();
@@ -209,11 +197,11 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
 
     public static class OperatorItemTransferable implements Transferable {
 
-        public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(Operator.class, "java/Operator");
+        public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(OperatorDTO.class, "java/OperatorDTO");
 
-        private Operator operator;
+        private OperatorDTO operator;
 
-        public OperatorItemTransferable(Operator operator) {
+        public OperatorItemTransferable(OperatorDTO operator) {
             this.operator = operator;
         }
 
@@ -231,9 +219,5 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
             return operator;
         }
-    }
-
-    public interface TemplateChangeListener {
-        void entriesChanged(String... entries);
     }
 }

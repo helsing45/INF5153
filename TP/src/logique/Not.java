@@ -21,11 +21,6 @@ public class Not extends Porte {
     }
 
     @Override
-    public String getName() {
-        return "NOT";
-    }
-
-    @Override
     public String getBooleanExpression() {
         return getEntry(0).getBooleanExpression() + BooleanExpressionUtils.NOT;
     }
