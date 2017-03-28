@@ -18,11 +18,6 @@ public class Entree extends Operator {
     }
 
     @Override
-    public String getName() {
-        return "entry";
-    }
-
-    @Override
     public String getBooleanExpression() {
         return getVariable();
     }
