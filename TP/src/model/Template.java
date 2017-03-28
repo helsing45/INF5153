@@ -11,7 +11,7 @@ import java.util.HashMap;
  * Created by j-c9 on 2017-03-04.
  */
 @XStreamAlias("template")
-public class Template {
+public class Template extends BaseModel {
 
     private HashMap<OperatorLabel, Point> operators;
     private ArrayList<Link> links;

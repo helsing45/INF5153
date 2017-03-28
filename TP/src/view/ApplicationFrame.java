@@ -1,5 +1,7 @@
 package view;
 
+import controler.BaseController;
+import model.Observer;
 import model.OperatorDTO;
 import model.Template;
 import utils.ConfirmationUtils;
@@ -9,22 +11,23 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ApplicationFrame {
+public class ApplicationFrame implements Observer{
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
     private final static Double SIDE_PANEL_WIDTH_RATIO = 0.33;
     private final static int MENU_BAR_HEIGHT = 30;
 
-    private JFrame frame;
+    public JFrame frame;
     private Rectangle windowRect;
     private int bottomPanelHeight;
     private int sidePanelWidth;
     private OperatorListPanel leftSidePanel;
     private OperatorsPanel rightSidePanel;
     private TruthTablePanel bottomPanel;
+    private BaseController controller;
 
     /**
      * Launch the application.
-     */
+     *//*
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -36,12 +39,13 @@ public class ApplicationFrame {
                 }
             }
         });
-    }
+    }*/
 
     /**
      * Create the application.
      */
-    public ApplicationFrame() {
+    public ApplicationFrame(BaseController controller) {
+        this.controller = controller;
         initialize();
     }
 
@@ -211,6 +215,11 @@ public class ApplicationFrame {
                     System.exit(0);
             }
         });
+    }
+
+    @Override
+    public void update(String str) {
+
     }
 }
 
