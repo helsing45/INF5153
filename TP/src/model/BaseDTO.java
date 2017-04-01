@@ -33,6 +33,10 @@ public abstract class BaseDTO implements Transferable, Cloneable {
         id = UUID.randomUUID().toString();
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

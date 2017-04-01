@@ -5,6 +5,7 @@ import model.OperatorDTO;
 import model.Template;
 import utils.ConfirmationUtils;
 import utils.XmlUtils;
+import view.OperatorLabel;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -27,23 +28,10 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     }
 
     @Override
-    public ArrayList<Line> getLines() {
-        ArrayList<Line> lines = new ArrayList<>();
-        for (Link pair : getModel().getLinks()) {
-            JLabel label1 = pair.getLabel1();
-            JLabel label2 = pair.getLabel2();
-            Point point1 = label1.getLocation();
-            Point point2 = label2.getLocation();
-            int i = pair.howToDraw();
-            if (i == 1) {
-                lines.add(new Line(point1.x, point1.y + label1.getHeight() / 2, point2.x + label2.getWidth(), point2.y + label2.getHeight() / 2));
-            } else if (i == 2) {
-                lines.add(new Line(point2.x, point2.y + label2.getHeight() / 2, point1.x + label1.getWidth(), point1.y + label1.getHeight() / 2));
-            } else if (i == 3) {
-                lines.add(new Line(point1.x + label1.getWidth() / 2, point1.y, point2.x + label2.getWidth() / 2, point2.y + label2.getHeight()));
-            } else if (i == 4) {
-                lines.add(new Line(point2.x + label2.getWidth() / 2, point2.y, point1.x + label1.getWidth() / 2, point1.y + label1.getHeight()));
-            }
+    public ArrayList<Link.Line> getLines() {
+        ArrayList<Link.Line> lines = new ArrayList<>();
+        for (Link link : getModel().getLinks()) {
+            lines.add(link.getLine());
         }
         return lines;
     }
@@ -169,8 +157,8 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         return false;
     }
 
-    public void link() {
-
+    public void addLink(OperatorLabel ol1, OperatorLabel ol2) {
+        getModel().addLink(ol1, ol2);
     }
 
     protected boolean canAdd(OperatorDTO baseDTO) {

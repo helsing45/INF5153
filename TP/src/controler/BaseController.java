@@ -1,6 +1,7 @@
 package controler;
 
 import model.BaseModel;
+import model.Link;
 import view.OperatorLabel;
 
 import java.awt.*;
@@ -23,7 +24,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
         return 50;
     }
 
-    public abstract ArrayList<Line> getLines();
+    public abstract ArrayList<Link.Line> getLines();
 
     public abstract void undo();
     public abstract void redo();
@@ -47,6 +48,8 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
 
     public abstract HashMap<component,Point> getComponentsPosition();
 
+    public abstract void addLink(OperatorLabel ol1, OperatorLabel ol2);
+
     /**
      * Method to add a component to the model.
      *
@@ -65,30 +68,5 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
      */
     protected abstract boolean canAdd(component t);
 
-    public class Line {
-        int x1, y1, x2, y2;
 
-        public Line(int x1, int y1, int x2, int y2) {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
-        }
-
-        public int getX1() {
-            return x1;
-        }
-
-        public int getY1() {
-            return y1;
-        }
-
-        public int getX2() {
-            return x2;
-        }
-
-        public int getY2() {
-            return y2;
-        }
-    }
 }
