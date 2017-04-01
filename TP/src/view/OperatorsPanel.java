@@ -3,6 +3,7 @@ package view;
 import controler.BaseController;
 import model.BaseDTO;
 import model.BaseModel;
+import model.Link;
 import utils.ErrorUtils;
 import utils.NameUtils;
 
@@ -65,8 +66,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
             first = operatorLabel;
         } else {
             second = operatorLabel;
-            //TODO link with controller
-            //template.addLink(first, second);
+            controller.addLink(first, second);
 
             first.deselect();
             second.deselect();
@@ -114,7 +114,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (BaseController.Line line : controller.getLines()) {
+        for (Link.Line line : controller.getLines()) {
             g.drawLine(line.getX1(), line.getY1(), line.getX2(), line.getX2());
         }
     }
