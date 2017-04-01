@@ -11,16 +11,16 @@ import java.util.HashMap;
  * Created by j-c9 on 2017-03-04.
  */
 @XStreamAlias("template")
-public class Template extends BaseModel {
+public class Template extends BaseModel<BaseDTO> {
 
-    private HashMap<OperatorLabel, Point> operators;
+    private HashMap<BaseDTO, Point> operators;
     private ArrayList<Link> links;
 
     public static Template getDefaultTemplate() {
         Template template = new Template();
-        template.addOperator(OperatorDTO.getEntryDTO(), 50, 50);
-        template.addOperator(OperatorDTO.getEntryDTO(), 50, 250);
-        template.addOperator(OperatorDTO.getExitDTO(), 450, 150);
+        template.addComponent(BaseDTO.getEntryDTO(), 50, 50);
+        template.addComponent(BaseDTO.getEntryDTO(), 50, 250);
+        template.addComponent(BaseDTO.getExitDTO(), 450, 150);
         return template;
     }
 
@@ -29,32 +29,40 @@ public class Template extends BaseModel {
         links = new ArrayList<>();
     }
 
-    public HashMap<OperatorLabel, Point> getOperators() {
+    public HashMap<BaseDTO, Point> getOperators() {
         return operators;
     }
 
-    public void remove(OperatorLabel operatorLabel){
+    public void remove(OperatorLabel operatorLabel) {
         operators.remove(operatorLabel);
     }
 
-    public void addOperator(OperatorLabel operatorLabel, Point location) {
-        operators.put(operatorLabel, location);
-    }
-
-    public void addOperator(OperatorDTO operator, Point location) {
-        addOperator(new OperatorLabel(operator), location);
-    }
-
-    public void addOperator(OperatorDTO operator, int X, int Y) {
-        addOperator(new OperatorLabel(operator), new Point(X, Y));
-    }
-
-    public Point getLocationOf(OperatorLabel operatorLabel) {
+    public Point getLocationOf(BaseDTO operatorLabel) {
         return operators.get(operatorLabel);
     }
 
     public ArrayList<Link> getLinks() {
         return links;
+    }
+
+    @Override
+    public void update(BaseModel newModel) {
+        if (newModel instanceof Template) {
+            this.operators = ((Template) newModel).operators;
+            this.links = ((Template) newModel).links;
+            notifyObserver();
+        }
+    }
+
+    @Override
+    public void reset() {
+        update(getDefaultTemplate());
+    }
+
+    @Override
+    public void addComponent(BaseDTO label, Point position) {
+        operators.put(label, position);
+        notifyObserver();
     }
 
     public void addLink(OperatorLabel first, OperatorLabel second) {

@@ -1,18 +1,17 @@
 package view;
 
-import model.OperatorDTO;
+import model.BaseDTO;
 import utils.ErrorUtils;
 import utils.NameUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.UUID;
 
 /**
  * Created by j-c9 on 2017-02-18.
  */
-public class OperatorLabel extends JLabel {
+public class OperatorLabel<T extends BaseDTO> extends JLabel {
     public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
 
     private String id;
@@ -23,7 +22,7 @@ public class OperatorLabel extends JLabel {
     private String selectedPort;
     private OperatorLabel[] entries, exits;
 
-    private OperatorDTO operator;
+    private BaseDTO operator;
     private int leftOffset, rightOffset, topOffset, bottomOffset;
 
     @Override
@@ -38,15 +37,22 @@ public class OperatorLabel extends JLabel {
         }
     }
 
-    public OperatorLabel(OperatorDTO operator) {
+    public OperatorLabel(T operator) {
         super(operator.getImage());
-        id = UUID.randomUUID().toString();
         this.operator = operator;
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
+        setLeftOffset((int) operator.getBound().getX());
+        setTopOffset((int) operator.getBound().getY());
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
         exits = new OperatorLabel[operator.getExitCount()];
+    }
+
+    public OperatorLabel(T operator, Point position, Listener listener) {
+        this(operator);
+        initialize(position);
+        setListener(listener);
     }
 
     public void initialize(Point location) {
@@ -161,7 +167,7 @@ public class OperatorLabel extends JLabel {
         return menu;
     }
 
-    public OperatorDTO getOperator(){
+    public BaseDTO getOperator() {
         return operator;
     }
 

@@ -1,26 +1,34 @@
 package model;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
  * Created by j-c9 on 2017-03-27.
  */
-public abstract class BaseModel {
+public abstract class BaseModel<T extends BaseDTO> {
     private ArrayList<Observer> listObserver = new ArrayList<>();
 
     public void addObserver(Observer obs) {
         this.listObserver.add(obs);
     }
 
-    public void notifyObserver(String str) {
-        if (str.matches("^0[0-9]+"))
-            str = str.substring(1, str.length());
-
+    public void notifyObserver(){
         for (Observer obs : listObserver)
-            obs.update(str);
+            obs.refreshTemplate();
     }
 
     public void removeObserver() {
-        listObserver = new ArrayList<Observer>();
+        listObserver = new ArrayList<>();
+    }
+
+    public abstract ArrayList<Link> getLinks();
+
+    public abstract void update(BaseModel newModel);
+    public abstract void reset();
+
+    public abstract void addComponent(T lbl, Point position);
+    public void addComponent(T lbl, int X, int Y){
+        addComponent(lbl,new Point(X,Y));
     }
 }

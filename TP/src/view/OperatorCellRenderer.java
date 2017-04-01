@@ -1,6 +1,6 @@
 package view;
 
-import model.OperatorDTO;
+import model.BaseDTO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +15,8 @@ class OperatorCellRenderer extends JLabel implements ListCellRenderer {
 
 	@Override
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,boolean cellHasFocus) {
-		OperatorDTO entry = (OperatorDTO) value;
-		setText(entry.getName());
+		BaseDTO entry = (BaseDTO) value;
+		setText(entry.getValue());
 		setIcon(entry.getImage());
 		if (isSelected) {
 			setBackground(HIGHLIGHT_COLOR);

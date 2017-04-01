@@ -1,19 +1,20 @@
 package view;
 
-import model.OperatorDTO;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Component;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
 
 import static view.OperatorsPanel.OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR;
 
-public class OperatorListPanel extends JPanel {
+public class OperatorListPanel<T extends Transferable> extends JPanel {
 
     private JList operatorList;
 
-    public OperatorListPanel(OperatorDTO... operators) {
+    public OperatorListPanel(BaseDTO... operators) {
         setLayout(new BorderLayout());
 
         operatorList = new JList(operators);
@@ -40,10 +41,10 @@ public class OperatorListPanel extends JPanel {
                 try {
                     Transferable t = support.getTransferable();
                     Object value = t.getTransferData(LIST_ITEM_DATA_FLAVOR);
-                    if (value instanceof OperatorDTO) {
+                    if (value instanceof BaseDTO) {
                         Component component = support.getComponent();
                         if (component instanceof JLabel) {
-                            ((JLabel) component).setText(((OperatorDTO) value).getName());
+                            ((JLabel) component).setText(((BaseDTO) value).getValue());
                             accept = true;
                         }
                     }
@@ -64,8 +65,8 @@ public class OperatorListPanel extends JPanel {
             if (c instanceof JList) {
                 JList list = (JList) c;
                 Object value = list.getSelectedValue();
-                if (value instanceof OperatorDTO) {
-                    OperatorDTO li = (OperatorDTO) value;
+                if (value instanceof BaseDTO) {
+                    BaseDTO li = (BaseDTO) value;
                     t = new OperatorsPanel.OperatorItemTransferable(li);
                 }
             }

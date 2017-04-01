@@ -1,11 +1,10 @@
 package view;
 
-import model.Link;
-import model.OperatorDTO;
-import model.Template;
+import controler.BaseController;
+import model.BaseDTO;
+import model.BaseModel;
 import utils.ErrorUtils;
 import utils.NameUtils;
-import utils.XmlUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,34 +13,35 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static model.OperatorDTO.ENTRY;
-import static model.OperatorDTO.EXIT;
+import java.util.HashMap;
 
 /**
  * Created by Jean-Christophe D on 2017-02-26.
  */
-public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
+public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>> extends JPanel implements OperatorLabel.Listener {
 
-    private Template template;
-    private int entriesCount, exitsCount, inputCount;
+    //private Template template;
     private OperatorLabel first, second;
+    private BaseController<T, genericModel> controller;
 
     DropTarget dropTarget = new DropTarget() {
         public void drop(DropTargetDropEvent dtde) {
             try {
-                addOperatorLabel(new OperatorLabel((OperatorDTO) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR)), dtde.getLocation());
+                addComponent((T) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR), dtde.getLocation());
                 validate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     };
+
+    public OperatorsPanel(BaseController<T, genericModel> controller) {
+        super(null);
+        this.controller = controller;
+        setDropTarget(dropTarget);
+    }
 
     private String[] getEntriesName(ArrayList<OperatorLabel> operators) {
         String[] names = new String[operators.size()];
@@ -51,74 +51,12 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         return names;
     }
 
-    private void addOperatorLabel(OperatorLabel operatorLabel, Point position) {
-        if (canAdd(operatorLabel)) {
-            add(operatorLabel);
-            template.addOperator(operatorLabel, position);
-            inputCount++;
-            entriesCount += operatorLabel.getOperator().getName().equals(ENTRY) ? 1 : 0;
-            exitsCount += operatorLabel.getOperator().getName().equals(EXIT) ? 1 : 0;
-
-            operatorLabel.initialize(position);
-            operatorLabel.setText((operatorLabel.getOperator().getName().equals(EXIT) ? "S" : "E") + (operatorLabel.getOperator().getName().equals(EXIT) ? exitsCount : entriesCount));
-            operatorLabel.setLeftOffset((int) getBounds().getX());
-            operatorLabel.setTopOffset((int) getBounds().getY());
-            operatorLabel.setListener(this);
-        } else {
+    public void addComponent(T component, Point position) {
+        T copyOfComponent = (T) component.clone();
+        copyOfComponent.setBound(getBounds());
+        if (!controller.addComponent(copyOfComponent, position)) {
             ErrorUtils.showError(OperatorsPanel.this, "Impossible d'ajouter");
         }
-    }
-
-    public OperatorsPanel() {
-        super(null);
-        this.template = new Template();
-        setDropTarget(dropTarget);
-    }
-
-    public void save(File filePath) {
-
-        BufferedWriter bw = null;
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(filePath.getCanonicalPath() + ".xml");
-            bw = new BufferedWriter(fw);
-            bw.write(XmlUtils.getXmlUtils().toXML(template));
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        } finally {
-
-            try {
-
-                if (bw != null)
-                    bw.close();
-
-                if (fw != null)
-                    fw.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
-
-        }
-    }
-
-    public void load(File filePath) {
-        load((Template) XmlUtils.getXmlUtils().fromXML(filePath));
-    }
-
-    public void load(Template template) {
-        removeAll();
-        updateUI();
-        this.template = template;
-        for (OperatorLabel operatorLabel : template.getOperators().keySet()) {
-            addOperatorLabel(operatorLabel, template.getLocationOf(operatorLabel));
-        }
-        validate();
     }
 
     @Override
@@ -127,7 +65,8 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             first = operatorLabel;
         } else {
             second = operatorLabel;
-            template.addLink(first, second);
+            //TODO link with controller
+            //template.addLink(first, second);
             first = null;
             second = null;
             repaint();
@@ -148,11 +87,6 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
         repaint();
     }
 
-    public boolean canAdd(OperatorLabel operatorLabel) {
-        return true; //TODO refaire la validation dans le controleur
-        //return inputCount < 50 && (!(operatorLabel.getOperator() instanceof Sortie || operatorLabel.getOperator() instanceof Entree) || (operatorLabel.getOperator() instanceof Sortie ? exitsCount : entriesCount) < 5);
-    }
-
     public boolean canDelete(OperatorLabel label) {
         return true; //TODO refaire la validation dans le controleur
         //return label.getOperator() instanceof Entree && entriesCount > 1 || label.getOperator() instanceof Sortie && exitsCount > 1;
@@ -164,7 +98,7 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
             //TODO refaire le decompte
             //entriesCount += label.getOperator() instanceof Entree ? -1 : 0;
             //exitsCount += label.getOperator() instanceof Sortie ? -1 : 0;
-            template.remove(label);
+            // template.remove(label);
             NameUtils.removeReservation(label.getText());
             remove(label);
             validate();
@@ -177,31 +111,31 @@ public class OperatorsPanel extends JPanel implements OperatorLabel.Listener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Link pair : template.getLinks()) {
-            JLabel label1 = pair.getLabel1();
-            JLabel label2 = pair.getLabel2();
-            Point point1 = label1.getLocation();
-            Point point2 = label2.getLocation();
-            int i = pair.howToDraw();
-            if (i == 1) {
-                g.drawLine(point1.x, point1.y + label1.getHeight() / 2, point2.x + label2.getWidth(), point2.y + label2.getHeight() / 2);
-            } else if (i == 2) {
-                g.drawLine(point2.x, point2.y + label2.getHeight() / 2, point1.x + label1.getWidth(), point1.y + label1.getHeight() / 2);
-            } else if (i == 3) {
-                g.drawLine(point1.x + label1.getWidth() / 2, point1.y, point2.x + label2.getWidth() / 2, point2.y + label2.getHeight());
-            } else if (i == 4) {
-                g.drawLine(point2.x + label2.getWidth() / 2, point2.y, point1.x + label1.getWidth() / 2, point1.y + label1.getHeight());
-            }
+        for (BaseController.Line line : controller.getLines()) {
+            g.drawLine(line.getX1(), line.getY1(), line.getX2(), line.getX2());
         }
+    }
+
+
+    public void refreshTemplate() {
+        removeAll();
+        updateUI();
+        validate();
+        HashMap<T, Point> componentsPosition = controller.getComponentsPosition();
+        for (T t : componentsPosition.keySet()) {
+            add(new OperatorLabel<>(t, componentsPosition.get(t), this));
+        }
+
+        repaint();
     }
 
     public static class OperatorItemTransferable implements Transferable {
 
-        public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(OperatorDTO.class, "java/OperatorDTO");
+        public static final DataFlavor LIST_ITEM_DATA_FLAVOR = new DataFlavor(BaseDTO.class, "java/BaseDTO");
 
-        private OperatorDTO operator;
+        private BaseDTO operator;
 
-        public OperatorItemTransferable(OperatorDTO operator) {
+        public OperatorItemTransferable(BaseDTO operator) {
             this.operator = operator;
         }
 
