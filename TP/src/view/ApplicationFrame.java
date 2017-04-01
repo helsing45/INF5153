@@ -2,8 +2,8 @@ package view;
 
 import com.sun.scenario.DelayedRunnable;
 import controler.BaseController;
-import model.BaseDTO;
 import model.Observer;
+import model.OperatorDTO;
 import utils.ConfirmationUtils;
 
 import javax.swing.*;
@@ -59,12 +59,18 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
 
             @Override
             public void run() {
-                operatorsPanel.addComponent(BaseDTO.getEntryDTO(), new Point(50, 50));
-                operatorsPanel.addComponent(BaseDTO.getEntryDTO(), new Point(50, 250));
-                operatorsPanel.addComponent(BaseDTO.getExitDTO(), new Point(450, 150));
+                reset();
             }
         }.run();
 
+    }
+
+    private void reset(){
+
+        //Set default template
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50));
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 250));
+        operatorsPanel.addComponent(OperatorDTO.getExitDTO(), new Point(450, 150));
     }
 
     private void initializeMenuBar() {

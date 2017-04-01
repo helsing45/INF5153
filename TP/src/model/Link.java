@@ -14,8 +14,6 @@ public class Link {
         public Link(OperatorLabel label1, OperatorLabel label2) {
             this.label1 = label1;
             this.label2 = label2;
-            label1.deselect();
-            label2.deselect();
         }
 
         @Override

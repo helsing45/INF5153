@@ -11,18 +11,18 @@ import java.util.UUID;
 /**
  * Created by j-c9 on 2017-03-25.
  */
-public class BaseDTO implements Transferable, Cloneable {
+public abstract class BaseDTO implements Transferable, Cloneable {
 
     public static final String ENTRY = "entry", EXIT = "end";
     public static final String ICON_PATH = "/images/operator_icon/";
 
-    private ImageIcon image;
-    private String name, value;
-    private String fileName;
-    private String id;
-    private int entryCount, exitsCount;
-    private boolean canBeName;
-    private Rectangle bound;
+    protected ImageIcon image;
+    protected String name, value;
+    protected String fileName;
+    protected String id;
+    protected int entryCount, exitsCount;
+    protected boolean canBeName;
+    protected Rectangle bound;
 
     DataFlavor dataFlavor = new DataFlavor(BaseDTO.class,
             BaseDTO.class.getSimpleName());
@@ -31,20 +31,6 @@ public class BaseDTO implements Transferable, Cloneable {
         this.value = value;
 
         id = UUID.randomUUID().toString();
-    }
-
-    public static BaseDTO getEntryDTO() {
-        return new BaseDTO("entry")
-                .setExitsCount(1)
-                .setCanBeName(true);
-
-    }
-
-    public static BaseDTO getExitDTO() {
-        return new BaseDTO("end")
-                .setEntryCount(1)
-                .setCanBeName(true);
-
     }
 
     public String getName() {
@@ -94,30 +80,15 @@ public class BaseDTO implements Transferable, Cloneable {
         return canBeName;
     }
 
-    public BaseDTO setImage(ImageIcon image) {
-        this.image = image;
-        return this;
-    }
+    public abstract BaseDTO setImage(ImageIcon image);
 
-    public BaseDTO setFileName(String fileName) {
-        this.fileName = fileName;
-        return this;
-    }
+    public abstract BaseDTO setFileName(String fileName);
 
-    public BaseDTO setEntryCount(int entryCount) {
-        this.entryCount = entryCount;
-        return this;
-    }
+    public abstract BaseDTO setEntryCount(int entryCount);
 
-    public BaseDTO setExitsCount(int exitsCount) {
-        this.exitsCount = exitsCount;
-        return this;
-    }
+    public abstract BaseDTO setExitsCount(int exitsCount);
 
-    public BaseDTO setCanBeName(boolean canBeName) {
-        this.canBeName = canBeName;
-        return this;
-    }
+    public abstract BaseDTO setCanBeName(boolean canBeName);
 
     @Override
     public boolean equals(Object obj) {
@@ -130,17 +101,7 @@ public class BaseDTO implements Transferable, Cloneable {
     }
 
     @Override
-    public BaseDTO clone() {
-        BaseDTO copy = new BaseDTO(value);
-        id = UUID.randomUUID().toString();
-        copy.name = name;
-        copy.value = value;
-        copy.fileName = fileName;
-        copy.entryCount = entryCount;
-        copy.exitsCount = exitsCount;
-        copy.canBeName = canBeName;
-        return copy;
-    }
+    public abstract BaseDTO clone();
 
     public DataFlavor[] getTransferDataFlavors() {
         return new DataFlavor[]{dataFlavor};

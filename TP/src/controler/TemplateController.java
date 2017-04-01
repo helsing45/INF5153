@@ -1,7 +1,7 @@
 package controler;
 
-import model.BaseDTO;
 import model.Link;
+import model.OperatorDTO;
 import model.Template;
 import utils.ConfirmationUtils;
 import utils.XmlUtils;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import static model.BaseDTO.ENTRY;
 import static model.BaseDTO.EXIT;
 
-public class TemplateController extends BaseController<BaseDTO, Template> {
+public class TemplateController extends BaseController<OperatorDTO, Template> {
     protected int entriesCount, exitsCount;
 
     public TemplateController(Template model) {
@@ -139,26 +139,27 @@ public class TemplateController extends BaseController<BaseDTO, Template> {
     }
 
     @Override
-    public BaseDTO[] getAllComponent() {
+    public OperatorDTO[] getAllComponent() {
         //TODO ajouter les custom doors
-        return new BaseDTO[]{
-                BaseDTO.getEntryDTO(),
-                BaseDTO.getExitDTO(),
-                new BaseDTO("And").setFileName("and.png").setEntryCount(2).setExitsCount(1),
-                new BaseDTO("Or").setFileName("or.png").setEntryCount(2).setExitsCount(1),
-                new BaseDTO("Not").setFileName("not.png").setEntryCount(1).setExitsCount(1)
+        return new OperatorDTO[]{
+                OperatorDTO.getEntryDTO(),
+                OperatorDTO.getExitDTO(),
+                new OperatorDTO("And").setFileName("and.png").setEntryCount(2).setExitsCount(1),
+                new OperatorDTO("Or").setFileName("or.png").setEntryCount(2).setExitsCount(1),
+                new OperatorDTO("Not").setFileName("not.png").setEntryCount(1).setExitsCount(1)
         };
     }
 
     @Override
-    public HashMap<BaseDTO, Point> getComponentsPosition() {
+    public HashMap<OperatorDTO, Point> getComponentsPosition() {
         return getModel().getOperators();
     }
 
     @Override
-    public boolean addComponent(BaseDTO baseDTO, Point position) {
+    public boolean addComponent(OperatorDTO baseDTO, Point position) {
         if (canAdd(baseDTO)) {
-
+            if (baseDTO.getValue().equals(EXIT) || baseDTO.getValue().equals(ENTRY))
+                baseDTO.setName((baseDTO.getValue().equals(EXIT) ? "S" : "E") + (baseDTO.getValue().equals(EXIT) ? exitsCount : entriesCount));
             getModel().addComponent(baseDTO, position);
             inputCount++;
             entriesCount += baseDTO.getValue().equals(ENTRY) ? 1 : 0;
@@ -172,7 +173,7 @@ public class TemplateController extends BaseController<BaseDTO, Template> {
 
     }
 
-    protected boolean canAdd(BaseDTO baseDTO) {
+    protected boolean canAdd(OperatorDTO baseDTO) {
         return inputCount < getInputMax() && (!(baseDTO.getValue().equals(EXIT) || baseDTO.getValue().equals(ENTRY)) || (baseDTO.getValue().equals(EXIT) ? exitsCount : entriesCount) < 5);
     }
 }

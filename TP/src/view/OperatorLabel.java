@@ -14,10 +14,8 @@ import java.awt.event.*;
 public class OperatorLabel<T extends BaseDTO> extends JLabel {
     public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
 
-    private String id;
     private int xPressed = 0;
     private int yPressed = 0;
-    private JPopupMenu menu;
     private Listener listener;
     private String selectedPort;
     private OperatorLabel[] entries, exits;
@@ -25,32 +23,18 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
     private BaseDTO operator;
     private int leftOffset, rightOffset, topOffset, bottomOffset;
 
-    @Override
-    public void setText(String text) {
-        if (operator != null && operator.canBeName()) {
-            if (NameUtils.isNameAvailable(text)) {
-                NameUtils.reserveName(text);
-                super.setText(text);
-            } else {
-                showError("Nom déjà prit.");
-            }
-        }
-    }
-
-    public OperatorLabel(T operator) {
+    public OperatorLabel(T operator, Point position, Listener listener) {
         super(operator.getImage());
         this.operator = operator;
+        if(operator.getName()!= null && !operator.getValue().isEmpty())
+            setText(operator.getName());
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
         setLeftOffset((int) operator.getBound().getX());
         setTopOffset((int) operator.getBound().getY());
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
-        exits = new OperatorLabel[operator.getExitCount()];
-    }
-
-    public OperatorLabel(T operator, Point position, Listener listener) {
-        this(operator);
+        exits = new OperatorLabel[operator.getExitCount()];;
         initialize(position);
         setListener(listener);
     }
@@ -137,7 +121,11 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
                 if (name.length() > 5) {
                     showError("Le nom de l'input doit contenir au plus 5 lettres.");
                 } else {
-                    setText(name);
+                    if(NameUtils.isNameAvailable(name)) {
+                        setText(name);
+                    }else {
+                        showError("Le nom: "+ name+" est deja utiliser.");
+                    }
                 }
             }
         });

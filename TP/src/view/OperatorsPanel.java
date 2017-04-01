@@ -67,6 +67,9 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
             second = operatorLabel;
             //TODO link with controller
             //template.addLink(first, second);
+
+            first.deselect();
+            second.deselect();
             first = null;
             second = null;
             repaint();
