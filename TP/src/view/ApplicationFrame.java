@@ -51,6 +51,7 @@ public class ApplicationFrame implements OperatorsPanel.TemplateChangeListener {
     private void initialize() {
         frame = new JFrame();
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
