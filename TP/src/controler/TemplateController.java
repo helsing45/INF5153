@@ -4,6 +4,7 @@ import model.Link;
 import model.OperatorDTO;
 import model.Template;
 import utils.ConfirmationUtils;
+import utils.NameUtils;
 import utils.XmlUtils;
 import view.OperatorLabel;
 
@@ -164,5 +165,23 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     protected boolean canAdd(OperatorDTO baseDTO) {
         return inputCount < getInputMax() && (!(baseDTO.getValue().equals(EXIT) || baseDTO.getValue().equals(ENTRY)) || (baseDTO.getValue().equals(EXIT) ? exitsCount : entriesCount) < 5);
+    }
+
+    @Override
+    protected boolean canDelete(OperatorDTO baseDTO) {
+        return !(baseDTO.getValue().equals(EXIT) && exitsCount == 1 || baseDTO.getValue().equals(ENTRY) && entriesCount == 1);
+    }
+
+    @Override
+    public boolean removeComponent(OperatorDTO operatorDTO) {
+        if (canDelete(operatorDTO)) {
+            NameUtils.removeReservation(operatorDTO.getName());
+            getModel().removeComponent(operatorDTO);
+            inputCount--;
+            entriesCount -= operatorDTO.getValue().equals(ENTRY) ? 1 : 0;
+            exitsCount -= operatorDTO.getValue().equals(EXIT) ? 1 : 0;
+            return true;
+        }
+        return false;
     }
 }

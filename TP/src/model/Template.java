@@ -62,6 +62,12 @@ public class Template extends BaseModel<OperatorDTO> {
         operators.put(dto,position);
     }
 
+    @Override
+    public void removeComponent(OperatorDTO component) {
+        operators.remove(component);
+        notifyObserver();
+    }
+
     public void addLink(OperatorLabel first, OperatorLabel second) {
         links.add(new Link(first, second));
     }

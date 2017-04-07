@@ -31,4 +31,5 @@ public abstract class BaseModel<T extends BaseDTO> {
     public void addComponent(T lbl, int X, int Y){
         addComponent(lbl,new Point(X,Y));
     }
+    public abstract void removeComponent(T component);
 }

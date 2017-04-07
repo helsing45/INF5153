@@ -5,7 +5,6 @@ import model.BaseDTO;
 import model.BaseModel;
 import model.Link;
 import utils.ErrorUtils;
-import utils.NameUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -91,23 +90,9 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
         repaint();
     }
 
-    public boolean canDelete(OperatorLabel label) {
-        return true; //TODO refaire la validation dans le controleur
-        //return label.getOperator() instanceof Entree && entriesCount > 1 || label.getOperator() instanceof Sortie && exitsCount > 1;
-    }
-
     @Override
     public void delete(OperatorLabel label) {
-        if (canDelete(label)) {
-            //TODO refaire le decompte
-            //entriesCount += label.getOperator() instanceof Entree ? -1 : 0;
-            //exitsCount += label.getOperator() instanceof Sortie ? -1 : 0;
-            // template.remove(label);
-            NameUtils.removeReservation(label.getText());
-            remove(label);
-            validate();
-            repaint();
-        } else {
+        if(!controller.removeComponent((T) label.getOperator())){
             ErrorUtils.showError(this, "Impossible de supprimer cet input");
         }
     }
