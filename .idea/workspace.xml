@@ -24,77 +24,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TemplateController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
+      <file leaf-file-name="OperatorLabel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+            <state relative-caret-position="357">
+              <caret line="49" column="27" lean-forward="false" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
-                <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#open#0;class#TemplateController#0" expanded="false" />
-                <element signature="e#1034#1090#0" expanded="false" />
-                <element signature="class#1184:1762" expanded="false" />
-                <element signature="method#onChoiceMade#0;class#1184:1762" expanded="false" />
-                <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
-                <element signature="e#1820#1876#0" expanded="false" />
-                <element signature="class#1970:2207" expanded="false" />
-                <element signature="method#onChoiceMade#0;class#1970:2207" expanded="false" />
-                <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#save#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#BaseModel#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Template.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-              <folding>
-                <element signature="docComment;class#Template#0" expanded="false" />
-                <element signature="method#Template#0;class#Template#0" expanded="false" />
-                <element signature="method#update#0;class#Template#0" expanded="false" />
-                <element signature="e#1448#1449#0" expanded="true" />
-                <element signature="e#1491#1492#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-              <folding>
-                <element signature="e#527#528#0" expanded="true" />
-                <element signature="e#552#553#0" expanded="true" />
-                <element signature="docComment;method#saveTemplate#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#saveCustomDoor#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#getAllComponent#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#addComponent#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#canAdd#0;class#BaseController#0" expanded="false" />
+                <element signature="docComment;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="class#2433:2679" expanded="false" />
+                <element signature="method#actionPerformed#0;class#2433:2679" expanded="false" />
+                <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
+                <element signature="class#4725:4877" expanded="false" />
+                <element signature="class#5158:5735" expanded="false" />
+                <element signature="method#mousePressed#0;class#5158:5735" expanded="false" />
+                <element signature="method#mouseReleased#0;class#5158:5735" expanded="false" />
+                <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -165,11 +114,9 @@
         <option value="$PROJECT_DIR$/TP/src/controler/TemplateControler.java" />
         <option value="$PROJECT_DIR$/TP/src/view/TruthTablePanel.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Component.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorCellRenderer.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Observer.java" />
         <option value="$PROJECT_DIR$/TP/src/Main.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
         <option value="$PROJECT_DIR$/TP/src/model/OperatorDTO.java" />
         <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
         <option value="$PROJECT_DIR$/TP/src/model/BaseDTO.java" />
@@ -179,6 +126,8 @@
         <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/controler/TemplateController.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
       </list>
     </option>
   </component>
@@ -525,6 +474,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4935065" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -539,7 +489,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -620,6 +569,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -657,6 +607,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -789,6 +740,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,14 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="211" column="28" lean-forward="false" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="46" column="49" lean-forward="false" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -982,28 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="docComment;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#deselect#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#setSelected#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
-            <element signature="e#4713#4714#0" expanded="false" />
-            <element signature="e#4780#4781#0" expanded="false" />
-            <element signature="class#5072:5649" expanded="false" />
-            <element signature="method#mousePressed#0;class#5072:5649" expanded="false" />
-            <element signature="method#mouseReleased#0;class#5072:5649" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1057,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+        <state relative-caret-position="318">
+          <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
           <folding>
             <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
             <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
@@ -1075,9 +997,42 @@
             <element signature="method#save#0;class#TemplateController#0" expanded="false" />
             <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
             <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#getName#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#addComponent#0;class#TemplateController#0" expanded="false" />
             <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
             <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
             <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorListPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="76" column="85" lean-forward="false" selection-start-line="76" selection-start-column="85" selection-end-line="76" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="49" column="27" lean-forward="false" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+          <folding>
+            <element signature="docComment;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#initialize#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getPortMenuItem#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="class#2433:2679" expanded="false" />
+            <element signature="method#actionPerformed#0;class#2433:2679" expanded="false" />
+            <element signature="method#getLinkMenu#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getDeselectItem#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getNameMenuItem#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="method#getPopupMenu#0;class#OperatorLabel#0" expanded="false" />
+            <element signature="class#4725:4877" expanded="false" />
+            <element signature="class#5158:5735" expanded="false" />
+            <element signature="method#mousePressed#0;class#5158:5735" expanded="false" />
+            <element signature="method#mouseReleased#0;class#5158:5735" expanded="false" />
+            <element signature="class#Listener#0;class#OperatorLabel#0" expanded="false" />
           </folding>
         </state>
       </provider>

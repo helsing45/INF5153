@@ -75,7 +75,6 @@ public class OperatorListPanel<T extends Transferable> extends JPanel {
 
         @Override
         protected void exportDone(JComponent source, Transferable data, int action) {
-            System.out.println("ExportDone");
             // Here you need to decide how to handle the completion of the transfer,
             // should you remove the item from the list or not...
         }

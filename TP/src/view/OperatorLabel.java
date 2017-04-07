@@ -34,7 +34,8 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         setTopOffset((int) operator.getBound().getY());
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
-        exits = new OperatorLabel[operator.getExitCount()];;
+        exits = new OperatorLabel[operator.getExitCount()];
+        setOpaque(true);
         initialize(position);
         setListener(listener);
     }
@@ -53,6 +54,7 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
 
     private void setSelected(boolean isSelected) {
         setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
+        setForeground(isSelected ? Color.BLUE : Color.black);
     }
 
     public void setLeftOffset(int leftOffset) {
