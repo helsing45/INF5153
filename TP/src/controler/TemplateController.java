@@ -145,11 +145,22 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         return getModel().getOperators();
     }
 
+    private String getName(OperatorDTO dto) {
+        int count = (dto.getValue().equals(EXIT) ? exitsCount : entriesCount) + 1;
+        for (int i = 0; i < count; i++) {
+            String name = (dto.getValue().equals(EXIT) ? "S" : "E") + i;
+            if (NameUtils.isNameAvailable(name)) {
+                return name;
+            }
+        }
+        return "ERR";
+    }
+
     @Override
     public boolean addComponent(OperatorDTO baseDTO, Point position) {
         if (canAdd(baseDTO)) {
             if (baseDTO.getValue().equals(EXIT) || baseDTO.getValue().equals(ENTRY))
-                baseDTO.setName((baseDTO.getValue().equals(EXIT) ? "S" : "E") + (baseDTO.getValue().equals(EXIT) ? exitsCount : entriesCount));
+                baseDTO.setName(getName(baseDTO));
             getModel().addComponent(baseDTO, position);
             inputCount++;
             entriesCount += baseDTO.getValue().equals(ENTRY) ? 1 : 0;
