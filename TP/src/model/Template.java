@@ -65,6 +65,13 @@ public class Template extends BaseModel<OperatorDTO> {
     @Override
     public void removeComponent(OperatorDTO component) {
         operators.remove(component);
+        ArrayList<Link> linkToRemove = new ArrayList<>();
+        for (Link link : getLinks()) {
+            if(link.getLabel1().getOperator().equals(component) || link.getLabel2().getOperator().equals(component)){
+                linkToRemove.add(link);
+            }
+        }
+        getLinks().removeAll(linkToRemove);
         notifyObserver();
     }
 

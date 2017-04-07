@@ -13,9 +13,7 @@ public class Link {
 
     public Link(OperatorLabel label1, OperatorLabel label2) {
         this.label1 = label1;
-        //this.label1.linkTo(label2);
         this.label2 = label2;
-        //this.label2.linkTo(label1);
     }
 
     @Override
