@@ -12,7 +12,7 @@ import java.awt.event.*;
  * Created by j-c9 on 2017-02-18.
  */
 public class OperatorLabel<T extends BaseDTO> extends JLabel {
-    public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
+    public static final String PORT_ENTRY = "Entree", PORT_EXITS = "Sortie";
 
     private int xPressed = 0;
     private int yPressed = 0;
@@ -26,7 +26,7 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
     public OperatorLabel(T operator, Point position, Listener listener) {
         super(operator.getImage());
         this.operator = operator;
-        if(operator.getName()!= null && !operator.getValue().isEmpty())
+        if (operator.getName() != null && !operator.getValue().isEmpty())
             setText(operator.getName());
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
@@ -91,12 +91,15 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
 
     private JMenuItem getLinkMenu() {
         JMenu linkMenu = new JMenu("Lier");
+        int portNumber = 0;
         if (entries.length > 0 || exits.length > 0) {
             for (int i = 0; i < entries.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_ENTRY + i));
+                linkMenu.add(getPortMenuItem(String.format("Port #%1$d (%2$s%3$d)", portNumber, PORT_ENTRY, i)));
+                portNumber++;
             }
             for (int i = 0; i < exits.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_EXITS + i));
+                linkMenu.add(getPortMenuItem(String.format("Port #%1$d (%2$s %3$d)", portNumber, PORT_EXITS, i)));
+                portNumber++;
             }
         }
         return linkMenu;
@@ -123,10 +126,10 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
                 if (name.length() > 5) {
                     showError("Le nom de l'input doit contenir au plus 5 lettres.");
                 } else {
-                    if(NameUtils.isNameAvailable(name)) {
+                    if (NameUtils.isNameAvailable(name)) {
                         setText(name);
-                    }else {
-                        showError("Le nom: "+ name+" est deja utiliser.");
+                    } else {
+                        showError("Le nom: " + name + " est deja utiliser.");
                     }
                 }
             }
