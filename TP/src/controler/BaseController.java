@@ -24,7 +24,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
         return 50;
     }
 
-    public abstract ArrayList<Link.Line> getLines();
+    public abstract ArrayList<Link> getLinks();
 
     public abstract void undo();
     public abstract void redo();

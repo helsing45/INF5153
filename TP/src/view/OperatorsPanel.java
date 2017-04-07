@@ -114,8 +114,21 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Link.Line line : controller.getLines()) {
-            g.drawLine(line.getX1(), line.getY1(), line.getX2(), line.getX2());
+        for (Link pair : controller.getLinks()) {
+            JLabel label1 = pair.getLabel1();
+            JLabel label2 = pair.getLabel2();
+            Point point1 = label1.getLocation();
+            Point point2 = label2.getLocation();
+            int i = pair.howToDraw();
+            if (i == 1) {
+                g.drawLine(point1.x, point1.y + label1.getHeight() / 2, point2.x + label2.getWidth(), point2.y + label2.getHeight() / 2);
+            } else if (i == 2) {
+                g.drawLine(point2.x, point2.y + label2.getHeight() / 2, point1.x + label1.getWidth(), point1.y + label1.getHeight() / 2);
+            } else if (i == 3) {
+                g.drawLine(point1.x + label1.getWidth() / 2, point1.y, point2.x + label2.getWidth() / 2, point2.y + label2.getHeight());
+            } else if (i == 4) {
+                g.drawLine(point2.x + label2.getWidth() / 2, point2.y, point1.x + label1.getWidth() / 2, point1.y + label1.getHeight());
+            }
         }
     }
 

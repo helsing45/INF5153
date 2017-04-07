@@ -28,12 +28,8 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     }
 
     @Override
-    public ArrayList<Link.Line> getLines() {
-        ArrayList<Link.Line> lines = new ArrayList<>();
-        for (Link link : getModel().getLinks()) {
-            lines.add(link.getLine());
-        }
-        return lines;
+    public ArrayList<Link> getLinks() {
+        return getModel().getLinks();
     }
 
     @Override
