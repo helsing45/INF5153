@@ -6,6 +6,8 @@ import java.awt.*;
 
 public class Link {
     OperatorLabel label1;
+    String lbl1SelectedPortType, lbl2SelectedPortType;
+    int lbl1SelectedPortIndex, lbl2SelectedPortIndex;
     OperatorLabel label2;
 
     private Link() {
@@ -13,7 +15,23 @@ public class Link {
 
     public Link(OperatorLabel label1, OperatorLabel label2) {
         this.label1 = label1;
+        this.lbl1SelectedPortType = label1.getSelectedPortType();
+        this.lbl1SelectedPortIndex = label1.getSelectedPortIndex();
+        this.label1.link(lbl1SelectedPortType, lbl1SelectedPortIndex, label2);
         this.label2 = label2;
+        this.lbl2SelectedPortType = label2.getSelectedPortType();
+        this.lbl2SelectedPortIndex = label2.getSelectedPortIndex();
+        this.label2.link(lbl2SelectedPortType, lbl2SelectedPortIndex, label1);
+    }
+
+    public void replace(OperatorLabel newLabel) {
+        if (newLabel.getOperator().getId().equals(label1.getOperator().getId())) {
+            label1.transferData(newLabel);
+            label1 = newLabel;
+            return;
+        }
+        label2.transferData(newLabel);
+        label2 = newLabel;
     }
 
     @Override
@@ -34,6 +52,11 @@ public class Link {
             return 4;
         } else
             return 5;
+    }
+
+    public void unlink() {
+        label1.unlink(lbl1SelectedPortType, lbl1SelectedPortIndex);
+        label2.unlink(lbl2SelectedPortType, lbl2SelectedPortIndex);
     }
 
     public OperatorLabel getLabel1() {

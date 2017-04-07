@@ -76,6 +76,25 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         });
     }
 
+    private ArrayList<Link> getLinkWhoContain(OperatorLabel label){
+        ArrayList<Link> validLink = new ArrayList<>();
+        for (Link link : getLinks()) {
+            if(link.getLabel1().getOperator().getId().equals(label.getOperator().getId()) || link.getLabel2().getOperator().getId().equals(label.getOperator().getId())){
+                validLink.add(link);
+            }
+        }
+        return validLink;
+    }
+
+    @Override
+    public void refreshLink(ArrayList<OperatorLabel> labels) {
+        for (OperatorLabel label : labels) {
+            for (Link link : getLinkWhoContain(label)) {
+                link.replace(label);
+            }
+        }
+    }
+
     @Override
     public void onLocationChange(OperatorDTO operatorDTO, Point point) {
         getModel().setComponentPosition(operatorDTO, point);

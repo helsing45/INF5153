@@ -30,6 +30,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
     public abstract void redo();
     public abstract void open();
     public abstract void reset();
+    public abstract void refreshLink(ArrayList<OperatorLabel> labels);
     public abstract void onLocationChange(component component, Point point);
 
     /**

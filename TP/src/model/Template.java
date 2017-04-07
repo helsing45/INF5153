@@ -59,7 +59,7 @@ public class Template extends BaseModel<OperatorDTO> {
 
     @Override
     public void setComponentPosition(OperatorDTO dto, Point position) {
-        operators.put(dto,position);
+        operators.put(dto, position);
     }
 
     @Override
@@ -67,7 +67,8 @@ public class Template extends BaseModel<OperatorDTO> {
         operators.remove(component);
         ArrayList<Link> linkToRemove = new ArrayList<>();
         for (Link link : getLinks()) {
-            if(link.getLabel1().getOperator().equals(component) || link.getLabel2().getOperator().equals(component)){
+            if (link.getLabel1().getOperator().equals(component) || link.getLabel2().getOperator().equals(component)) {
+                link.unlink();
                 linkToRemove.add(link);
             }
         }

@@ -23,7 +23,6 @@ public abstract class BaseModel<T extends BaseDTO> {
     }
 
     public abstract ArrayList<Link> getLinks();
-
     public abstract void update(BaseModel newModel);
     public abstract void reset();
     public abstract void addComponent(T lbl, Point position);

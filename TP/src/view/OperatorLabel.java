@@ -17,7 +17,8 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
     private int xPressed = 0;
     private int yPressed = 0;
     private Listener listener;
-    private String selectedPort;
+    private int selectedPortIndex = -1;
+    private String selectedPortType;
     private OperatorLabel[] entries, exits;
 
     private BaseDTO operator;
@@ -48,7 +49,8 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
     }
 
     public void deselect() {
-        selectedPort = null;
+        selectedPortType = null;
+        selectedPortIndex = -1;
         setSelected(false);
     }
 
@@ -77,11 +79,46 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         this.listener = listener;
     }
 
-    private JMenuItem getPortMenuItem(String port) {
-        JMenuItem entry = new JMenuItem(port);
+    public int getSelectedPortIndex() {
+        return selectedPortIndex;
+    }
+
+    public String getSelectedPortType() {
+        return selectedPortType;
+    }
+
+    public void link(String portType, int portIndex, OperatorLabel label) {
+        if (portType.equals(PORT_ENTRY)) {
+            entries[portIndex] = label;
+        } else {
+            exits[portIndex] = label;
+        }
+    }
+
+    public void unlink(String portType, int portIndex){
+        if (portType.equals(PORT_ENTRY)) {
+            entries[portIndex] = null;
+        } else {
+            exits[portIndex] = null;
+        }
+    }
+
+    public void transferData(OperatorLabel operatorLabel){
+        operatorLabel.entries = entries;
+        operatorLabel.exits = exits;
+    }
+
+    private boolean portAvailable(String portType, int portIndex) {
+        return portType.equals(PORT_ENTRY) ? entries[portIndex] == null : exits[portIndex] == null;
+    }
+
+    private JMenuItem getPortMenuItem(String portType, int portNumber, int portIndex) {
+        JMenuItem entry = new JMenuItem(String.format("Port #%1$d (%2$s %3$d)", portNumber, portType, portIndex));
+        entry.setEnabled(portAvailable(portType, portIndex));
         entry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                selectedPort = port;
+                selectedPortIndex = portIndex;
+                selectedPortType = portType;
                 setSelected(true);
                 if (listener != null) listener.onLink(OperatorLabel.this);
             }
@@ -94,11 +131,11 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         int portNumber = 0;
         if (entries.length > 0 || exits.length > 0) {
             for (int i = 0; i < entries.length; i++) {
-                linkMenu.add(getPortMenuItem(String.format("Port #%1$d (%2$s%3$d)", portNumber, PORT_ENTRY, i)));
+                linkMenu.add(getPortMenuItem(PORT_ENTRY, portNumber, i));
                 portNumber++;
             }
             for (int i = 0; i < exits.length; i++) {
-                linkMenu.add(getPortMenuItem(String.format("Port #%1$d (%2$s %3$d)", portNumber, PORT_EXITS, i)));
+                linkMenu.add(getPortMenuItem(PORT_EXITS, portNumber, i));
                 portNumber++;
             }
         }
@@ -142,7 +179,7 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         if (operator.canBeName()) {
             menu.add(getNameMenuItem());
         }
-        if (selectedPort == null) {
+        if (selectedPortType == null) {
             menu.add(getLinkMenu());
         } else {
             menu.add(getDeselectItem());

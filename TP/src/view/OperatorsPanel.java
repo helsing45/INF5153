@@ -86,13 +86,13 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
 
     @Override
     public void onLocationChange(OperatorLabel operatorLabel) {
-        controller.onLocationChange((T)operatorLabel.getOperator(),operatorLabel.getLocation());
+        controller.onLocationChange((T) operatorLabel.getOperator(), operatorLabel.getLocation());
         repaint();
     }
 
     @Override
     public void delete(OperatorLabel label) {
-        if(!controller.removeComponent((T) label.getOperator())){
+        if (!controller.removeComponent((T) label.getOperator())) {
             ErrorUtils.showError(this, "Impossible de supprimer cet input");
         }
     }
@@ -124,10 +124,13 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
         updateUI();
         validate();
         HashMap<T, Point> componentsPosition = controller.getComponentsPosition();
+        ArrayList<OperatorLabel> list = new ArrayList<>();
         for (T t : componentsPosition.keySet()) {
-            add(new OperatorLabel<>(t, componentsPosition.get(t), this));
+            OperatorLabel label = new OperatorLabel<>(t, componentsPosition.get(t), this);
+            list.add(label);
+            add(label);
         }
-
+        controller.refreshLink(list);
         repaint();
     }
 
