@@ -76,6 +76,11 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     }
 
     @Override
+    public void onLocationChange(OperatorDTO operatorDTO, Point point) {
+        getModel().setComponentPosition(operatorDTO, point);
+    }
+
+    @Override
     public void saveTemplate() {
         //TODO do a command instead
         JFileChooser chooser = new JFileChooser();

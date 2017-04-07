@@ -26,8 +26,8 @@ public abstract class BaseModel<T extends BaseDTO> {
 
     public abstract void update(BaseModel newModel);
     public abstract void reset();
-
     public abstract void addComponent(T lbl, Point position);
+    public abstract void setComponentPosition(T dto,Point position);
     public void addComponent(T lbl, int X, int Y){
         addComponent(lbl,new Point(X,Y));
     }

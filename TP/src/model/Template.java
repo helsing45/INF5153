@@ -57,6 +57,11 @@ public class Template extends BaseModel<OperatorDTO> {
         notifyObserver();
     }
 
+    @Override
+    public void setComponentPosition(OperatorDTO dto, Point position) {
+        operators.put(dto,position);
+    }
+
     public void addLink(OperatorLabel first, OperatorLabel second) {
         links.add(new Link(first, second));
     }

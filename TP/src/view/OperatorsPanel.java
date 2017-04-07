@@ -87,6 +87,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
 
     @Override
     public void onLocationChange(OperatorLabel operatorLabel) {
+        controller.onLocationChange((T)operatorLabel.getOperator(),operatorLabel.getLocation());
         repaint();
     }
 
