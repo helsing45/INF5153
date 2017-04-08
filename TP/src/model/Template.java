@@ -2,6 +2,7 @@ package model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import utils.NameUtils;
 import view.OperatorLabel;
 
 import java.awt.*;
@@ -51,7 +52,10 @@ public class Template extends BaseModel<OperatorDTO> {
 
     @Override
     public void reset() {
-        //update(getDefaultTemplate());
+        NameUtils.reset();
+        operators = new HashMap<>();
+        links = new ArrayList<>();
+        notifyReset();
     }
 
     @Override
@@ -63,6 +67,17 @@ public class Template extends BaseModel<OperatorDTO> {
     @Override
     public void setComponentPosition(OperatorDTO dto, Point position) {
         operators.put(dto, position);
+    }
+
+    @Override
+    public void updateComponentName(OperatorDTO dto, String name) {
+        for (OperatorDTO operatorDTO : operators.keySet()) {
+            if(operatorDTO.getId().equals(dto.getId())){
+                operatorDTO.setName(name);
+                break;
+            }
+        }
+        notifyObserver();
     }
 
     @Override

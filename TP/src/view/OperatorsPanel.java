@@ -60,6 +60,11 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
     }
 
     @Override
+    public void onNameChange(OperatorLabel operatorLabel, String name) {
+        controller.onNameChange((T) operatorLabel.getOperator(), name);
+    }
+
+    @Override
     public void onLink(OperatorLabel operatorLabel) {
         if (first == null) {
             first = operatorLabel;

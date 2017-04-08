@@ -15,13 +15,17 @@ public class NameUtils {
         existingName = new ArrayList<>();
     }
 
-    public static NameUtils getInstance() {
+    private static NameUtils getInstance() {
         if (instance == null) instance = new NameUtils();
         return instance;
     }
 
     public static boolean isNameAvailable(String name) {
         return !getInstance().existingName.contains(name);
+    }
+
+    public static void reset(){
+        getInstance().existingName = new ArrayList<>();
     }
 
     public static void reserveName(String name) {

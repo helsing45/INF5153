@@ -5,6 +5,7 @@ import model.OperatorDTO;
 import model.Template;
 import model.Template.SaveableTemplate;
 import utils.ConfirmationUtils;
+import utils.ErrorUtils;
 import utils.NameUtils;
 import utils.XmlUtils;
 import view.OperatorLabel;
@@ -81,6 +82,20 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     public void onLocationChange(OperatorDTO operatorDTO, Point point) {
         getModel().setComponentPosition(operatorDTO, point);
     }
+
+    @Override
+    public void onNameChange(OperatorDTO operatorDTO, String name) {
+        if (name.length() > 5) {
+            showError("Le nom de l'input doit contenir au plus 5 lettres.");
+        } else {
+            if (NameUtils.isNameAvailable(name)) {
+                getModel().updateComponentName(operatorDTO, name);
+            } else {
+                showError("Le nom: " + name + " est deja utiliser.");
+            }
+        }
+    }
+
 
     @Override
     public void saveTemplate() {
@@ -187,5 +202,9 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
             return true;
         }
         return false;
+    }
+
+    private void showError(String error) {
+        ErrorUtils.showError(null, error);
     }
 }

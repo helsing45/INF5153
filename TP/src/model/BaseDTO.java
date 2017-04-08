@@ -8,9 +8,6 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.UUID;
 
-/**
- * Created by j-c9 on 2017-03-25.
- */
 public abstract class BaseDTO implements Transferable, Cloneable {
 
     public static final String ENTRY = "entry", EXIT = "end";

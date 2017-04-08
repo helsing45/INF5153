@@ -1,8 +1,6 @@
 package view;
 
 import model.BaseDTO;
-import utils.ErrorUtils;
-import utils.NameUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -163,16 +161,8 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         item.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = JOptionPane.showInputDialog(OperatorLabel.this, "Input name");
-                if (name.length() > 5) {
-                    showError("Le nom de l'input doit contenir au plus 5 lettres.");
-                } else {
-                    if (NameUtils.isNameAvailable(name)) {
-                        setText(name);
-                    } else {
-                        showError("Le nom: " + name + " est deja utiliser.");
-                    }
-                }
+                listener.onNameChange(OperatorLabel.this,JOptionPane.showInputDialog(OperatorLabel.this, "Input name"));
+
             }
         });
         return item;
@@ -205,10 +195,6 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         return operator;
     }
 
-    private void showError(String error) {
-        ErrorUtils.showError(OperatorLabel.this, error);
-    }
-
     private MouseAdapter clickListener = new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -237,6 +223,8 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
     };
 
     public interface Listener {
+        void onNameChange(OperatorLabel operatorLabel, String name);
+
         void onLink(OperatorLabel operatorLabel);
 
         void onLinkCanceled(OperatorLabel operatorLabel);

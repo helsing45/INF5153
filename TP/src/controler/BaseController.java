@@ -31,21 +31,27 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
     public abstract void open();
     public abstract void reset();
     public abstract void onLocationChange(component component, Point point);
+    public abstract void onNameChange(component component, String name);
 
     /**
      * Save the current template as a XML
      */
     public abstract void saveTemplate();
+
     /**
      * Save the current template as a custom door
      */
     public abstract void saveCustomDoor();
+
     /**
      * @return the list of all the component that can be use.
      */
     public abstract component[] getAllComponent();
-    public abstract HashMap<component,Point> getComponentsPosition();
+
+    public abstract HashMap<component, Point> getComponentsPosition();
+
     public abstract void addLink(OperatorLabel ol1, OperatorLabel ol2);
+
     /**
      * Method to add a component to the model.
      *
@@ -55,6 +61,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
      * @return return true if the component is add
      */
     public abstract boolean addComponent(component component, Point position);
+
     /**
      * Check if the component can be add to the model
      *
@@ -62,7 +69,9 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
      * @return return true if the component can be add
      */
     protected abstract boolean canAdd(component t);
+
     protected abstract boolean canDelete(component t);
+
     public abstract boolean removeComponent(component component);
 
 

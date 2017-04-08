@@ -14,8 +14,15 @@ public abstract class BaseModel<T extends BaseDTO> {
     }
 
     public void notifyObserver() {
-        for (Observer obs : listObserver)
-            obs.refreshTemplate();
+        for (Observer observer : listObserver) {
+            observer.refreshTemplate();
+        }
+    }
+
+    public void notifyReset(){
+        for (Observer observer : listObserver) {
+            observer.reset();
+        }
     }
 
     public void removeObserver() {
@@ -31,6 +38,8 @@ public abstract class BaseModel<T extends BaseDTO> {
     public abstract void addComponent(T lbl, Point position);
 
     public abstract void setComponentPosition(T dto, Point position);
+
+    public abstract void updateComponentName(T dto, String name);
 
     public void addComponent(T lbl, int X, int Y) {
         addComponent(lbl, new Point(X, Y));

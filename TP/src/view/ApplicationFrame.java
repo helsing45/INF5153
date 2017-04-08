@@ -66,7 +66,8 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
 
     }
 
-    private void reset(){
+    @Override
+    public void reset(){
 
         //Set default template
         operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50));
