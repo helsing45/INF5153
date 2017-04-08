@@ -97,24 +97,26 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
         }
     }
 
+    public OperatorLabel find(String id) {
+        for (Component component : getComponents()) {
+            if (component instanceof OperatorLabel && ((OperatorLabel) component).getId().equals(id)) {
+                return (OperatorLabel) component;
+            }
+        }
+        return null;
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Link pair : controller.getLinks()) {
-            JLabel label1 = pair.getLabel1();
-            JLabel label2 = pair.getLabel2();
+        for (Link link : controller.getLinks()) {
+            OperatorLabel label1 = find(link.getId1());
+            OperatorLabel label2 = find(link.getId2());
+            label1.link(link.getLbl1SelectedPortType(), link.getLbl1SelectedPortIndex(), label2);
+            label2.link(link.getLbl2SelectedPortType(), link.getLbl2SelectedPortIndex(), label1);
             Point point1 = label1.getLocation();
             Point point2 = label2.getLocation();
-            int i = pair.howToDraw();
-            if (i == 1) {
-                g.drawLine(point1.x, point1.y + label1.getHeight() / 2, point2.x + label2.getWidth(), point2.y + label2.getHeight() / 2);
-            } else if (i == 2) {
-                g.drawLine(point2.x, point2.y + label2.getHeight() / 2, point1.x + label1.getWidth(), point1.y + label1.getHeight() / 2);
-            } else if (i == 3) {
-                g.drawLine(point1.x + label1.getWidth() / 2, point1.y, point2.x + label2.getWidth() / 2, point2.y + label2.getHeight());
-            } else if (i == 4) {
-                g.drawLine(point2.x + label2.getWidth() / 2, point2.y, point1.x + label1.getWidth() / 2, point1.y + label1.getHeight());
-            }
+            g.drawLine(point1.x + label1.getWidth() / 2, point1.y + label1.getHeight() / 2, point2.x + label2.getWidth() / 2, point2.y + label2.getHeight() / 2);
         }
     }
 
@@ -130,7 +132,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
             list.add(label);
             add(label);
         }
-        controller.refreshLink(list);
+        //controller.refreshLink(list);
         repaint();
     }
 

@@ -3,6 +3,7 @@ package controler;
 import model.Link;
 import model.OperatorDTO;
 import model.Template;
+import model.Template.SaveableTemplate;
 import utils.ConfirmationUtils;
 import utils.NameUtils;
 import utils.XmlUtils;
@@ -55,7 +56,7 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
                     chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
 
                     if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                        getModel().update((Template) XmlUtils.getXmlUtils().fromXML(chooser.getSelectedFile()));
+                        getModel().update(new Template((SaveableTemplate) XmlUtils.getXmlUtils().fromXML(chooser.getSelectedFile())));
                     }
                 }
             }
@@ -74,25 +75,6 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
                 }
             }
         });
-    }
-
-    private ArrayList<Link> getLinkWhoContain(OperatorLabel label){
-        ArrayList<Link> validLink = new ArrayList<>();
-        for (Link link : getLinks()) {
-            if(link.getLabel1().getOperator().getId().equals(label.getOperator().getId()) || link.getLabel2().getOperator().getId().equals(label.getOperator().getId())){
-                validLink.add(link);
-            }
-        }
-        return validLink;
-    }
-
-    @Override
-    public void refreshLink(ArrayList<OperatorLabel> labels) {
-        for (OperatorLabel label : labels) {
-            for (Link link : getLinkWhoContain(label)) {
-                link.replace(label);
-            }
-        }
     }
 
     @Override
@@ -117,28 +99,20 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         try {
             fw = new FileWriter(filePath.getCanonicalPath() + ".xml");
             bw = new BufferedWriter(fw);
-            bw.write(XmlUtils.getXmlUtils().toXML(getModel()));
+            bw.write(XmlUtils.getXmlUtils().toXML(new SaveableTemplate(getModel())));
 
         } catch (IOException e) {
-
             e.printStackTrace();
-
         } finally {
-
             try {
-
                 if (bw != null)
                     bw.close();
-
                 if (fw != null)
                     fw.close();
 
             } catch (IOException ex) {
-
                 ex.printStackTrace();
-
             }
-
         }
     }
 

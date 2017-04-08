@@ -41,6 +41,10 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         setListener(listener);
     }
 
+    public String getId(){
+        return getOperator() == null ? "" : getOperator().getId();
+    }
+
     public void initialize(Point location) {
         setLocation(location);
         setSize(80, 70);

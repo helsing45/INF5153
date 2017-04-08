@@ -2,7 +2,6 @@ package model;
 
 import utils.NameUtils;
 
-import javax.swing.*;
 import java.util.UUID;
 
 /**
@@ -36,11 +35,11 @@ public class OperatorDTO extends BaseDTO {
         }
     }
 
-    @Override
+   /* @Override
     public OperatorDTO setImage(ImageIcon image) {
         this.image = image;
         return this;
-    }
+    }*/
 
     @Override
     public OperatorDTO setFileName(String fileName) {

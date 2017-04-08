@@ -10,14 +10,12 @@ import java.awt.dnd.DnDConstants;
 
 import static view.OperatorsPanel.OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR;
 
-public class OperatorListPanel<T extends Transferable> extends JPanel {
-
-    private JList operatorList;
+public class OperatorListPanel extends JPanel {
 
     public OperatorListPanel(BaseDTO... operators) {
         setLayout(new BorderLayout());
 
-        operatorList = new JList(operators);
+        JList operatorList = new JList(operators);
         operatorList.setTransferHandler(new ListTransferHandler());
         operatorList.setDropMode(DropMode.INSERT);
         operatorList.setDragEnabled(true);

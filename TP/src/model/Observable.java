@@ -1,7 +1,7 @@
 package model;
 
 public interface Observable {
-  public void addObserver(Observer obs);
-  public void removeObserver();
-  public void notifyObserver(String str);
+  void addObserver(Observer obs);
+  void removeObserver();
+  void notifyObserver(String str);
 }

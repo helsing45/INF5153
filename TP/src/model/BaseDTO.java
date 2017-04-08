@@ -16,7 +16,6 @@ public abstract class BaseDTO implements Transferable, Cloneable {
     public static final String ENTRY = "entry", EXIT = "end";
     public static final String ICON_PATH = "/images/operator_icon/";
 
-    protected ImageIcon image;
     protected String name, value;
     protected String fileName;
     protected String id;
@@ -66,10 +65,7 @@ public abstract class BaseDTO implements Transferable, Cloneable {
     }
 
     public ImageIcon getImage() {
-        if (image == null) {
-            image = new ImageIcon(getClass().getResource(getPath()));
-        }
-        return image;
+        return new ImageIcon(getClass().getResource(getPath()));
     }
 
     public int getEntryCount() {
@@ -83,8 +79,6 @@ public abstract class BaseDTO implements Transferable, Cloneable {
     public boolean canBeName() {
         return canBeName;
     }
-
-    public abstract BaseDTO setImage(ImageIcon image);
 
     public abstract BaseDTO setFileName(String fileName);
 
