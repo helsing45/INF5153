@@ -11,9 +11,18 @@ import java.util.HashMap;
 public abstract class BaseController<component extends model.BaseDTO, genericModel extends BaseModel<component>> {
     protected int inputCount;
     private genericModel model;
+    protected boolean isDirty;
 
     protected genericModel getModel() {
         return model;
+    }
+
+    public boolean isDirty() {
+        return isDirty;
+    }
+
+    public void setDirty(boolean dirty) {
+        isDirty = dirty;
     }
 
     public BaseController(genericModel model) {
@@ -32,6 +41,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
     public abstract void reset();
     public abstract void onLocationChange(component component, Point point);
     public abstract void onNameChange(component component, String name);
+    public abstract void closes();
 
     /**
      * Save the current template as a XML
@@ -60,7 +70,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
      * @param bounds    the bounds of the view, useful if your view as offset
      * @return return true if the component is add
      */
-    public abstract boolean addComponent(component component, Point position);
+    public abstract void addComponent(component component, Point position, boolean manual);
 
     /**
      * Check if the component can be add to the model
@@ -72,7 +82,7 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
 
     protected abstract boolean canDelete(component t);
 
-    public abstract boolean removeComponent(component component);
+    public abstract void removeComponent(component component);
 
 
 }

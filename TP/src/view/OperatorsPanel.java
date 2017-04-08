@@ -4,7 +4,6 @@ import controler.BaseController;
 import model.BaseDTO;
 import model.BaseModel;
 import model.Link;
-import utils.ErrorUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +28,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
     DropTarget dropTarget = new DropTarget() {
         public void drop(DropTargetDropEvent dtde) {
             try {
-                addComponent((T) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR), dtde.getLocation());
+                addComponent((T) dtde.getTransferable().getTransferData(OperatorItemTransferable.LIST_ITEM_DATA_FLAVOR), dtde.getLocation(), true);
                 validate();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -51,12 +50,10 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
         return names;
     }
 
-    public void addComponent(T component, Point position) {
+    public void addComponent(T component, Point position, boolean manual) {
         T copyOfComponent = (T) component.clone();
         copyOfComponent.setBound(getBounds());
-        if (!controller.addComponent(copyOfComponent, position)) {
-            ErrorUtils.showError(OperatorsPanel.this, "Impossible d'ajouter");
-        }
+        controller.addComponent(copyOfComponent, position, manual);
     }
 
     @Override
@@ -97,9 +94,7 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
 
     @Override
     public void delete(OperatorLabel label) {
-        if (!controller.removeComponent((T) label.getOperator())) {
-            ErrorUtils.showError(this, "Impossible de supprimer cet input");
-        }
+        controller.removeComponent((T) label.getOperator());
     }
 
     public OperatorLabel find(String id) {
@@ -137,7 +132,6 @@ public class OperatorsPanel<T extends BaseDTO, genericModel extends BaseModel<T>
             list.add(label);
             add(label);
         }
-        //controller.refreshLink(list);
         repaint();
     }
 

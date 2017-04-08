@@ -4,7 +4,6 @@ import com.sun.scenario.DelayedRunnable;
 import controler.BaseController;
 import model.Observer;
 import model.OperatorDTO;
-import utils.ConfirmationUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,12 +66,12 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
     }
 
     @Override
-    public void reset(){
+    public void reset() {
 
         //Set default template
-        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50));
-        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 250));
-        operatorsPanel.addComponent(OperatorDTO.getExitDTO(), new Point(450, 150));
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50), false);
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 250), false);
+        operatorsPanel.addComponent(OperatorDTO.getExitDTO(), new Point(450, 150), false);
     }
 
     private void initializeMenuBar() {
@@ -186,13 +185,7 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
     }
 
     private void closeWindow() {
-        ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
-            @Override
-            public void onChoiceMade(boolean asConfirm) {
-                if (asConfirm)
-                    System.exit(0);
-            }
-        });
+        controller.closes();
     }
 
     @Override

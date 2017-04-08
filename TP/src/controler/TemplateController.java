@@ -47,18 +47,16 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     @Override
     public void open() {
-        // TODO only ask the confirmation if change as been made
-        // TODO put this in a command class
-        ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+        askForConfirmationThenExecute(new Runnable() {
             @Override
-            public void onChoiceMade(boolean asConfirm) {
-                if (asConfirm) {
-                    JFileChooser chooser = new JFileChooser();
-                    chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
+            public void run() {
+                // TODO only ask the confirmation if change as been made
+                // TODO put this in a command class
+                JFileChooser chooser = new JFileChooser();
+                chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
 
-                    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                        getModel().update(new Template((SaveableTemplate) XmlUtils.getXmlUtils().fromXML(chooser.getSelectedFile())));
-                    }
+                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    getModel().update(new Template((SaveableTemplate) XmlUtils.getXmlUtils().fromXML(chooser.getSelectedFile())));
                 }
             }
         });
@@ -66,25 +64,25 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     @Override
     public void reset() {
-        // TODO only ask the confirmation if change as been made
-        // TODO put this in a command class
-        ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+        askForConfirmationThenExecute(new Runnable() {
             @Override
-            public void onChoiceMade(boolean asConfirm) {
-                if (asConfirm) {
-                    getModel().reset();
-                }
+            public void run() {
+                // TODO only ask the confirmation if change as been made
+                // TODO put this in a command class
+                getModel().reset();
             }
         });
     }
 
     @Override
     public void onLocationChange(OperatorDTO operatorDTO, Point point) {
+        isDirty = true;
         getModel().setComponentPosition(operatorDTO, point);
     }
 
     @Override
     public void onNameChange(OperatorDTO operatorDTO, String name) {
+        isDirty = true;
         if (name.length() > 5) {
             showError("Le nom de l'input doit contenir au plus 5 lettres.");
         } else {
@@ -96,10 +94,20 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         }
     }
 
+    @Override
+    public void closes() {
+        askForConfirmationThenExecute(new Runnable() {
+            @Override
+            public void run() {
+                System.exit(0);
+            }
+        });
+    }
 
     @Override
     public void saveTemplate() {
         //TODO do a command instead
+        isDirty = false;
         JFileChooser chooser = new JFileChooser();
         chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
 
@@ -165,20 +173,23 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     }
 
     @Override
-    public boolean addComponent(OperatorDTO baseDTO, Point position) {
+    public void addComponent(OperatorDTO baseDTO, Point position, boolean manual) {
         if (canAdd(baseDTO)) {
+            if (manual)
+                isDirty = true;
             if (baseDTO.getValue().equals(EXIT) || baseDTO.getValue().equals(ENTRY))
                 baseDTO.setName(getName(baseDTO));
             getModel().addComponent(baseDTO, position);
             inputCount++;
             entriesCount += baseDTO.getValue().equals(ENTRY) ? 1 : 0;
             exitsCount += baseDTO.getValue().equals(EXIT) ? 1 : 0;
-            return true;
+            return;
         }
-        return false;
+        showError("Impossible d'ajouter");
     }
 
     public void addLink(OperatorLabel ol1, OperatorLabel ol2) {
+        isDirty = true;
         getModel().addLink(ol1, ol2);
     }
 
@@ -192,19 +203,36 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     }
 
     @Override
-    public boolean removeComponent(OperatorDTO operatorDTO) {
+    public void removeComponent(OperatorDTO operatorDTO) {
         if (canDelete(operatorDTO)) {
+            isDirty = true;
             NameUtils.removeReservation(operatorDTO.getName());
             getModel().removeComponent(operatorDTO);
             inputCount--;
             entriesCount -= operatorDTO.getValue().equals(ENTRY) ? 1 : 0;
             exitsCount -= operatorDTO.getValue().equals(EXIT) ? 1 : 0;
-            return true;
+            return;
         }
-        return false;
+        showError("Impossible de supprimer cet input");
     }
 
     private void showError(String error) {
         ErrorUtils.showError(null, error);
+    }
+
+    private void askForConfirmationThenExecute(Runnable runnable) {
+        if (isDirty) {
+            ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
+                @Override
+                public void onChoiceMade(boolean asConfirm) {
+                    if (asConfirm) {
+                        isDirty = false;
+                        runnable.run();
+                    }
+                }
+            });
+        } else {
+            runnable.run();
+        }
     }
 }
