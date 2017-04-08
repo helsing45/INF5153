@@ -1,52 +1,48 @@
 package view;
 
-import model.OperatorDTO;
+import model.BaseDTO;
 import utils.ErrorUtils;
 import utils.NameUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.UUID;
 
 /**
  * Created by j-c9 on 2017-02-18.
  */
-public class OperatorLabel extends JLabel {
-    public static final String PORT_ENTRY = "E", PORT_EXITS = "S";
+public class OperatorLabel<T extends BaseDTO> extends JLabel {
+    public static final String PORT_ENTRY = "Entree", PORT_EXITS = "Sortie";
 
-    private String id;
     private int xPressed = 0;
     private int yPressed = 0;
-    private JPopupMenu menu;
     private Listener listener;
-    private String selectedPort;
+    private int selectedPortIndex = -1;
+    private String selectedPortType;
     private OperatorLabel[] entries, exits;
 
-    private OperatorDTO operator;
+    private BaseDTO operator;
     private int leftOffset, rightOffset, topOffset, bottomOffset;
 
-    @Override
-    public void setText(String text) {
-        if (operator != null && operator.canBeName()) {
-            if (NameUtils.isNameAvailable(text)) {
-                NameUtils.reserveName(text);
-                super.setText(text);
-            } else {
-                showError("Nom déjà prit.");
-            }
-        }
-    }
-
-    public OperatorLabel(OperatorDTO operator) {
+    public OperatorLabel(T operator, Point position, Listener listener) {
         super(operator.getImage());
-        id = UUID.randomUUID().toString();
         this.operator = operator;
+        if (operator.getName() != null && !operator.getValue().isEmpty())
+            setText(operator.getName());
         setHorizontalTextPosition(CENTER);
         setVerticalTextPosition(BOTTOM);
+        setLeftOffset((int) operator.getBound().getX());
+        setTopOffset((int) operator.getBound().getY());
         setBorder(BorderFactory.createLineBorder(Color.black));
         entries = new OperatorLabel[operator.getEntryCount()];
         exits = new OperatorLabel[operator.getExitCount()];
+        setOpaque(true);
+        initialize(position);
+        setListener(listener);
+    }
+
+    public String getId(){
+        return getOperator() == null ? "" : getOperator().getId();
     }
 
     public void initialize(Point location) {
@@ -57,12 +53,14 @@ public class OperatorLabel extends JLabel {
     }
 
     public void deselect() {
-        selectedPort = null;
+        selectedPortType = null;
+        selectedPortIndex = -1;
         setSelected(false);
     }
 
     private void setSelected(boolean isSelected) {
         setBorder(BorderFactory.createLineBorder(isSelected ? Color.BLUE : Color.black));
+        setForeground(isSelected ? Color.BLUE : Color.black);
     }
 
     public void setLeftOffset(int leftOffset) {
@@ -85,11 +83,46 @@ public class OperatorLabel extends JLabel {
         this.listener = listener;
     }
 
-    private JMenuItem getPortMenuItem(String port) {
-        JMenuItem entry = new JMenuItem(port);
+    public int getSelectedPortIndex() {
+        return selectedPortIndex;
+    }
+
+    public String getSelectedPortType() {
+        return selectedPortType;
+    }
+
+    public void link(String portType, int portIndex, OperatorLabel label) {
+        if (portType.equals(PORT_ENTRY)) {
+            entries[portIndex] = label;
+        } else {
+            exits[portIndex] = label;
+        }
+    }
+
+    public void unlink(String portType, int portIndex){
+        if (portType.equals(PORT_ENTRY)) {
+            entries[portIndex] = null;
+        } else {
+            exits[portIndex] = null;
+        }
+    }
+
+    public void transferData(OperatorLabel operatorLabel){
+        operatorLabel.entries = entries;
+        operatorLabel.exits = exits;
+    }
+
+    private boolean portAvailable(String portType, int portIndex) {
+        return portType.equals(PORT_ENTRY) ? entries[portIndex] == null : exits[portIndex] == null;
+    }
+
+    private JMenuItem getPortMenuItem(String portType, int portNumber, int portIndex) {
+        JMenuItem entry = new JMenuItem(String.format("Port #%1$d (%2$s %3$d)", portNumber, portType, portIndex));
+        entry.setEnabled(portAvailable(portType, portIndex));
         entry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                selectedPort = port;
+                selectedPortIndex = portIndex;
+                selectedPortType = portType;
                 setSelected(true);
                 if (listener != null) listener.onLink(OperatorLabel.this);
             }
@@ -99,12 +132,15 @@ public class OperatorLabel extends JLabel {
 
     private JMenuItem getLinkMenu() {
         JMenu linkMenu = new JMenu("Lier");
+        int portNumber = 0;
         if (entries.length > 0 || exits.length > 0) {
             for (int i = 0; i < entries.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_ENTRY + i));
+                linkMenu.add(getPortMenuItem(PORT_ENTRY, portNumber, i));
+                portNumber++;
             }
             for (int i = 0; i < exits.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_EXITS + i));
+                linkMenu.add(getPortMenuItem(PORT_EXITS, portNumber, i));
+                portNumber++;
             }
         }
         return linkMenu;
@@ -131,7 +167,11 @@ public class OperatorLabel extends JLabel {
                 if (name.length() > 5) {
                     showError("Le nom de l'input doit contenir au plus 5 lettres.");
                 } else {
-                    setText(name);
+                    if (NameUtils.isNameAvailable(name)) {
+                        setText(name);
+                    } else {
+                        showError("Le nom: " + name + " est deja utiliser.");
+                    }
                 }
             }
         });
@@ -143,7 +183,7 @@ public class OperatorLabel extends JLabel {
         if (operator.canBeName()) {
             menu.add(getNameMenuItem());
         }
-        if (selectedPort == null) {
+        if (selectedPortType == null) {
             menu.add(getLinkMenu());
         } else {
             menu.add(getDeselectItem());
@@ -161,7 +201,7 @@ public class OperatorLabel extends JLabel {
         return menu;
     }
 
-    public OperatorDTO getOperator(){
+    public BaseDTO getOperator() {
         return operator;
     }
 

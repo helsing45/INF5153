@@ -1,17 +1,16 @@
 package view;
 
+import com.sun.scenario.DelayedRunnable;
 import controler.BaseController;
 import model.Observer;
 import model.OperatorDTO;
-import model.Template;
 import utils.ConfirmationUtils;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ApplicationFrame implements Observer{
+public class ApplicationFrame<T extends BaseController> implements Observer {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
     private final static Double SIDE_PANEL_WIDTH_RATIO = 0.33;
     private final static int MENU_BAR_HEIGHT = 30;
@@ -20,43 +19,21 @@ public class ApplicationFrame implements Observer{
     private Rectangle windowRect;
     private int bottomPanelHeight;
     private int sidePanelWidth;
-    private OperatorListPanel leftSidePanel;
-    private OperatorsPanel rightSidePanel;
-    private TruthTablePanel bottomPanel;
-    private BaseController controller;
+    private OperatorListPanel componentListPanel;
+    private OperatorsPanel operatorsPanel;
+    private TruthTablePanel truthTablePanel;
+    private T controller;
 
-    /**
-     * Launch the application.
-     *//*
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ApplicationFrame window = new ApplicationFrame();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }*/
-
-    /**
-     * Create the application.
-     */
-    public ApplicationFrame(BaseController controller) {
+    public ApplicationFrame(T controller) {
         this.controller = controller;
-        initialize();
     }
 
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
+    public void initialize() {
         frame = new JFrame();
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -74,6 +51,27 @@ public class ApplicationFrame implements Observer{
         initializeRightPanel();
         initializeBottomPanel();
         initializeMenuBar();
+
+        new DelayedRunnable() {
+            @Override
+            public long getDelay() {
+                return 1500;
+            }
+
+            @Override
+            public void run() {
+                reset();
+            }
+        }.run();
+
+    }
+
+    private void reset(){
+
+        //Set default template
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50));
+        operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 250));
+        operatorsPanel.addComponent(OperatorDTO.getExitDTO(), new Point(450, 150));
     }
 
     private void initializeMenuBar() {
@@ -88,19 +86,7 @@ public class ApplicationFrame implements Observer{
         open.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
-                    @Override
-                    public void onChoiceMade(boolean asConfirm) {
-                        if (asConfirm) {
-                            JFileChooser chooser = new JFileChooser();
-                            chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
-
-                            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                                rightSidePanel.load(chooser.getSelectedFile());
-                            }
-                        }
-                    }
-                });
+                controller.open();
             }
         });
         menuFichier.add(open);
@@ -109,39 +95,30 @@ public class ApplicationFrame implements Observer{
         newSystem.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ConfirmationUtils.askForConfirmation(new ConfirmationUtils.ConfirmationListener() {
-                    @Override
-                    public void onChoiceMade(boolean asConfirm) {
-                        if (asConfirm) {
-                            rightSidePanel.load(Template.getDefaultTemplate());
-                        }
-                    }
-                });
+                controller.reset();
             }
         });
         menuFichier.add(newSystem);
 
         JMenu save = new JMenu("Sauvegarder");
         save.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/images/save.png")));
-        JMenuItem saveDisk = new JMenuItem("Sauvegarder");
-        saveDisk.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        JMenuItem saveAsXML = new JMenuItem("Sauvegarder en XML");
-        saveAsXML.addActionListener(new ActionListener() {
+        JMenuItem saveDisk = new JMenuItem("Sauvegarder en porte logique");
+        saveDisk.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.addChoosableFileFilter(new FileNameExtensionFilter("XML", "xml"));
-
-                if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
-                    rightSidePanel.save(chooser.getSelectedFile());
-                    System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
-                    System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
-                } else {
-                    System.out.println("No Selection ");
-                }
+                controller.saveCustomDoor();
             }
         });
         save.add(saveDisk);
+
+        JMenuItem saveAsXML = new JMenuItem("Sauvegarder en XML");
+        saveAsXML.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        saveAsXML.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.saveTemplate();
+            }
+        });
         save.add(saveAsXML);
         menuFichier.add(save);
 
@@ -160,8 +137,20 @@ public class ApplicationFrame implements Observer{
         JMenuItem undo = new JMenuItem("Undo");
         undo.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/images/undo.png")));
         undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
+        undo.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.undo();
+            }
+        });
         menuEdit.add(undo);
         JMenuItem redo = new JMenuItem("Redo");
+        redo.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.redo();
+            }
+        });
         redo.setIcon(new ImageIcon(ApplicationFrame.class.getResource("/images/redo.png")));
         redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
         menuEdit.add(redo);
@@ -171,40 +160,28 @@ public class ApplicationFrame implements Observer{
 
     private void initializeBottomPanel() {
         /*bottom panel*/
-        bottomPanel = new TruthTablePanel();
-        bottomPanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),
+        truthTablePanel = new TruthTablePanel();
+        truthTablePanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),
                 bottomPanelHeight + MENU_BAR_HEIGHT);
-        bottomPanel.load("E1", "E2");
-        frame.getContentPane().add(bottomPanel);
+        truthTablePanel.load("E1", "E2");
+        frame.getContentPane().add(truthTablePanel);
     }
 
     private void initializeRightPanel() {
         /* Right panel */
-        rightSidePanel = new OperatorsPanel();
-        rightSidePanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
+        operatorsPanel = new OperatorsPanel(controller);
+        operatorsPanel.setBounds(sidePanelWidth, MENU_BAR_HEIGHT, (int) (windowRect.getWidth() - sidePanelWidth),
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
-        rightSidePanel.setBackground(Color.GRAY);
-        rightSidePanel.load(Template.getDefaultTemplate());
-        frame.getContentPane().add(rightSidePanel);
+        operatorsPanel.setBackground(Color.GRAY);
+        frame.getContentPane().add(operatorsPanel);
     }
 
     private void initializeLeftPanel() {
         /*Left panel*/
-        leftSidePanel = new OperatorListPanel(getAllIO());
-        leftSidePanel.setBounds(0, MENU_BAR_HEIGHT, sidePanelWidth,
+        componentListPanel = new OperatorListPanel(controller.getAllComponent());
+        componentListPanel.setBounds(0, MENU_BAR_HEIGHT, sidePanelWidth,
                 (int) (windowRect.getHeight() - bottomPanelHeight - MENU_BAR_HEIGHT));
-        leftSidePanel.setBackground(Color.RED);
-        frame.getContentPane().add(leftSidePanel);
-    }
-
-    public OperatorDTO[] getAllIO(){
-        return new OperatorDTO[]{
-                OperatorDTO.getEntryDTO(),
-                OperatorDTO.getExitDTO(),
-                new OperatorDTO("And").setFileName("and.png").setEntryCount(2).setExitsCount(1),
-                new OperatorDTO("Or").setFileName("or.png").setEntryCount(2).setExitsCount(1),
-                new OperatorDTO("Not").setFileName("not.png").setEntryCount(1).setExitsCount(1)
-        };
+        frame.getContentPane().add(componentListPanel);
     }
 
     private void closeWindow() {
@@ -218,8 +195,13 @@ public class ApplicationFrame implements Observer{
     }
 
     @Override
-    public void update(String str) {
+    public void refreshTemplate() {
+        operatorsPanel.refreshTemplate();
+    }
 
+    @Override
+    public void refreshTruthTable() {
+        //TODO do something useful
     }
 }
 

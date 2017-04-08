@@ -1,3 +1,4 @@
+import controler.BaseController;
 import controler.TemplateController;
 import model.BaseModel;
 import model.Template;
@@ -13,13 +14,15 @@ public class Main {
                 try {
                     BaseModel model = new Template();
 
-                    TemplateController controller = new TemplateController(model);
+                    BaseController controller = new TemplateController((Template) model);
 
                     ApplicationFrame window = new ApplicationFrame(controller);
 
                     model.addObserver(window);
-                    
+
+                    window.initialize();
                     window.frame.setVisible(true);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
