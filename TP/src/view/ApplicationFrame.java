@@ -67,11 +67,15 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
 
     @Override
     public void reset() {
-
         //Set default template
         operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 50), false);
         operatorsPanel.addComponent(OperatorDTO.getEntryDTO(), new Point(50, 250), false);
         operatorsPanel.addComponent(OperatorDTO.getExitDTO(), new Point(450, 150), false);
+    }
+
+    @Override
+    public void truthTableEntriesHasChange(int entryCount, String... entries) {
+        truthTablePanel.load(entryCount, entries);
     }
 
     private void initializeMenuBar() {
@@ -163,7 +167,6 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
         truthTablePanel = new TruthTablePanel();
         truthTablePanel.setBounds(0, (int) (windowRect.getHeight() - bottomPanelHeight), (int) windowRect.getWidth(),
                 bottomPanelHeight + MENU_BAR_HEIGHT);
-        truthTablePanel.load("E1", "E2");
         frame.getContentPane().add(truthTablePanel);
     }
 

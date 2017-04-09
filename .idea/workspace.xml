@@ -23,105 +23,92 @@
     <favorites_list name="INF5153" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="OperatorsPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="73" column="90" lean-forward="false" selection-start-line="73" selection-start-column="90" selection-end-line="73" selection-end-column="90" />
-              <folding>
-                <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-                <element signature="class#1754:1979" expanded="false" />
-                <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
-                <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
-                <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
-                <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
-                <element signature="e#6816#6817#0" expanded="true" />
-                <element signature="e#6864#6865#0" expanded="true" />
-                <element signature="method#refreshTruthTable#0;class#ApplicationFrame#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TemplateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="177" column="22" lean-forward="false" selection-start-line="177" selection-start-column="22" selection-end-line="177" selection-end-column="22" />
-              <folding>
-                <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#open#0;class#TemplateController#0" expanded="false" />
-                <element signature="class#1133:1731" expanded="false" />
-                <element signature="method#run#0;class#1133:1731" expanded="false" />
-                <element signature="e#1216#1272#0" expanded="false" />
-                <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
-                <element signature="class#1823:2074" expanded="false" />
-                <element signature="method#run#0;class#1823:2074" expanded="false" />
-                <element signature="e#1906#1962#0" expanded="false" />
-                <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#onNameChange#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#closes#0;class#TemplateController#0" expanded="false" />
-                <element signature="class#2820:2942" expanded="false" />
-                <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#save#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#getName#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#addLink#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
-                <element signature="method#askForConfirmationThenExecute#0;class#TemplateController#0" expanded="false" />
-                <element signature="class#7069:7371" expanded="false" />
-                <element signature="method#onChoiceMade#0;class#7069:7371" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="72" column="89" lean-forward="false" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="89" />
-              <folding>
-                <element signature="e#472#473#0" expanded="true" />
-                <element signature="e#502#503#0" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-                <element signature="docComment;method#saveTemplate#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#saveCustomDoor#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#getAllComponent#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#addComponent#0;class#BaseController#0" expanded="false" />
-                <element signature="docComment;method#canAdd#0;class#BaseController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Observer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="TruthTablePanel.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+                  <folding>
+                    <element signature="docComment;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#TruthTablePanel#0;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#load#0;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#load#1;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="class#1109:1271" expanded="false" />
+                    <element signature="method#getGenericTable#0;class#TruthTablePanel#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="196">
+                  <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+                  <folding>
+                    <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="class#1754:1979" expanded="false" />
+                    <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="method#refreshTruthTable#0;class#ApplicationFrame#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BaseDTO.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/model/BaseDTO.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Calculable.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/model/Calculable.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="OperatorTableModel.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorTableModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -155,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TP/src/view/BookCellRenderer.java" />
         <option value="$PROJECT_DIR$/TP/src/view/SwingListExample.java" />
         <option value="$PROJECT_DIR$/TP/src/view/JLabelAnimal.java" />
         <option value="$PROJECT_DIR$/TP/src/view/Animal.java" />
@@ -176,7 +162,6 @@
         <option value="$PROJECT_DIR$/TP/src/view/DemoJFileChooser.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/ConfirmationUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/LogiqueMain.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/OperatorTableModel.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/Porte.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/BooleanExpressionUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/logique/Operator.java" />
@@ -195,17 +180,19 @@
         <option value="$PROJECT_DIR$/TP/src/utils/XmlUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorListPanel.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Observable.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/TruthTablePanel.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/Observer.java" />
         <option value="$PROJECT_DIR$/TP/src/utils/NameUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/model/BaseDTO.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/BaseModel.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
         <option value="$PROJECT_DIR$/TP/src/controler/BaseController.java" />
         <option value="$PROJECT_DIR$/TP/src/controler/TemplateController.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Observer.java" />
         <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/BaseModel.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Calculable.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/OperatorTableModel.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/TruthTablePanel.java" />
       </list>
     </option>
   </component>
@@ -620,7 +607,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/model/Template.java</url>
-          <line>87</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
@@ -637,22 +624,20 @@
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/TP/src/controler/TemplateController.java</url>
-          <line>223</line>
+          <url>file://$PROJECT_DIR$/TP/src/view/OperatorTableModel.java</url>
+          <line>21</line>
           <properties />
-          <option name="timeStamp" value="69" />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="70" />
+      <option name="time" value="74" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="link.getLabel1().getOperator()" language="JAVA" />
-        <watch expression="link.getLabel2().getOperator()" language="JAVA" />
-        <watch expression="getLinks()" language="JAVA" />
+        <watch expression="i1 &lt;= entryCount" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -661,21 +646,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorCellRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/CustomDialog.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/javax/swing/JOptionPane.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -713,20 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/javax/swing/JScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="301" column="34" lean-forward="true" selection-start-line="301" selection-start-column="11" selection-end-line="301" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -836,14 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -928,14 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="34" column="127" lean-forward="false" selection-start-line="34" selection-start-column="127" selection-end-line="34" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -957,10 +897,10 @@
         <state relative-caret-position="102">
           <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#561#562#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -977,26 +917,6 @@
             <element signature="method#setExitsCount#0;class#OperatorDTO#0" expanded="false" />
             <element signature="method#setCanBeName#0;class#OperatorDTO#0" expanded="false" />
             <element signature="method#clone#0;class#OperatorDTO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="41" column="44" lean-forward="false" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
-          <folding>
-            <element signature="docComment;class#BaseModel#0" expanded="false" />
-            <element signature="method#notifyObserver#0;class#BaseModel#0" expanded="false" />
-            <element signature="method#notifyReset#0;class#BaseModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1029,32 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="79" column="25" lean-forward="false" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-          <folding>
-            <element signature="method#Template#0;class#Template#0" expanded="false" />
-            <element signature="method#Template#1;class#Template#0" expanded="false" />
-            <element signature="method#update#0;class#Template#0" expanded="false" />
-            <element signature="method#reset#0;class#Template#0" expanded="false" />
-            <element signature="method#addComponent#0;class#Template#0" expanded="false" />
-            <element signature="method#removeComponent#0;class#Template#0" expanded="false" />
-            <element signature="docComment;class#SaveableTemplate#0;class#Template#0" expanded="false" />
-            <element signature="class#SaveableTemplate#0;class#Template#0" expanded="false" />
-            <element signature="method#SaveableTemplate#0;class#SaveableTemplate#0;class#Template#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1073,25 +967,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/javax/swing/JScrollPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="1002" column="16" lean-forward="false" selection-start-line="1002" selection-start-column="16" selection-end-line="1002" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="177" column="22" lean-forward="false" selection-start-line="177" selection-start-column="22" selection-end-line="177" selection-end-column="22" />
+        <state relative-caret-position="219">
+          <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
           <folding>
             <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
             <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
             <element signature="method#open#0;class#TemplateController#0" expanded="false" />
-            <element signature="class#1133:1731" expanded="false" />
-            <element signature="method#run#0;class#1133:1731" expanded="false" />
             <element signature="e#1216#1272#0" expanded="false" />
             <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
-            <element signature="class#1823:2074" expanded="false" />
-            <element signature="method#run#0;class#1823:2074" expanded="false" />
             <element signature="e#1906#1962#0" expanded="false" />
             <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
             <element signature="method#onNameChange#0;class#TemplateController#0" expanded="false" />
             <element signature="method#closes#0;class#TemplateController#0" expanded="false" />
-            <element signature="class#2820:2942" expanded="false" />
             <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
             <element signature="method#save#0;class#TemplateController#0" expanded="false" />
             <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
@@ -1101,35 +1006,114 @@
             <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
             <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
             <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#askForConfirmationThenExecute#0;class#TemplateController#0" expanded="false" />
-            <element signature="class#7069:7371" expanded="false" />
-            <element signature="method#onChoiceMade#0;class#7069:7371" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding>
+            <element signature="docComment;class#BaseModel#0" expanded="false" />
+            <element signature="method#notifyObserver#0;class#BaseModel#0" expanded="false" />
+            <element signature="method#notifyReset#0;class#BaseModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="119" column="38" lean-forward="false" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+          <folding>
+            <element signature="method#Template#0;class#Template#0" expanded="false" />
+            <element signature="method#Template#1;class#Template#0" expanded="false" />
+            <element signature="method#update#0;class#Template#0" expanded="false" />
+            <element signature="method#reset#0;class#Template#0" expanded="false" />
+            <element signature="docComment;class#SaveableTemplate#0;class#Template#0" expanded="false" />
+            <element signature="class#SaveableTemplate#0;class#Template#0" expanded="false" />
+            <element signature="method#SaveableTemplate#0;class#SaveableTemplate#0;class#Template#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/javax/swing/table/DefaultTableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="61" column="13" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Calculable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-          <folding />
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="73" column="90" lean-forward="false" selection-start-line="73" selection-start-column="90" selection-end-line="73" selection-end-column="90" />
+        <state relative-caret-position="196">
+          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding>
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="class#1754:1979" expanded="false" />
             <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="e#6816#6817#0" expanded="true" />
-            <element signature="e#6864#6865#0" expanded="true" />
             <element signature="method#refreshTruthTable#0;class#ApplicationFrame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#TruthTablePanel#0" expanded="false" />
+            <element signature="method#TruthTablePanel#0;class#TruthTablePanel#0" expanded="false" />
+            <element signature="method#load#0;class#TruthTablePanel#0" expanded="false" />
+            <element signature="method#load#1;class#TruthTablePanel#0" expanded="false" />
+            <element signature="class#1109:1271" expanded="false" />
+            <element signature="method#getGenericTable#0;class#TruthTablePanel#0" expanded="false" />
           </folding>
         </state>
       </provider>

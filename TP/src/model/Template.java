@@ -58,10 +58,33 @@ public class Template extends BaseModel<OperatorDTO> {
         notifyReset();
     }
 
+    public void notifyTruthTableEntries(){
+        ArrayList<OperatorDTO> entries = new ArrayList<>();
+        ArrayList<OperatorDTO> exits = new ArrayList<>();
+        for (OperatorDTO operatorDTO : operators.keySet()) {
+            if(operatorDTO.getValue().equals(OperatorDTO.ENTRY)){
+                entries.add(operatorDTO);
+            }
+            if(operatorDTO.getValue().equals(OperatorDTO.EXIT)){
+                exits.add(operatorDTO);
+            }
+        }
+        int entryCount = entries.size();
+        entries.addAll(exits);
+        String[] tableEntries = new String[entries.size()];
+        for (int i = 0; i < entries.size(); i++) {
+            tableEntries[i] = entries.get(i).getName();
+        }
+        notifyObserverEntriesHasChange(entryCount,tableEntries);
+    }
+
     @Override
     public void addComponent(OperatorDTO label, Point position) {
         operators.put(label, position);
         notifyObserver();
+        if(label.getValue().equals(OperatorDTO.ENTRY) || label.getValue().equals(OperatorDTO.EXIT)){
+            notifyTruthTableEntries();
+        }
     }
 
     @Override
@@ -78,6 +101,7 @@ public class Template extends BaseModel<OperatorDTO> {
             }
         }
         notifyObserver();
+        notifyTruthTableEntries();
     }
 
     @Override
@@ -86,12 +110,15 @@ public class Template extends BaseModel<OperatorDTO> {
         ArrayList<Link> linkToRemove = new ArrayList<>();
         for (Link link : getLinks()) {
             if (link.getId1().equals(component.getId()) || link.getId2().equals(component.getId())) {
-                //link.unlink();
                 linkToRemove.add(link);
             }
         }
         getLinks().removeAll(linkToRemove);
         notifyObserver();
+
+        if(component.getValue().equals(OperatorDTO.ENTRY) || component.getValue().equals(OperatorDTO.EXIT)){
+            notifyTruthTableEntries();
+        }
     }
 
     public void addLink(OperatorLabel first, OperatorLabel second) {

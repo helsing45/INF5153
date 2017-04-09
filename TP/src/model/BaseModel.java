@@ -13,6 +13,12 @@ public abstract class BaseModel<T extends BaseDTO> {
         this.listObserver.add(obs);
     }
 
+    public void notifyObserverEntriesHasChange(int entryCount, String... entries){
+        for (Observer observer : listObserver) {
+            observer.truthTableEntriesHasChange(entryCount, entries);
+        }
+    }
+
     public void notifyObserver() {
         for (Observer observer : listObserver) {
             observer.refreshTemplate();
