@@ -26,66 +26,121 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="TruthTablePanel.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-                  <folding>
-                    <element signature="docComment;class#TruthTablePanel#0" expanded="false" />
-                    <element signature="method#TruthTablePanel#0;class#TruthTablePanel#0" expanded="false" />
-                    <element signature="method#load#0;class#TruthTablePanel#0" expanded="false" />
-                    <element signature="method#load#1;class#TruthTablePanel#0" expanded="false" />
-                    <element signature="class#1109:1271" expanded="false" />
-                    <element signature="method#getGenericTable#0;class#TruthTablePanel#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="ApplicationFrame.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
-                  <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+                <state relative-caret-position="323">
+                  <caret line="84" column="27" lean-forward="false" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
                   <folding>
                     <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-                    <element signature="class#1754:1979" expanded="false" />
-                    <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="class#1807:2032" expanded="false" />
+                    <element signature="method#reset#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="method#truthTableEntriesHasChange#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="class#4319:4483" expanded="false" />
+                    <element signature="e#4640#4805#0" expanded="true" />
+                    <element signature="e#4804#4805#0" expanded="true" />
+                    <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
                     <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
                     <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
+                    <element signature="e#7355#7356#0" expanded="true" />
+                    <element signature="e#7390#7391#0" expanded="true" />
                     <element signature="method#refreshTruthTable#0;class#ApplicationFrame#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="BaseDTO.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/model/BaseDTO.java">
+          <file leaf-file-name="TruthTablePanel.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+                <state relative-caret-position="119">
+                  <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+                  <folding>
+                    <element signature="docComment;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#TruthTablePanel#0;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#load#1;class#TruthTablePanel#0" expanded="false" />
+                    <element signature="method#getGenericTable#0;class#TruthTablePanel#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TemplateController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="641">
+                  <caret line="220" column="24" lean-forward="false" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
+                  <folding>
+                    <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#open#0;class#TemplateController#0" expanded="false" />
+                    <element signature="class#1133:1731" expanded="false" />
+                    <element signature="method#run#0;class#1133:1731" expanded="false" />
+                    <element signature="e#1216#1272#0" expanded="false" />
+                    <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
+                    <element signature="class#1823:2074" expanded="false" />
+                    <element signature="method#run#0;class#1823:2074" expanded="false" />
+                    <element signature="e#1906#1962#0" expanded="false" />
+                    <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#onNameChange#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#closes#0;class#TemplateController#0" expanded="false" />
+                    <element signature="class#2820:2942" expanded="false" />
+                    <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#save#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#getName#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#addComponent#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#addLink#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
+                    <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
+                    <element signature="e#6874#6875#0" expanded="true" />
+                    <element signature="e#6912#6913#0" expanded="true" />
+                    <element signature="method#askForConfirmationThenExecute#0;class#TemplateController#0" expanded="false" />
+                    <element signature="class#7152:7454" expanded="false" />
+                    <element signature="method#onChoiceMade#0;class#7152:7454" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BaseModel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+                  <folding>
+                    <element signature="docComment;class#BaseModel#0" expanded="false" />
+                    <element signature="method#notifyObserver#0;class#BaseModel#0" expanded="false" />
+                    <element signature="method#notifyReset#0;class#BaseModel#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Observer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="8" column="81" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="81" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Calculable.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/model/Calculable.java">
+          <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/TP/src/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="410">
+                  <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+                  <folding>
+                    <element signature="docComment;method#saveTemplate#0;class#BaseController#0" expanded="false" />
+                    <element signature="docComment;method#saveCustomDoor#0;class#BaseController#0" expanded="false" />
+                    <element signature="docComment;method#getAllComponent#0;class#BaseController#0" expanded="false" />
+                    <element signature="docComment;method#addComponent#0;class#BaseController#0" expanded="false" />
+                    <element signature="docComment;method#canAdd#0;class#BaseController#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -94,13 +149,25 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="OperatorTableModel.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorTableModel.java">
+          <file leaf-file-name="Template.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+                <state relative-caret-position="203">
+                  <caret line="109" column="33" lean-forward="false" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#Template#0;class#Template#0" expanded="false" />
+                    <element signature="method#Template#1;class#Template#0" expanded="false" />
+                    <element signature="method#update#0;class#Template#0" expanded="false" />
+                    <element signature="method#reset#0;class#Template#0" expanded="false" />
+                    <element signature="method#addComponent#0;class#Template#0" expanded="false" />
+                    <element signature="method#updateComponentName#0;class#Template#0" expanded="false" />
+                    <element signature="e#4132#4133#0" expanded="true" />
+                    <element signature="e#4218#4219#0" expanded="true" />
+                    <element signature="method#removeComponent#0;class#Template#0" expanded="false" />
+                    <element signature="docComment;class#SaveableTemplate#0;class#Template#0" expanded="false" />
+                    <element signature="class#SaveableTemplate#0;class#Template#0" expanded="false" />
+                    <element signature="method#SaveableTemplate#0;class#SaveableTemplate#0;class#Template#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -183,16 +250,16 @@
         <option value="$PROJECT_DIR$/TP/src/utils/NameUtils.java" />
         <option value="$PROJECT_DIR$/TP/src/model/BaseDTO.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorLabel.java" />
-        <option value="$PROJECT_DIR$/TP/src/controler/BaseController.java" />
-        <option value="$PROJECT_DIR$/TP/src/controler/TemplateController.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorsPanel.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/Observer.java" />
-        <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/BaseModel.java" />
-        <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
         <option value="$PROJECT_DIR$/TP/src/model/Calculable.java" />
         <option value="$PROJECT_DIR$/TP/src/view/OperatorTableModel.java" />
+        <option value="$PROJECT_DIR$/TP/src/controler/BaseController.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Observer.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/BaseModel.java" />
+        <option value="$PROJECT_DIR$/TP/src/controler/TemplateController.java" />
+        <option value="$PROJECT_DIR$/TP/src/view/ApplicationFrame.java" />
         <option value="$PROJECT_DIR$/TP/src/view/TruthTablePanel.java" />
+        <option value="$PROJECT_DIR$/TP/src/model/Template.java" />
       </list>
     </option>
   </component>
@@ -607,13 +674,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/model/Template.java</url>
-          <line>111</line>
+          <line>151</line>
           <properties />
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/TP/src/model/Template.java</url>
-          <line>45</line>
+          <line>46</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
@@ -949,24 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="72" column="89" lean-forward="false" selection-start-line="72" selection-start-column="89" selection-end-line="72" selection-end-column="89" />
-          <folding>
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="docComment;method#saveTemplate#0;class#BaseController#0" expanded="false" />
-            <element signature="docComment;method#saveCustomDoor#0;class#BaseController#0" expanded="false" />
-            <element signature="docComment;method#getAllComponent#0;class#BaseController#0" expanded="false" />
-            <element signature="docComment;method#addComponent#0;class#BaseController#0" expanded="false" />
-            <element signature="docComment;method#canAdd#0;class#BaseController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/OperatorsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -983,69 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="223" column="0" lean-forward="false" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
-          <folding>
-            <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#open#0;class#TemplateController#0" expanded="false" />
-            <element signature="e#1216#1272#0" expanded="false" />
-            <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
-            <element signature="e#1906#1962#0" expanded="false" />
-            <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#onNameChange#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#closes#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#save#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#getName#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#addLink#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
-            <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
-          <folding>
-            <element signature="docComment;class#BaseModel#0" expanded="false" />
-            <element signature="method#notifyObserver#0;class#BaseModel#0" expanded="false" />
-            <element signature="method#notifyReset#0;class#BaseModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="119" column="38" lean-forward="false" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
-          <folding>
-            <element signature="method#Template#0;class#Template#0" expanded="false" />
-            <element signature="method#Template#1;class#Template#0" expanded="false" />
-            <element signature="method#update#0;class#Template#0" expanded="false" />
-            <element signature="method#reset#0;class#Template#0" expanded="false" />
-            <element signature="docComment;class#SaveableTemplate#0;class#Template#0" expanded="false" />
-            <element signature="class#SaveableTemplate#0;class#Template#0" expanded="false" />
-            <element signature="method#SaveableTemplate#0;class#SaveableTemplate#0;class#Template#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/javax/swing/table/DefaultTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1056,7 +1042,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="323">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
@@ -1088,16 +1074,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/BaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding>
+            <element signature="docComment;class#BaseModel#0" expanded="false" />
+            <element signature="method#notifyObserver#0;class#BaseModel#0" expanded="false" />
+            <element signature="method#notifyReset#0;class#BaseModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="81" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/controler/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="86" column="25" lean-forward="false" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+          <folding>
+            <element signature="docComment;method#saveTemplate#0;class#BaseController#0" expanded="false" />
+            <element signature="docComment;method#saveCustomDoor#0;class#BaseController#0" expanded="false" />
+            <element signature="docComment;method#getAllComponent#0;class#BaseController#0" expanded="false" />
+            <element signature="docComment;method#addComponent#0;class#BaseController#0" expanded="false" />
+            <element signature="docComment;method#canAdd#0;class#BaseController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/controler/TemplateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="220" column="24" lean-forward="false" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
+          <folding>
+            <element signature="method#undo#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#redo#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#open#0;class#TemplateController#0" expanded="false" />
+            <element signature="class#1133:1731" expanded="false" />
+            <element signature="method#run#0;class#1133:1731" expanded="false" />
+            <element signature="e#1216#1272#0" expanded="false" />
+            <element signature="method#reset#0;class#TemplateController#0" expanded="false" />
+            <element signature="class#1823:2074" expanded="false" />
+            <element signature="method#run#0;class#1823:2074" expanded="false" />
+            <element signature="e#1906#1962#0" expanded="false" />
+            <element signature="method#onLocationChange#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#onNameChange#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#closes#0;class#TemplateController#0" expanded="false" />
+            <element signature="class#2820:2942" expanded="false" />
+            <element signature="method#saveTemplate#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#save#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#saveCustomDoor#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#getAllComponent#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#getName#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#addComponent#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#addLink#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#canAdd#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#canDelete#0;class#TemplateController#0" expanded="false" />
+            <element signature="method#removeComponent#0;class#TemplateController#0" expanded="false" />
+            <element signature="e#6874#6875#0" expanded="true" />
+            <element signature="e#6912#6913#0" expanded="true" />
+            <element signature="method#askForConfirmationThenExecute#0;class#TemplateController#0" expanded="false" />
+            <element signature="class#7152:7454" expanded="false" />
+            <element signature="method#onChoiceMade#0;class#7152:7454" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+        <state relative-caret-position="323">
+          <caret line="84" column="27" lean-forward="false" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
           <folding>
             <element signature="method#initialize#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="class#1754:1979" expanded="false" />
-            <element signature="method#initializeMenuBar#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="class#1807:2032" expanded="false" />
+            <element signature="method#reset#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="method#truthTableEntriesHasChange#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="class#4319:4483" expanded="false" />
+            <element signature="e#4640#4805#0" expanded="true" />
+            <element signature="e#4804#4805#0" expanded="true" />
+            <element signature="method#initializeBottomPanel#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initializeRightPanel#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initializeLeftPanel#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="e#7355#7356#0" expanded="true" />
+            <element signature="e#7390#7391#0" expanded="true" />
             <element signature="method#refreshTruthTable#0;class#ApplicationFrame#0" expanded="false" />
           </folding>
         </state>
@@ -1105,15 +1170,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TP/src/view/TruthTablePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="docComment;class#TruthTablePanel#0" expanded="false" />
             <element signature="method#TruthTablePanel#0;class#TruthTablePanel#0" expanded="false" />
-            <element signature="method#load#0;class#TruthTablePanel#0" expanded="false" />
             <element signature="method#load#1;class#TruthTablePanel#0" expanded="false" />
-            <element signature="class#1109:1271" expanded="false" />
             <element signature="method#getGenericTable#0;class#TruthTablePanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP/src/model/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="109" column="33" lean-forward="false" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Template#0;class#Template#0" expanded="false" />
+            <element signature="method#Template#1;class#Template#0" expanded="false" />
+            <element signature="method#update#0;class#Template#0" expanded="false" />
+            <element signature="method#reset#0;class#Template#0" expanded="false" />
+            <element signature="method#addComponent#0;class#Template#0" expanded="false" />
+            <element signature="method#updateComponentName#0;class#Template#0" expanded="false" />
+            <element signature="e#4132#4133#0" expanded="true" />
+            <element signature="e#4218#4219#0" expanded="true" />
+            <element signature="method#removeComponent#0;class#Template#0" expanded="false" />
+            <element signature="docComment;class#SaveableTemplate#0;class#Template#0" expanded="false" />
+            <element signature="class#SaveableTemplate#0;class#Template#0" expanded="false" />
+            <element signature="method#SaveableTemplate#0;class#SaveableTemplate#0;class#Template#0" expanded="false" />
           </folding>
         </state>
       </provider>

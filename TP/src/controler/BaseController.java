@@ -84,5 +84,5 @@ public abstract class BaseController<component extends model.BaseDTO, genericMod
 
     public abstract void removeComponent(component component);
 
-
+    public abstract void calculate();
 }

@@ -13,6 +13,12 @@ public abstract class BaseModel<T extends BaseDTO> {
         this.listObserver.add(obs);
     }
 
+    public void notifyTableCalculate(ArrayList<Calculable> calculables, String... entries){
+        for (Observer observer : listObserver) {
+            observer.truthTableCalculate(calculables, entries);
+        }
+    }
+
     public void notifyObserverEntriesHasChange(int entryCount, String... entries){
         for (Observer observer : listObserver) {
             observer.truthTableEntriesHasChange(entryCount, entries);
@@ -46,6 +52,8 @@ public abstract class BaseModel<T extends BaseDTO> {
     public abstract void setComponentPosition(T dto, Point position);
 
     public abstract void updateComponentName(T dto, String name);
+
+    public abstract void calculate();
 
     public void addComponent(T lbl, int X, int Y) {
         addComponent(lbl, new Point(X, Y));

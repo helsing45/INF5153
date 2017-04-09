@@ -21,7 +21,7 @@ public class TruthTablePanel extends JScrollPane {
         setBackground(Color.WHITE);
     }
 
-    public void load(ArrayList<Calculable> calculables, String entries){
+    public void load(ArrayList<Calculable> calculables, String... entries){
         JTable table = getGenericTable();
         table.setModel(new OperatorTableModel(calculables, entries));
         setViewportView(table);

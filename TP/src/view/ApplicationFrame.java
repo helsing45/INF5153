@@ -2,12 +2,14 @@ package view;
 
 import com.sun.scenario.DelayedRunnable;
 import controler.BaseController;
+import model.Calculable;
 import model.Observer;
 import model.OperatorDTO;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class ApplicationFrame<T extends BaseController> implements Observer {
     private final static Double BOTTOM_PANEL_HEIGHT_RATIO = 0.33;
@@ -78,6 +80,11 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
         truthTablePanel.load(entryCount, entries);
     }
 
+    @Override
+    public void truthTableCalculate(ArrayList<Calculable> calculables, String... entries) {
+        truthTablePanel.load(calculables, entries);
+    }
+
     private void initializeMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBounds(0, 0, (int) windowRect.getWidth(), MENU_BAR_HEIGHT);
@@ -125,6 +132,15 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
         });
         save.add(saveAsXML);
         menuFichier.add(save);
+
+        JMenuItem calculate = new JMenuItem("Calculer");
+        calculate.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.calculate();
+            }
+        });
+        menuFichier.add(calculate);
 
         JMenuItem close = new JMenuItem("Fermer");
         close.addActionListener(new AbstractAction() {

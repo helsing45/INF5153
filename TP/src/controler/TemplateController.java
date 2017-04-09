@@ -216,6 +216,11 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
         showError("Impossible de supprimer cet input");
     }
 
+    @Override
+    public void calculate() {
+        getModel().calculate();
+    }
+
     private void showError(String error) {
         ErrorUtils.showError(null, error);
     }
