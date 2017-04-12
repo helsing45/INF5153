@@ -5,8 +5,7 @@ public class Logic3Main {
 
 	public static void main(String[] args) {
 		
-		/* XOR
-		
+		//XOR
 		Entry entreeA = new Entry();
 		Entry entreeB = new Entry();
 		
@@ -35,13 +34,6 @@ public class Logic3Main {
 		
 		Exit exit = new Exit();
 		exit.setEntry(0, 0, or1);
-		/*
-		not1.calculate();
-		not2.calculate();
-		and1.calculate();
-		and2.calculate();
-		or1.calculate();
-		exit.calculate();
 		
 		
 		Circuit circuit = new Circuit("Luigi");
@@ -59,10 +51,26 @@ public class Logic3Main {
 //		circuit.calculateLine("11");
 		//circuit.get01Permutations(3);
 //		circuit.getExitValues();
-		circuit.printThruthTable(circuit.getTruthTable());
-
-		System.out.println(circuit.behavior.get("10"));
-	*/
+		Door xor = circuit.createCutomDoor("xor");
+		
+		Entry entree1 = new Entry();
+		Entry entree2 = new Entry();
+		Exit sortie1 = new Exit();
+		
+		xor.setEntry(0, 0, entree1);
+		xor.setEntry(1, 0, entree2);
+		sortie1.setEntry(0, 0, xor);
+		
+		Circuit circuit2 = new Circuit("Mario");
+		
+		circuit2.addDoor(xor);
+		circuit2.addDoor(entree1);
+		circuit2.addDoor(entree2);
+		circuit2.addDoor(sortie1);
+		
+		circuit2.setBehavior();
+		circuit2.printThruthTable(circuit2.getTruthTable());
+	/*
 		Entry e1 = new Entry();
 		Entry e2 = new Entry();
 		Entry e3 = new Entry();
@@ -94,9 +102,27 @@ public class Logic3Main {
 		circuit.addDoor(s1);
 		
 		circuit.setBehavior();
-		circuit.printThruthTable(circuit.getTruthTable());
+		//circuit.printThruthTable(circuit.getTruthTable());
+		Door xor = circuit.createCutomDoor("xor");
 		
+		Entry entree1 = new Entry();
+		Entry entree2 = new Entry();
+		Exit sortie1 = new Exit();
 		
+		xor.setEntry(0, 0, entree1);
+		xor.setEntry(1, 0, entree2);
+		sortie1.setEntry(0, 0, xor);
+		
+		Circuit circuit2 = new Circuit("Mario");
+		
+		circuit2.addDoor(xor);
+		circuit2.addDoor(entree1);
+		circuit2.addDoor(entree2);
+		circuit2.addDoor(sortie1);
+		
+		circuit2.setBehavior();
+		//circuit2.printThruthTable(circuit2.getTruthTable());
+		*/
 	}
 
 }

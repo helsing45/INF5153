@@ -1,9 +1,15 @@
 package logic;
 
-public abstract class Door extends AbstractDoor {
+import java.util.HashMap;
+
+public class Door extends AbstractDoor {
 	
 	public Door(String name, int nbEntries, int nbExits) {
 		super(name, nbEntries, nbExits);
+	}
+	
+	public Door(String name, HashMap<String, String> behavior, int nbEntries, int nbExits) {
+		super(name, behavior, nbEntries, nbExits);
 	}
 	
 	public void calculate(){

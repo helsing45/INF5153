@@ -135,6 +135,11 @@ public class Circuit extends AbstractDoor {
 	public void printThruthTable(String[][] truthTable) {
 		System.out.println(Arrays.deepToString(truthTable));
 	}
+	
+	public Door createCutomDoor(String name) {
+		System.out.println("Entries: " + entries.size());
+		return new Door(name, behavior, entries.size(), exits.size());
+	}
 
 	private void resetIsCalculated() {
 		for (int i = 0; i < contents.size(); i++) {
