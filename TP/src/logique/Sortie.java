@@ -32,9 +32,4 @@ public class Sortie extends Operator {
 		}
 		// TODO Auto-generated method stub
 	}
-
-	@Override
-	public String getName() {
-		return "end";
-	}
 }

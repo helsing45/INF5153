@@ -19,11 +19,6 @@ public class And extends Porte {
     }
 
     @Override
-    public String getName() {
-        return "AND";
-    }
-
-    @Override
     public String getBooleanExpression() {
         String booleanExpression = "";
         for (int index = 0; index < getEntryCount(); index++) {
