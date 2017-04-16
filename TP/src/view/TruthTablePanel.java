@@ -1,15 +1,17 @@
 package view;
 
+import model.Calculable;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by j-c9 on 2017-03-04.
  */
 public class TruthTablePanel extends JScrollPane {
-    private JTable table;
 
     public TruthTablePanel() {
         super();
@@ -19,22 +21,40 @@ public class TruthTablePanel extends JScrollPane {
         setBackground(Color.WHITE);
     }
 
-    public void load(String... entries){
-        setViewportView(table = getTable(entries));
+    public void load(ArrayList<Calculable> calculables, String... entries){
+        JTable table = getGenericTable();
+        table.setModel(new OperatorTableModel(calculables, entries));
+        setViewportView(table);
+        validate();
     }
 
-    private static JTable getTable(String... entries) {
+    public void load(int entryCount, String... entries) {
+        JTable table = getGenericTable();
+        ArrayList<Calculable> calculables = new ArrayList<>();
+        for (int i = 0; i < entries.length - entryCount; i++) {
+            calculables.add(new Calculable() {
+                @Override
+                public String calculate(String values) {
+                    return "ND";
+                }
+            });
+        }
+        table.setModel(new OperatorTableModel(calculables, entries));
+        setViewportView(table);
+        validate();
+    }
+
+    private static JTable getGenericTable() {
         JTable table = new JTable();
         table.setEnabled(false);
         table.setFillsViewportHeight(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.setModel(new OperatorTableModel(entries));
+        //table.setModel();
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
                 Component tableCellRendererComponent = super.getTableCellRendererComponent(arg0, arg1, arg2, arg3, arg4, arg5);
-                int align = DefaultTableCellRenderer.CENTER;
-                ((DefaultTableCellRenderer) tableCellRendererComponent).setHorizontalAlignment(align);
+                ((DefaultTableCellRenderer) tableCellRendererComponent).setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
                 return tableCellRendererComponent;
             }
         };
@@ -43,5 +63,4 @@ public class TruthTablePanel extends JScrollPane {
         }
         return table;
     }
-
 }
