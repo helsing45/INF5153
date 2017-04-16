@@ -13,4 +13,9 @@ public class CommandRedo implements Command{
     public void execute() {
 
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

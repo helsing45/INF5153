@@ -13,4 +13,9 @@ public class CommandGetExpression implements Command{
     public void execute() {
 
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

@@ -6,11 +6,17 @@ package commande;
 public class CommandeTemplate implements Command{
     private Object domainObjectX; // TODO remplacer `domainObjectX` par une classe du domaine
 
+
     public CommandeTemplate(Object domainObjectX){
         this.domainObjectX = domainObjectX;
     }
     @Override
     public void execute() {
+
+    }
+
+    @Override
+    public void undo() {
 
     }
 }

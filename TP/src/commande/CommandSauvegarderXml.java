@@ -13,4 +13,9 @@ public class CommandSauvegarderXml implements Command{
     public void execute() {
 
     }
+
+    @Override
+    public void undo() {
+
+    }
 }
