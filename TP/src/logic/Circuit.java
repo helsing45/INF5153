@@ -21,11 +21,25 @@ public class Circuit extends AbstractDoor {
 	
 	public void addDoor(AbstractDoor door){
 		if (door instanceof Entry) {
-			entries.add((Entry)door);
+			if (entries.size() < 5){
+				entries.add((Entry)door);
+				++nbEntries;
+			} else {
+				System.out.println("Nombre maximal d'entrées atteint!");
+			}
 		} else if (door instanceof Exit) {
-			exits.add((Exit)door);
+			if (exits.size() < 5){
+				exits.add((Exit)door);
+				++nbExits;
+			} else {
+				System.out.println("Nombre maximal de sorties atteint!");
+			}
 		} else {
-			contents.add(door);
+			if (contents.size() < 50){
+				contents.add(door);
+			} else {
+				System.out.println("Nombre maximal de portes atteint!");
+			}
 		}
 	}
 	
@@ -64,8 +78,6 @@ public class Circuit extends AbstractDoor {
 		
 		for (int i = 0; i < inputs.size(); i++) {
 			calculateLine(inputs.get(i));
-			//System.out.println(inputs.get(i));
-			//System.out.println(getExitValues());
 			behavior.put(inputs.get(i), getExitValues());
 		}
 	}

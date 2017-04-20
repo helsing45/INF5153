@@ -7,9 +7,8 @@ public class Exit extends AbstractDoor {
 	private static int ExitIndex = 1;
 	
 	public Exit() {
-		super(("Exit " + ExitIndex++), 1, 1);
+		super(("S" + ExitIndex++), 1, 1);
 		 hashInit();
-		 exits = null;
 	}
 	
 	private void hashInit(){

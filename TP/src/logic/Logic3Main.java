@@ -9,11 +9,6 @@ public class Logic3Main {
 		Entry entreeA = new Entry();
 		Entry entreeB = new Entry();
 		
-		System.out.println(entreeB.getName());
-		
-		//entreeA.setExitValues("0");
-		//entreeB.setExitValues("0");
-		
 		Not not1 = new Not();
 		Not not2 = new Not();
 		
@@ -45,12 +40,9 @@ public class Logic3Main {
 		circuit.addDoor(and2);
 		circuit.addDoor(or1);
 		circuit.addDoor(exit);
-		//System.out.println(circuit.validate());
-		//circuit.calculate();
+		
 		circuit.setBehavior();
-//		circuit.calculateLine("11");
-		//circuit.get01Permutations(3);
-//		circuit.getExitValues();
+		
 		Door xor = circuit.createCutomDoor("xor");
 		
 		Entry entree1 = new Entry();

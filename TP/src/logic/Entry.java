@@ -9,7 +9,7 @@ public class Entry extends AbstractDoor  {
 	private static int EntryIndex = 1;
 
 	public Entry() {
-		super("Entry "+ EntryIndex++);
+		super("E"+ EntryIndex++);
 		 hashInit();
 		 entries = null;
 		 isCalculated = true;
