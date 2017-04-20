@@ -147,6 +147,7 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     @Override
     public OperatorDTO[] getAllComponent() {
         //TODO ajouter les custom doors
+    	//TODO centraliser les valeurs des portes
         return new OperatorDTO[]{
                 OperatorDTO.getEntryDTO(),
                 OperatorDTO.getExitDTO(),
@@ -218,7 +219,8 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     @Override
     public void calculate() {
-        getModel().calculate();
+    	getModel().generateCircuit().printThruthTable();
+        //getModel().calculate();
     }
 
     private void showError(String error) {

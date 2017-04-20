@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 public class OperatorDTO extends BaseDTO {
 
-    public OperatorDTO(String value) {
+	public OperatorDTO(String value) {
         super(value);
     }
 

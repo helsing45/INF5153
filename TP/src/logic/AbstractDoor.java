@@ -3,6 +3,8 @@ package logic;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import model.OperatorDTO;
 import utils.Pair;
 
 public abstract class AbstractDoor {
@@ -92,5 +94,21 @@ public abstract class AbstractDoor {
 			}
 		}
 		return true;
+	}
+	
+	public static AbstractDoor getDoor(OperatorDTO dto){
+		if(dto.getValue().equals("and")){
+			return new And();
+		}else if(dto.getValue().equals("Or")){
+			return new Or();
+		}else if(dto.getValue().equals("not")){
+			return new Not();
+		}else if(dto.getValue().equals("entry")){
+			return new Entry();
+		}else if(dto.getValue().equals("end")){
+			return new Exit();
+		}
+		return null;
+		//TODO si c'est aucun des cas au dessus c'est une porte custom.
 	}
 }
