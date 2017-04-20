@@ -1,5 +1,11 @@
-TP/bin/
-# Intellij
+.DS_Store
+*.swp
 .idea/
-*.iml
-*.iws
+out/
+/TP/.idea/
+/TP/.settings
+/TP/bin
+/TP/.classpath
+/TP/.project
+/TP/TP.eml
+/TP/TP.iml
