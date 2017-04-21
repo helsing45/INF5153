@@ -1,5 +1,6 @@
 package controler;
 
+import logic.Circuit;
 import model.Link;
 import model.OperatorDTO;
 import model.Template;
@@ -219,8 +220,7 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     @Override
     public void calculate() {
-    	getModel().generateCircuit().printThruthTable();
-        //getModel().calculate();
+        getModel().calculate();
     }
 
     private void showError(String error) {

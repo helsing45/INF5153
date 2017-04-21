@@ -25,7 +25,7 @@ public class Circuit extends AbstractDoor {
 				entries.add((Entry) door);
 				++nbEntries;
 			} else {
-				System.out.println("Nombre maximal d'entrées atteint!");
+				System.out.println("Nombre maximal d'entrï¿½es atteint!");
 			}
 		} else if (door instanceof Exit) {
 			if (exits.size() < 5) {
@@ -74,7 +74,7 @@ public class Circuit extends AbstractDoor {
 		return ret;
 	}
 
-	void setBehavior() {
+	public void setBehavior() {
 		List<String> inputs = get01Permutations(entries.size());
 		behavior = new HashMap<>();
 

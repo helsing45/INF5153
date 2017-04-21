@@ -97,11 +97,11 @@ public abstract class AbstractDoor {
 	}
 	
 	public static AbstractDoor getDoor(OperatorDTO dto){
-		if(dto.getValue().equals("and")){
+		if(dto.getValue().equals("And")){
 			return new And();
 		}else if(dto.getValue().equals("Or")){
 			return new Or();
-		}else if(dto.getValue().equals("not")){
+		}else if(dto.getValue().equals("Not")){
 			return new Not();
 		}else if(dto.getValue().equals("entry")){
 			return new Entry();

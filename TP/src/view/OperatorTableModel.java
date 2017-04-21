@@ -13,6 +13,10 @@ public class OperatorTableModel extends DefaultTableModel {
         super(getCompleteTable(exitsInterface, entries), entries);
     }
 
+    public OperatorTableModel(String[][] values, String[] entries) {
+        super(values, entries);
+    }
+
     public static Object[][] getCompleteTable(List<Calculable> exitsInterface, String... entries) {
         int entryCount = entries.length - exitsInterface.size();
         Object[][] valueTable = getValueTable(entryCount);

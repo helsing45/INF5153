@@ -21,7 +21,7 @@ public class TruthTablePanel extends JScrollPane {
         setBackground(Color.WHITE);
     }
 
-    public void load(ArrayList<Calculable> calculables, String... entries){
+    public void load(ArrayList<Calculable> calculables, String... entries) {
         JTable table = getGenericTable();
         table.setModel(new OperatorTableModel(calculables, entries));
         setViewportView(table);
@@ -40,6 +40,19 @@ public class TruthTablePanel extends JScrollPane {
             });
         }
         table.setModel(new OperatorTableModel(calculables, entries));
+        setViewportView(table);
+        validate();
+    }
+
+    public void load(String[][] truthTable) {
+        JTable table = getGenericTable();
+        String[][] value = new String[truthTable.length - 1][truthTable[0].length];
+        for (int i = 0; i < value.length; i++) {
+            for (int j = 0; j < value[0].length; j++) {
+                value[i][j] = truthTable[i + 1][j];
+            }
+        }
+        table.setModel(new OperatorTableModel(value, truthTable[0]));
         setViewportView(table);
         validate();
     }

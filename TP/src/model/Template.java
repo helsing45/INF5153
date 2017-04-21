@@ -110,40 +110,9 @@ public class Template extends BaseModel<OperatorDTO> {
 
 	@Override
 	public void calculate() {
-		// TODO calculate for real
-		ArrayList<OperatorDTO> entries = new ArrayList<>();
-		ArrayList<OperatorDTO> exits = new ArrayList<>();
-		for (OperatorDTO operatorDTO : operators.keySet()) {
-			if (operatorDTO.getValue().equals(OperatorDTO.ENTRY)) {
-				entries.add(operatorDTO);
-			}
-			if (operatorDTO.getValue().equals(OperatorDTO.EXIT)) {
-				exits.add(operatorDTO);
-			}
-		}
-
-		ArrayList<Calculable> calculables = new ArrayList<>();
-		Random random = new Random();
-		for (int i = 0; i < exits.size(); i++) {
-			String mockPattern = "";
-			for (int i1 = 0; i1 < entries.size(); i1++) {
-				mockPattern += random.nextBoolean() ? "0" : "1";
-			}
-			String finalMockPattern = mockPattern;
-			calculables.add(new Calculable() {
-				@Override
-				public String calculate(String values) {
-					return values.equals(finalMockPattern) ? "1" : "0";
-				}
-			});
-		}
-		entries.addAll(exits);
-		String[] tableEntries = new String[entries.size()];
-		for (int i = 0; i < entries.size(); i++) {
-			tableEntries[i] = entries.get(i).getName();
-		}
-
-		notifyTableCalculate(calculables, tableEntries);
+		Circuit circuit = generateCircuit();
+		circuit.setBehavior();
+		notifyTableCalculate(circuit.getTruthTable());
 	}
 
 	@Override
@@ -192,9 +161,15 @@ public class Template extends BaseModel<OperatorDTO> {
 		}
 
 		for (Link link : links) {
-			map.get(link.getId1()).setEntry(link.getLbl1SelectedPortIndex(),
-					link.getLbl2SelectedPortIndex(),
-					map.get(link.getId2()));
+			if(link.getLbl1SelectedPortType().equals(OperatorLabel.PORT_ENTRY)) {
+				map.get(link.getId1()).setEntry(link.getLbl1SelectedPortIndex(),
+						link.getLbl2SelectedPortIndex(),
+						map.get(link.getId2()));
+			}else {
+				map.get(link.getId2()).setEntry(link.getLbl2SelectedPortIndex(),
+						link.getLbl1SelectedPortIndex(),
+						map.get(link.getId1()));
+			}
 		}
 		for (String key : map.keySet()) {
 			circuit.addDoor(map.get(key));

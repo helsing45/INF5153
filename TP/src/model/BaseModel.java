@@ -13,9 +13,9 @@ public abstract class BaseModel<T extends BaseDTO> {
         this.listObserver.add(obs);
     }
 
-    public void notifyTableCalculate(ArrayList<Calculable> calculables, String... entries){
+    public void notifyTableCalculate(String[][] table){
         for (Observer observer : listObserver) {
-            observer.truthTableCalculate(calculables, entries);
+            observer.truthTableCalculate(table);
         }
     }
 

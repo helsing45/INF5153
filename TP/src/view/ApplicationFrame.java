@@ -81,8 +81,8 @@ public class ApplicationFrame<T extends BaseController> implements Observer {
     }
 
     @Override
-    public void truthTableCalculate(ArrayList<Calculable> calculables, String... entries) {
-        truthTablePanel.load(calculables, entries);
+    public void truthTableCalculate(String[][] table) {
+        truthTablePanel.load(table);
     }
 
     private void initializeMenuBar() {
