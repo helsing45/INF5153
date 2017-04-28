@@ -1,6 +1,7 @@
 package view;
 
 import model.BaseDTO;
+import model.OperatorDTO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -128,20 +129,43 @@ public class OperatorLabel<T extends BaseDTO> extends JLabel {
         return entry;
     }
 
-    private JMenuItem getLinkMenu() {
-        JMenu linkMenu = new JMenu("Lier");
-        int portNumber = 0;
-        if (entries.length > 0 || exits.length > 0) {
-            for (int i = 0; i < entries.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_ENTRY, portNumber, i));
-                portNumber++;
-            }
-            for (int i = 0; i < exits.length; i++) {
-                linkMenu.add(getPortMenuItem(PORT_EXITS, portNumber, i));
-                portNumber++;
+    private int getAvailablePort(){
+        for (int i = 0; i < exits.length; i++) {
+            if(exits[i] == null){
+                return i;
             }
         }
-        return linkMenu;
+        return exits.length + 1; //This should't happend
+    }
+
+    private JMenuItem getLinkMenu() {
+        if(exits.length == OperatorDTO.INFINITE_LINK_PORT){
+            JMenuItem linkMenu = new JMenuItem("Lier");
+            linkMenu.addActionListener(new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    selectedPortIndex = getAvailablePort();
+                    selectedPortType = PORT_EXITS;
+                    setSelected(true);
+                    if (listener != null) listener.onLink(OperatorLabel.this);
+                }
+            });
+            return linkMenu;
+        }else {
+            JMenu linkMenu = new JMenu("Lier");
+            int portNumber = 0;
+            if (entries.length > 0 || exits.length > 0) {
+                for (int i = 0; i < entries.length; i++) {
+                    linkMenu.add(getPortMenuItem(PORT_ENTRY, portNumber, i));
+                    portNumber++;
+                }
+                for (int i = 0; i < exits.length; i++) {
+                    linkMenu.add(getPortMenuItem(PORT_EXITS, portNumber, i));
+                    portNumber++;
+                }
+            }
+            return linkMenu;
+        }
     }
 
     private JMenuItem getDeselectItem() {

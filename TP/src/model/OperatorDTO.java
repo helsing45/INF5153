@@ -9,13 +9,14 @@ import java.util.UUID;
  */
 public class OperatorDTO extends BaseDTO {
 
+    public static final int INFINITE_LINK_PORT = 65;
 	public OperatorDTO(String value) {
         super(value);
     }
 
     public static OperatorDTO getEntryDTO() {
         return new OperatorDTO("entry")
-                .setExitsCount(1)
+                .setExitsCount(INFINITE_LINK_PORT)
                 .setCanBeName(true);
 
     }
@@ -34,12 +35,6 @@ public class OperatorDTO extends BaseDTO {
             super.setName(name);
         }
     }
-
-   /* @Override
-    public OperatorDTO setImage(ImageIcon image) {
-        this.image = image;
-        return this;
-    }*/
 
     @Override
     public OperatorDTO setFileName(String fileName) {
