@@ -1,6 +1,5 @@
 package controler;
 
-import logic.Circuit;
 import model.Link;
 import model.OperatorDTO;
 import model.Template;
@@ -148,7 +147,7 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
     @Override
     public OperatorDTO[] getAllComponent() {
         //TODO ajouter les custom doors
-    	//TODO centraliser les valeurs des portes
+        //TODO centraliser les valeurs des portes
         return new OperatorDTO[]{
                 OperatorDTO.getEntryDTO(),
                 OperatorDTO.getExitDTO(),
@@ -192,7 +191,11 @@ public class TemplateController extends BaseController<OperatorDTO, Template> {
 
     public void addLink(OperatorLabel ol1, OperatorLabel ol2) {
         isDirty = true;
-        getModel().addLink(ol1, ol2);
+        if (!ol1.getSelectedPortType().equals(ol2.getSelectedPortType())) {
+            getModel().addLink(ol1, ol2);
+        } else {
+            showError(String.format("Impossible de lier une %1$s avec une autre %1$s", ol1.getSelectedPortType()));
+        }
     }
 
     protected boolean canAdd(OperatorDTO baseDTO) {
